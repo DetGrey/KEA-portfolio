@@ -1,0 +1,257 @@
+/* -------------------------------- FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lacquer&family=Ubuntu:wght@500&display=swap');
+
+/* -------------------------------- VARIABLES */
+:root {
+    --purple: #7E1E80;
+}
+
+/* -------------------------------- BASICS */
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    position: relative;
+    max-width: 100%;
+    color: black;
+}
+
+body {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4vw;
+}
+
+/* -------------------------------- SCROLLBAR */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+/* Track and corner */
+::-webkit-scrollbar-track, ::-webkit-scrollbar-corner {
+    background: #89498c;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--purple);
+    border-radius: 0.5vw;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #4c0e4d;
+}
+
+/* -------------------------------- FLEXBOX */
+.flexbox-container-c {
+    display: flex;
+    flex-direction: column;
+    margin: 0 8vw 0 8vw;
+    padding-top: 8vh;
+}
+
+.flexbox-container {
+    display: flex;
+    margin: 0 8vw 0 8vw;
+}
+
+.flexbox-item {
+    padding: 2vw;
+}
+
+/* -------------------------------- BACKGROUND AND LOGO */
+body {
+    background-color: var(--purple);
+    max-width: 100%;
+}
+
+#background {
+    position: absolute;
+    opacity: 0.3;
+    width: 100%;
+    max-height: 100%;
+    -webkit-box-reflect: below;
+}
+
+#logo {
+    width: 15vw;
+    position: fixed;
+    z-index: 5;
+}
+
+#triangle {
+    width: 100%;
+    position: fixed;
+    z-index: 3;
+}
+
+/* -------------------------------- NAVIGATION */
+nav ul {
+    display: flex;
+    align-items: center;
+    margin-right: 6vw;
+    padding-top: 3vw;
+    position: fixed;
+    z-index: 5;
+    right: 0;
+}
+
+nav ul li {
+    list-style-type: none;
+}
+
+nav a {
+    color: var(--purple);
+    font-size: 5vw;
+    font-family: 'Lacquer', cursive;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: white;
+}
+
+/* -------------------------------- HELLO WORLD */
+#intro p {
+    display: inline-block;
+}
+
+#intro p:hover {
+    color: darkcyan;
+}
+
+/* -------------------------------- TEXT AND HEADINGS */
+h1 {
+    font-size: 8vw;
+}
+
+h2, h2 span {
+    font-size: 6vw;
+    font-family: 'Lacquer', cursive;
+}
+
+h3 {
+    font-size: 5vw;
+}
+
+p {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+ul {
+    padding-inline-start: 20px;
+}
+
+ol {
+    padding-inline-start: 15px;
+}
+
+.inner-list li {
+    font-size: smaller;
+}
+
+/* -------------------------------- INTRODUCTION */
+#intro h2, #intro span {
+    display: inline-block;
+    white-space: pre;
+    font-size: 4vw;
+}
+
+#intro p {
+    font-size: 5vw;
+    font-family: 'Lacquer', cursive;
+}
+
+#imagining:hover {
+    color: mediumpurple;
+}
+
+#creating:hover {
+    color: darkcyan;
+}
+
+#designing:hover {
+    color: yellowgreen;
+}
+
+/* -------------------------------- SECTIONS */
+section {
+    margin-bottom: 3vw;
+}
+
+/* -------------------------------- PSETS CODE */
+.pset {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.pset div {
+    margin-top: 2vw;
+}
+
+.pset h3, pre, .pset p {
+    margin: 0.5vw;
+}
+
+.pset p {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 3vw;
+}
+
+pre {
+    font-family: monospace;
+    font-size: 3vw;
+    padding: 2vw 0 1vw 0;
+    border: 0.2vw solid black;
+    width: 99.8%;
+    max-height: 30vh;
+    overflow: auto;
+    margin-left: 0;
+}
+
+.pset img {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+/* -------------------------------- ABOUT ME */
+#AnePhoto {
+    width: 50%;
+}
+
+#aboutme p {
+    font-size: 3vw;
+    padding: 0.5vw;
+}
+
+/* -------------------------------- FOOTER */
+footer {
+    text-align: center;
+    margin-top: 6vw;
+    background-color: black;
+    height: auto;
+
+}
+
+footer p {
+    font-size: 1.2vw;
+    color: var(--purple);
+    padding: 2vw;
+}
+
+/* -------------------------------- RESPONSIVE DESIGN */
+@media screen and (max-width: 400px) {
+    #AnePhoto {
+        width: 100%;
+    }
+}

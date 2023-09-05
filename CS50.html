@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>CS50</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<!-- ------------------------------ BODY -->
+<body>
+<img id="background" src="longBackground.png">
+<!-- ------------------------------ HEADER -->
+<header>
+    <img id="triangle" src="Triangle.svg">
+
+    <nav>
+        <!-- NAVIGATION LINKS -->
+        <ul>
+            <li><a class="flexbox-item" href="index.html">Home</a></li>
+            <li><a class="flexbox-item" href="CS50.html">CS50</a></li>
+            <li><a class="flexbox-item" href="index.html#aboutme">About me</a></li>
+        </ul>
+    </nav>
+    <img id="logo" src="P.gif" alt="Logo"/>
+</header>
+
+<!-- ------------------------------ MAIN -->
+<main class="flexbox-container-c">
+    <h1>CS50 Problem Sets</h1>
+    <section>
+        <h2>Overview</h2>
+        <ol>
+            <li>
+                <a href="#C">C language</a>
+            </li>
+            <li>Python</li>
+        </ol>
+    </section>
+    <section class="pset" id="C">
+        <h2>C language</h2>
+        <!-- ------------------------------ hello.c -->
+        <section>
+            <div>
+                <h3>hello.c</h3>
+                <p>Modify this program in such a way that it first prompts the user for their name and then prints
+                    hello,
+                    so-and-so, where so-and-so is their actual name.</p>
+                <pre>
+    #include &lt;stdio.h&gt;
+    #include &lt;cs50.h&gt;
+
+    int main(void)
+    {
+        // Ask user for name
+        string name = get_string(&quot;What's your name? &quot;);
+
+        // Print hello + their name
+        // %s means insert a string where name is the selected string
+        printf(&quot;hello, %s\n&quot;, name);
+    }
+            </pre>
+            </div>
+            <div>
+                <p>
+                    <b>Output</b>
+                </p>
+                <img src="CS50%20terminal/hello-C.png" alt="hello.c output">
+            </div>
+        </section>
+        <!-- ------------------------------ mario.c -->
+        <section>
+            <div>
+                <h3>mario.c</h3>
+                <p>Toward the end of World 1-1 in Nintendo’s Super Mario Brothers, Mario must ascend right-aligned
+                    pyramid of blocks. Let’s recreate that pyramid in C, albeit in text, using hashes (#) for
+                    bricks. Each hash is a bit taller than it is wide, so the pyramid itself will also be
+                    taller than it is wide. <br>And let’s allow the user to decide just how tall the pyramid should be
+                    by
+                    first prompting them for a positive integer between, say, 1 and 8, inclusive.</p>
+                <pre>
+    #include &lt;stdio.h&gt;
+    #include &lt;cs50.h&gt;
+
+    int main(void)
+    {
+        int n;
+        do
+        {
+            // Get the height of the pyramid from user
+            n = get_int(&quot;Height: &quot;);
+        }
+        // Must be more than 1 and less than 8
+        while (n &gt; 8 || n &lt; 1);
+
+        for (int i = 1; i &lt;= n; i++)
+        {
+            // Make the space before the blocks to make it right-aligned
+            for (int k = (n - i); k &gt; 0; k--)
+            {
+                printf(&quot; &quot;);
+            }
+            // Make the blocks of the pyramid
+            for (int j = 0; j &lt; i; j++)
+            {
+                printf(&quot;#&quot;);
+            }
+            printf(&quot;n&quot;);
+        }
+    }
+            </pre>
+            </div>
+            <div>
+                <p>
+                    <b>Output</b>
+                </p>
+                <img src="CS50%20terminal/mario-C.png" alt="mario.c output">
+            </div>
+        </section>
+        <!-- ------------------------------ marioMore.c -->
+        <section>
+            <div>
+                <h3>marioMore.c</h3>
+                <p>Toward the beginning of World 1-1 in Nintendo’s Super Mario Brothers, Mario must hop over adjacent
+                    pyramids of blocks. Let’s recreate those pyramids in C, albeit in text, using hashes (#) for bricks.
+                    Each hash is a bit taller than it is wide, so the pyramids themselves will also be taller than they
+                    are wide. <br>And let’s allow the user to decide just how tall the pyramids should be by first
+                    prompting
+                    them for a positive integer between, say, 1 and 8, inclusive.</p>
+                <pre>
+    #include &lt;stdio.h&gt;
+    #include &lt;cs50.h&gt;
+
+    int main(void)
+    {
+        int height;
+
+        //Ask user for height
+        do
+        {
+            height = get_int(&quot;Height: &quot;);
+        }
+        while (height &gt; 8 || height &lt; 1);
+
+        //Make the columns
+        for (int i = 1; i &lt;= height; i++)
+        {
+            //Make the space in front
+            for (int k = (height - i); k &gt; 0; k--)
+            {
+                printf(&quot; &quot;);
+            }
+
+            //Make the rows
+            for (int j = 1; j &lt;= i; j++)
+            {
+                printf(&quot;#&quot;);
+            }
+
+            //Make space between the two pyramids
+            printf(&quot;  &quot;);
+
+            //Make rows again
+            for (int j = 1; j &lt;= i; j++)
+            {
+                printf(&quot;#&quot;);
+            }
+
+            printf(&quot;n&quot;);
+        }
+    }
+            </pre>
+            </div>
+            <div>
+                <p>
+                    <b>Output</b>
+                </p>
+                <img src="CS50%20terminal/marioMore-C.png" alt="marioMore.c output">
+            </div>
+        </section>
+        <!-- ------------------------------ cash.c -->
+        <section>
+            <div>
+                <h3>cash.c</h3>
+                <p>When making change, odds are you want to minimize the number of coins you’re dispensing for each
+                    customer. Well, suppose that a cashier owes a customer some change and in that cashier’s drawer are
+                    quarters (25¢), dimes (10¢), nickels (5¢), and pennies (1¢). The problem to be solved is to decide
+                    which coins and how many of each to hand to the customer. </p>
+                <pre>
+    #include &lt;cs50.h&gt;
+    #include &lt;stdio.h&gt;
+
+    int get_cents(void);
+    int calculate_quarters(int cents);
+    int calculate_dimes(int cents);
+    int calculate_nickels(int cents);
+    int calculate_pennies(int cents);
+
+    int main(void)
+    {
+        // Ask how many cents the customer is owed
+        int cents = get_cents();
+
+        // Calculate the number of quarters to give the customer
+        int quarters = calculate_quarters(cents);
+        cents = cents - quarters * 25;
+
+        // Calculate the number of dimes to give the customer
+        int dimes = calculate_dimes(cents);
+        cents = cents - dimes * 10;
+
+        // Calculate the number of nickels to give the customer
+        int nickels = calculate_nickels(cents);
+        cents = cents - nickels * 5;
+
+        // Calculate the number of pennies to give the customer
+        int pennies = calculate_pennies(cents);
+        cents = cents - pennies * 1;
+
+        // Sum coins
+        int coins = quarters + dimes + nickels + pennies;
+
+        // Print total number of coins to give the customer
+        printf("Total number of coins: %i\n", coins);
+    }
+
+    int get_cents(void)
+    {
+        // TODO
+        int cents = 0;
+
+        // Ask until change is more than 0
+        do
+        {
+            cents = get_int(&quot;Change: &quot;);
+        }
+        while (cents &lt; 1);
+
+        return cents;
+    }
+
+    int calculate_quarters(int cents)
+    {
+        // TODO
+        int quarters = 0;
+
+        // While there's enough cents for the coin, add one coin and remove the amount from the cents
+        while (cents &gt;= 25)
+        {
+            quarters++;
+            cents -= 25;
+        }
+        return quarters;
+    }
+
+    int calculate_dimes(int cents)
+    {
+        // TODO
+        int dimes = 0;
+
+        // While there's enough cents for the coin, add one coin and remove the amount from the cents
+        while (cents &gt;= 10)
+        {
+            dimes++;
+            cents -= 10;
+        }
+        return dimes;
+    }
+
+    int calculate_nickels(int cents)
+    {
+        // TODO
+        int nickels = 0;
+
+        // While there's enough cents for the coin, add one coin and remove the amount from the cents
+        while (cents &gt;= 5)
+        {
+            nickels++;
+            cents -= 5;
+        }
+        return nickels;
+    }
+
+    int calculate_pennies(int cents)
+    {
+        // TODO
+        int pennies = 0;
+
+        // While there's enough cents for the coin, add one coin and remove the amount from the cents
+        while (cents &gt;= 1)
+        {
+            pennies++;
+            cents -= 1;
+        }
+        return pennies;
+    }
+            </pre>
+            </div>
+            <div>
+                <p>
+                    <b>Output</b>
+                </p>
+                <img src="CS50%20terminal/cash-C.png" alt="cash.c output">
+            </div>
+        </section>
+        <!-- ------------------------------ credit.c -->
+        <section>
+            <div>
+                <h3>credit.c</h3>
+                <p>There are a lot of people with credit cards in this world, so those numbers are pretty long: American
+                    Express uses 15-digit numbers, MasterCard uses 16-digit numbers, and Visa uses 13- and 16-digit
+                    numbers.<br>All American Express numbers start with 34 or 37; most MasterCard numbers start with 51,
+                    52,
+                    53, 54, or 55 (they also have some other potential starting numbers which we won’t concern ourselves
+                    with for this problem); and all Visa numbers start with 4. <br>But credit card numbers also have a
+                    “checksum” built into them, a mathematical relationship between at least one number and others. That
+                    checksum enables computers (or humans who like math) to detect typos (e.g., transpositions), if not
+                    fraudulent numbers, without having to query a database, which can be slow. <br>Of course, a
+                    dishonest
+                    mathematician could certainly craft a fake number that nonetheless respects the mathematical
+                    constraint, so a database lookup is still necessary for more rigorous checks.<br>So what’s the
+                    secret
+                    formula? Well, most cards use an algorithm invented by Hans Peter Luhn of IBM. According to Luhn’s
+                    algorithm, you can determine if a credit card number is (syntactically) valid.</p>
+                <pre>
+    #include &lt;stdio.h&gt;
+    #include &lt;cs50.h&gt;
+    #include &lt;math.h&gt;
+
+    // MASTERCARD: 16-Digit #'s, Start with: 51, 52, 53, 54, or 55
+    // VISA: 13-16-Digit #'s, Start with: 4
+    // AMEX: 15-Digit #'s, Star with: 34 or 37
+
+    // Luhn's Algorithm:
+    // 1. Multiply every other digit by 2, starting with the second number to the last
+    // 2. Add the sum of those digits
+    // 3. Add the sum of the other digits
+    // 4. If the total sum ends with a 0, it is valid!
+
+
+    // Declare variables
+    long ccn;
+    long checksum = 0;
+    int count = 0;
+
+
+    void Check(void);
+
+    int main(void)
+    {
+        //-----Promt user for credit card number
+        do
+        {
+            ccn = get_long(&quot;Number: &quot;);
+        }
+        while (ccn &lt;= 0);
+
+        long CCnumber = ccn;
+
+        //-----Check length
+        long digits = ccn;
+
+        while (digits &gt; 0)
+        {
+            digits /= 10;
+            count++;
+        }
+
+
+        //-----Check if the length is valid
+        if (count != 13 &amp;&amp; count != 15 &amp;&amp; count != 16)
+        {
+            printf(&quot;INVALIDn&quot;);
+            return 0;
+        }
+
+
+        //-----Calculate checksum
+        Check();
+        long csEnd = checksum % 10;
+
+        if (csEnd != 0)
+        {
+            printf(&quot;INVALIDn&quot;);
+            return 0;
+        }
+
+
+        //-----Find start number with two digits
+        long start = CCnumber;
+
+        for (int j = 0; j &lt; count - 2; j++)
+        {
+            start /= 10;
+        }
+
+
+        //Check if it's American Express:
+        if (count == 15 &amp;&amp; (start == 34 || start == 37))
+        {
+            printf(&quot;AMEXn&quot;);
+        }
+
+        //Check if it's MasterCard:
+        else if (count == 16 &amp;&amp; (start == 51 || start == 52 || start == 53 || start == 54 || start == 55))
+        {
+            printf(&quot;MASTERCARDn&quot;);
+        }
+
+        //Check if it's VISA:
+        else if ((count == 13 || count == 16) &amp;&amp; (start / 10 == 4))
+        {
+            printf(&quot;VISAn&quot;);
+        }
+
+        //INVALID
+        else
+        {
+            printf(&quot;INVALIDn&quot;);
+        }
+    }
+
+    void Check()
+    {
+        //Case 1 (Multiply every other digit by 2)
+        long long digit[count];
+
+        for (int i = 1; i &lt;= count; i++)
+        {
+            digit[i] = ccn % 10;
+
+            //Case 1 (Multiply every other digit by 2 and add to checksum)
+            if (i % 2 == 0)
+            {
+                long long dd = digit[i] * 2;
+
+                if (dd &gt;= 10)
+                {
+                    checksum += dd % 10;
+                    checksum += dd / 10;
+                }
+                else
+                {
+                    checksum += digit[i] * 2;
+                }
+            }
+
+            //case 2 (add the other digits to checksum)
+            else
+            {
+                checksum += digit[i];
+            }
+
+            ccn /= 10;
+        }
+    }
+            </pre>
+            </div>
+            <div>
+                <p>
+                    <b>Output</b>
+                </p>
+                <img src="CS50%20terminal/credit-C.png" alt="credit.c output">
+                <img src="CS50%20terminal/credit2-C.png" alt="credit.c output">
+            </div>
+        </section>
+        <!-- ------------------------------ readability.c -->
+        <section>
+            <div>
+                <h3>readability.c</h3>
+                <p>For this problem, you’ll implement a program that calculates the approximate grade level needed to
+                    comprehend some text. <br>A number of “readability tests” have been developed over the years that
+                    define
+                    formulas for computing the reading level of a text. One such readability test is the Coleman-Liau
+                    index. The Coleman-Liau index of a text is designed to output that (U.S.) grade level that is needed
+                    to understand some text.</p>
+                <pre>
+    #include &lt;cs50.h&gt;
+    #include &lt;string.h&gt;
+    #include &lt;ctype.h&gt;
+    #include &lt;stdio.h&gt;
+    #include &lt;math.h&gt;
+
+    int main(void)
+    {
+        //Get text from user
+        string text = get_string(&quot;Text: &quot;);
+
+        //Calculate length of string/text
+        int length = strlen(text);
+
+        //Letter count, word count, sentence count
+        int lcount = 0;
+        int wcount = 0;
+        int scount = 0;
+
+
+        for (int i = 0; i &lt;= length; i++)
+        {
+            //Count letters
+            if (isalpha(text[i]))
+            {
+                lcount++;
+            }
+
+            //Count words
+            else if (isspace(text[i]))
+            {
+                wcount++;
+            }
+
+            //Count sentences
+            else if (text[i] == '.' || text[i] == '!' || text[i] == '?')
+            {
+                scount++;
+            }
+
+            //Count the last word
+            else if (text[i] == '')
+            {
+                wcount++;
+            }
+        }
+
+        //Calculate average number of letters per 100 words
+        float avgl = (float) lcount / wcount * 100;
+
+        //Calculate average number of sentences per 100 words
+        float avgs = (float) scount / wcount * 100;
+
+        //Calculate Coleman-Liau Index
+        int index = round(0.0588 * avgl - 0.296 * avgs - 15.8);
+
+
+        //If greater than grade 16
+        if (index &gt; 16)
+        {
+            printf(&quot;Grade 16+n&quot;);
+        }
+
+        //If less than grade 1
+        else if (index &lt; 1)
+        {
+            printf(&quot;Before Grade 1n&quot;);
+        }
+
+        //If grade is between 1 and 16
+        else
+        {
+            printf(&quot;Grade %in&quot;, index);
+        }
+    }
+                </pre>
+            </div>
+            <div>
+                <p>
+                    <b>Output</b>
+                </p>
+                <img src="CS50%20terminal/readability-C.png" alt="readability.c output">
+                <img src="CS50%20terminal/readability2-C.png" alt="readability2.c output">
+            </div>
+        </section>
+    </section>
+</main>
+</body>
+</html>
