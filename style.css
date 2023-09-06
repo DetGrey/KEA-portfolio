@@ -51,7 +51,7 @@ body {
     display: flex;
     flex-direction: column;
     margin: 0 8vw 0 8vw;
-    padding-top: 14vw;
+    padding-top: 9vw;
 }
 
 .flexbox-container {
@@ -184,7 +184,11 @@ ol {
 
 /* -------------------------------- SECTIONS */
 section {
-    margin-bottom: 3vw;
+    padding-top: 5vw;
+}
+
+section section {
+    padding-top: 0;
 }
 
 /* -------------------------------- PSETS CODE */
@@ -257,13 +261,19 @@ footer p {
     }
 }
 
+@media screen and (min-width: 400px) and (max-width: 900px) {
+    section {
+        padding-top: 10vw;
+    }
+}
+
 @media screen and (min-width: 900px) {
     body {
         font-size: 3vw;
     }
 
     .flexbox-container-c {
-        padding-top: 9.5vw;
+        padding-top: 4.5vw;
     }
 
     nav ul {
@@ -303,7 +313,7 @@ footer p {
     }
 
     #aboutme p {
-        font-size: 2vw;
+        font-size: 1.5vw;
     }
 
     ul {
@@ -311,7 +321,7 @@ footer p {
     }
 
     ol {
-        padding-inline-start: 35px;
+        padding-inline-start: 40px;
     }
 
     .pset p {
@@ -326,5 +336,10 @@ footer p {
     .pset img {
         max-height: 20vw;
         width: auto;
+    }
+
+    footer p {
+        font-size: 1.5vw;
+        padding: 1vw;
     }
 }
