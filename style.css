@@ -60,7 +60,7 @@ body {
 }
 
 .flexbox-item {
-    padding: 2vw;
+    padding: 0 2vw;
 }
 
 /* -------------------------------- BACKGROUND AND LOGO */
@@ -105,18 +105,50 @@ nav ul li {
     list-style-type: none;
 }
 
-nav a {
+nav a, .dropdown-content {
     color: var(--purple);
     font-size: 5vw;
     font-family: 'Lacquer', cursive;
+    background-color: transparent;
 }
 
-a {
+a, .dropdown-content {
     text-decoration: none;
 }
 
-a:hover {
+a:hover, .dropbtn:hover {
     color: white;
+    background-color: transparent;
+}
+
+/* Dropdown list for projects */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: fit-content;
+    z-index: 1;
+    background-color: black;
+    padding-bottom: 1.2vw;
+}
+
+.dropdown-content a {
+    display: block;
+    font-size: 2.75vw;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content:hover {
+    color: white;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
 }
 
 /* -------------------------------- HELLO WORLD */
