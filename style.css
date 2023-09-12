@@ -66,16 +66,6 @@ body {
     display: flex;
 }
 
-.databases .flexbox-container {
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.databases .flexbox-item {
-    width: 36vw;
-
-}
-
 .flexbox-item {
     padding: 0 2vw;
 }
@@ -155,7 +145,7 @@ a:hover, .dropbtn:hover {
 
 .dropdown-content a {
     display: block;
-    font-size: 2.75vw;
+    font-size: 4vw;
     white-space: nowrap;
 }
 
@@ -332,11 +322,33 @@ footer p {
     section {
         padding-top: 10vw;
     }
+
+    .dropdown-content a {
+        font-size: 3.5vw;
+    }
+
+    #aboutme p {
+        font-size: 2.5vw;
+    }
+
+    .pset p {
+        font-size: 2vw;
+    }
+
+    pre {
+        font-size: 2vw;
+        max-height: 50vh;
+    }
+
+    .pset img {
+        max-height: 20vw;
+        width: auto;
+    }
 }
 
 @media screen and (min-width: 900px) {
     body {
-        font-size: 3vw;
+        font-size: 2vw;
     }
 
     .flexbox-container-c {
@@ -345,6 +357,10 @@ footer p {
 
     nav ul {
         padding-top: 0.5%;
+    }
+
+    .dropdown-content a {
+        font-size: 2.75vw;
     }
 
     #logo {
@@ -360,23 +376,23 @@ footer p {
     }
 
     h1 {
-        font-size: 7vw;
+        font-size: 5vw;
     }
 
     h2, h2 span {
-        font-size: 4vw;
-    }
-
-    h3 {
         font-size: 3vw;
     }
 
+    h3 {
+        font-size: 2.5vw;
+    }
+
     #intro h2, #intro span {
-        font-size: 3.5vw;
+        font-size: 3vw;
     }
 
     #intro p {
-        font-size: 4vw;
+        font-size: 3.5vw;
     }
 
     #aboutme p {
@@ -392,11 +408,11 @@ footer p {
     }
 
     .pset p {
-        font-size: 1.7vw;
+        font-size: 1.5vw;
     }
 
     pre {
-        font-size: 1.5vw;
+        font-size: 1.25vw;
         max-height: 50vh;
     }
 
@@ -408,5 +424,19 @@ footer p {
     footer p {
         font-size: 1.5vw;
         padding: 1vw;
+    }
+
+    .database-flex {
+        display: flex;
+    }
+
+    .databases .database-flex {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .databases .flexbox-item {
+        width: 36vw;
+
     }
 }
