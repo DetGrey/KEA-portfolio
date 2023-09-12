@@ -567,6 +567,1093 @@
                 <img src="CS50%20terminal/readability2-C.png" alt="readability2.c output">
             </div>
         </section>
+        <!-- ------------------------------ caesar.c -->
+        <section>
+            <div>
+                <h3>caesar.c</h3>
+                <p>Let’s write a program called caesar that enables you to encrypt messages using Caesar’s cipher. At
+                    the time the user executes the program, they should decide, by providing a command-line argument,
+                    what the key should be in the secret message they’ll provide at runtime. We shouldn’t necessarily
+                    assume that the user’s key is going to be a number; though you may assume that, if it is a number,
+                    it will be a positive integer.</p>
+                <pre>
+    #include &lt;cs50.h&gt;
+    #include &lt;ctype.h&gt;
+    #include &lt;stdlib.h&gt;
+    #include &lt;stdio.h&gt;
+    #include &lt;string.h&gt;
+
+    int main(int argc, string argv[])
+    {
+        //Make sure user entered the key
+        if (argc != 2)
+        {
+            printf(&quot;Usage: ./caesar keyn&quot;);
+            return 1;
+        }
+
+        /*the issue is that you started your code
+
+        int main( int argc, string argv[])
+
+        { int k = atoi(argv[1];
+        . . . }
+
+        /// the mistakes is in the above assignment, if the there is no argv[1] so the OS will report error and terminates the program
+
+        so you have not to do k assignment to argv[1] unless you make sure there is
+
+        argv[1] */
+
+        int key = atoi(argv[1]);
+
+        // Make sure the key is a positive number
+        if (key &lt;= 0)
+        {
+            printf(&quot;Usage: ./caesar keyn&quot;);
+            return 1;
+        }
+
+        //Make sure there's only digits and not letters or symbols
+        else
+        {
+            for (int i = 0; i &lt; strlen(argv[1]); i++)
+            {
+                if (isdigit(argv[1][i]) == false)
+                {
+                    printf(&quot;Usage: ./caesar keyn&quot;);
+                    return 1;
+                }
+            }
+        }
+
+        //To check the key is correct
+        //printf(&quot;key: %in&quot;, key);
+
+
+        //Get plaintext
+        string plain = get_string(&quot;plaintext: &quot;);
+
+
+
+        string cipher = plain;
+        printf(&quot;ciphertext: &quot;);
+
+        //If key is 26 it means all the letters will be the same
+        if (key == 26)
+        {
+            printf(&quot;%sn&quot;, plain);
+            return 0;
+        }
+
+        //If the key is more than 26, the alphabet will start over where 27 equals the same as 1 (A becomes B)
+        else if (key &gt; 26)
+        {
+            for (int i = 0, n = strlen(plain); i &lt; n; i++)
+            {
+                //If it's not a letter, the symbol should remain the same
+                if (isalpha(plain[i]) == false)
+                {
+                    cipher[i] = plain[i];
+                }
+
+                //If the letter is uppercase
+                else if (isupper(plain[i]))
+                {
+
+                    cipher[i] = (((plain[i] + key - 65 - 26) % 26) + 65);
+                }
+
+                //If the letter is lowercase
+                else
+                {
+                    cipher[i] = (((plain[i] + key - 97 - 26) % 26) + 97);
+                }
+                printf(&quot;%c&quot;, cipher[i]);
+            }
+            printf(&quot;n&quot;);
+        }
+
+        else if (key &lt; 26)
+        {
+            for (int i = 0, n = strlen(plain); i &lt; n; i++)
+            {
+                //If it's not a letter, the symbol should remain the same
+                if (isalpha(plain[i]) == false)
+                {
+                    cipher[i] = plain[i];
+                }
+
+                //If the letter is uppercase
+                else if (isupper(plain[i]))
+                {
+
+                    cipher[i] = (((plain[i] + key - 65) % 26) + 65);
+                }
+
+                //If the letter is lowercase
+                else
+                {
+                    cipher[i] = (((plain[i] + key - 97) % 26) + 97);
+                }
+
+                printf(&quot;%c&quot;, cipher[i]);
+            }
+            printf(&quot;n&quot;);
+        }
+
+        return 0;
+    }
+                </pre>
+            </div>
+            <div>
+                <p>
+                    <b>Output</b>
+                </p>
+                <img src="CS50%20terminal/caesar-C.png" alt="caesar.c output">
+            </div>
+        </section>
+        <!-- ------------------------------ substitution.c -->
+        <section>
+            <div>
+                <h3>substitution.c</h3>
+                <p>Let’s write a program called substitution that enables you to encrypt messages using a substitution
+                    cipher. At the time the user executes the program, they should decide, by providing a command-line
+                    argument, on what the key should be in the secret message they’ll provide at runtime.</p>
+                <pre>
+    #include &lt;cs50.h&gt;
+    #include &lt;ctype.h&gt;
+    #include &lt;stdlib.h&gt;
+    #include &lt;stdio.h&gt;
+    #include &lt;string.h&gt;
+
+    int main(int argc, string argv[]) //----------GET KEY----------
+    {
+        //----------VALIDATE KEY----------
+
+        //Make sure user entered the key
+        if (argc != 2)
+        {
+            printf(&quot;Usage: ./substitution keyn&quot;);
+            return 1;
+        }
+
+        string key = argv[1];
+
+        // Make sure the key has 26 letters
+        if (strlen(key) != 26)
+        {
+            printf(&quot;Key must contain 26 characters.n&quot;);
+            return 1;
+        }
+
+        //Make sure there's only letters and not digits or symbols
+        else
+        {
+            for (int i = 0; i &lt; strlen(argv[1]); i++)
+            {
+                if (isalpha(argv[1][i]) == false)
+                {
+                    printf(&quot;Key should only contain lettersn&quot;);
+                    return 1;
+                }
+            }
+        }
+
+        // Make key to lowercase
+        string lowerkey = key;
+
+        for (int i = 0; i &lt; strlen(argv[1]); i++)
+        {
+            for (int j = i + 1; j &lt;= strlen(argv[1]); j++)
+            {
+                lowerkey[i] = tolower(key[i]);
+            }
+        }
+
+        //Check if there's a repeated character
+        for (int i = 0; i &lt; strlen(argv[1]); i++)
+        {
+            for (int j = i + 1; j &lt; strlen(argv[1]); j++)
+            {
+                if (lowerkey[i] == lowerkey[j])
+                {
+                    printf(&quot;Key should not contain repeated letters.n&quot;);
+                    return 1;
+                }
+            }
+        }
+
+
+        //----------GET PLAINTEXT----------
+        const string plain = get_string(&quot;plaintext:  &quot;);
+
+
+        //----------ENCIPHER----------
+        string cipher = plain;
+        string alpha = &quot;abcdefghijklmnopqrstuvwxyz&quot;;
+        printf(&quot;ciphertext: &quot;);
+
+        for (int i = 0, n = strlen(plain); i &lt; n; i++)
+        {
+            //If it's not a letter, the symbol should remain the same
+            if (isalpha(plain[i]) == false)
+            {
+                cipher[i] = plain[i];
+            }
+
+            //If the letter is uppercase
+            else if (isupper(plain[i]))
+            {
+                int found = 1;
+                int j = 0;
+
+                do
+                {
+                    if (plain[i] == toupper(alpha[j]))
+                    {
+                        cipher[i] = toupper(key[j]);
+                        found--;
+                    }
+                    else if (j &lt; strlen(alpha))
+                    {
+                        j++;
+                    }
+                }
+                while (found == 1);
+            }
+
+            //If the letter is lowercase
+            else
+            {
+                int found = 1;
+                int j = 0;
+
+                do
+                {
+                    if (plain[i] == alpha[j])
+                    {
+                        cipher[i] = key[j];
+                        found--;
+                    }
+                    else if (j &lt; strlen(alpha))
+                    {
+                        j++;
+                    }
+                }
+                while (found == 1);
+            }
+            printf(&quot;%c&quot;, cipher[i]);
+        }
+        printf(&quot;n&quot;);
+
+
+        //----------PRINT CIPHERTEXT----------
+        //printf(&quot;ciphertext: %sn&quot;, cipher);
+
+        return 0;
+    }
+                </pre>
+            </div>
+            <div>
+                <p>
+                    <b>Output</b>
+                </p>
+                <img src="CS50%20terminal/substitution-C.png" alt="substitution.c output">
+            </div>
+        </section>
+        <!-- ------------------------------ plurality.c -->
+        <section>
+            <div>
+                <h3>plurality.c</h3>
+                <p>Perhaps the simplest way to hold an election, though, is via a method commonly known as the
+                    “plurality vote” (also known as “first-past-the-post” or “winner take all”). In the plurality vote,
+                    every voter gets to vote for one candidate. At the end of the election, whichever candidate has the
+                    greatest number of votes is declared the winner of the election.</p>
+                <pre>
+    #include &lt;cs50.h&gt;
+    #include &lt;stdio.h&gt;
+    #include &lt;string.h&gt;
+
+    // Max number of candidates
+    #define MAX 9
+
+    // Candidates have name and vote count
+    typedef struct
+    {
+        string name;
+        int votes;
+    }
+    candidate;
+
+    // Array of candidates
+    candidate candidates[MAX];
+
+    // Number of candidates
+    int candidate_count;
+
+    // Function prototypes
+    bool vote(string name);
+    void print_winner(void);
+
+    int main(int argc, string argv[])
+    {
+        // Check for invalid usage
+        if (argc &lt; 2)
+        {
+            printf(&quot;Usage: plurality [candidate ...]n&quot;);
+            return 1;
+        }
+
+        // Populate array of candidates
+        candidate_count = argc - 1;
+        if (candidate_count &gt; MAX)
+        {
+            printf(&quot;Maximum number of candidates is %in&quot;, MAX);
+            return 2;
+        }
+        for (int i = 0; i &lt; candidate_count; i++)
+        {
+            candidates[i].name = argv[i + 1];
+            candidates[i].votes = 0;
+        }
+
+        int voter_count = get_int(&quot;Number of voters: &quot;);
+
+        // Loop over all voters
+        for (int i = 0; i &lt; voter_count; i++)
+        {
+            string name = get_string(&quot;Vote: &quot;);
+
+            // Check for invalid vote
+            if (!vote(name))
+            {
+                printf(&quot;Invalid vote.n&quot;);
+            }
+        }
+
+        // Display winner of election
+        print_winner();
+    }
+
+    // Update vote totals given a new vote
+    bool vote(string name)
+    {
+        // TODO-------------------------------------------------------------------------------------
+        for (int i = 0; i &lt; candidate_count; i++)
+        {
+            if (strcmp(candidates[i].name, name) == 0)
+            {
+                candidates[i].votes++;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // Print the winner (or winners) of the election
+    void print_winner(void)
+    {
+        // TODO-------------------------------------------------------------------------------------
+        int most_votes = candidates[0].votes;
+
+        // Starts at one as we won't compare the first candidates number of votes with their own number of votes
+        for (int i = 1; i &lt; candidate_count; i++)
+        {
+            // Check if
+            if (most_votes &lt; candidates[i].votes)
+            {
+                most_votes = candidates[i].votes;
+            }
+        }
+
+        // Print the winner(s)
+        for (int i = 0; i &lt; candidate_count; i++)
+        {
+            // Check if
+            if (most_votes == candidates[i].votes)
+            {
+                printf(&quot;%sn&quot;, candidates[i].name);
+            }
+        }
+
+        return;
+    }
+                </pre>
+            </div>
+            <div>
+                <p>
+                    <b>Output</b>
+                </p>
+                <img src="CS50%20terminal/plurality-C.png" alt="plurality.c output">
+            </div>
+        </section>
+        <!-- ------------------------------ runoff.c -->
+        <section>
+            <div>
+                <h3>runoff.c</h3>
+                <p>In an instant runoff election, voters can rank as many candidates as they wish. If any candidate has
+                    a majority (more than 50%) of the first preference votes, that candidate is declared the winner of
+                    the election.</p>
+                <p>If no candidate has more than 50% of the vote, then an “instant runoff” occurs. The candidate who
+                    received the fewest number of votes is eliminated from the election, and anyone who originally chose
+                    that candidate as their first preference now has their second preference considered. Why do it this
+                    way? Effectively, this simulates what would have happened if the least popular candidate had not
+                    been in the election to begin with.</p>
+                <p>The process repeats: if no candidate has a majority of the votes, the last place candidate is
+                    eliminated, and anyone who voted for them will instead vote for their next preference (who hasn’t
+                    themselves already been eliminated). Once a candidate has a majority, that candidate is declared the
+                    winner.</p>
+                <p>One possibility is that there’s a tie for who should get eliminated. We can handle that scenario by
+                    saying all candidates who are tied for last place will be eliminated. If every remaining candidate
+                    has the exact same number of votes, though, eliminating the tied last place candidates means
+                    eliminating everyone! So in that case, we’ll have to be careful not to eliminate everyone, and just
+                    declare the election a tie between all remaining candidates.</p>
+                <pre>
+    #include &lt;cs50.h&gt;
+    #include &lt;stdio.h&gt;
+    #include &lt;string.h&gt;
+
+    // Max voters and candidates
+    #define MAX_VOTERS 100
+    #define MAX_CANDIDATES 9
+
+    // preferences[i][j] is jth preference for voter i
+    int preferences[MAX_VOTERS][MAX_CANDIDATES];
+
+    // Candidates have name, vote count, eliminated status
+    typedef struct
+    {
+        string name;
+        int votes;
+        bool eliminated;
+    }
+    candidate;
+
+    // Array of candidates
+    candidate candidates[MAX_CANDIDATES];
+
+    // Numbers of voters and candidates
+    int voter_count;
+    int candidate_count;
+
+    // Function prototypes
+    bool vote(int voter, int rank, string name);
+    void tabulate(void);
+    bool print_winner(void);
+    int find_min(void);
+    bool is_tie(int min);
+    void eliminate(int min);
+
+    int main(int argc, string argv[])
+    {
+        // Check for invalid usage
+        if (argc &lt; 2)
+        {
+            printf(&quot;Usage: runoff [candidate ...]n&quot;);
+            return 1;
+        }
+
+        // Populate array of candidates
+        candidate_count = argc - 1;
+        if (candidate_count &gt; MAX_CANDIDATES)
+        {
+            printf(&quot;Maximum number of candidates is %in&quot;, MAX_CANDIDATES);
+            return 2;
+        }
+        for (int i = 0; i &lt; candidate_count; i++)
+        {
+            candidates[i].name = argv[i + 1];
+            candidates[i].votes = 0;
+            candidates[i].eliminated = false;
+        }
+
+        voter_count = get_int(&quot;Number of voters: &quot;);
+        if (voter_count &gt; MAX_VOTERS)
+        {
+            printf(&quot;Maximum number of voters is %in&quot;, MAX_VOTERS);
+            return 3;
+        }
+
+        // Keep querying for votes
+        for (int i = 0; i &lt; voter_count; i++)
+        {
+
+            // Query for each rank
+            for (int j = 0; j &lt; candidate_count; j++)
+            {
+                string name = get_string(&quot;Rank %i: &quot;, j + 1);
+
+                // Record vote, unless it's invalid
+                if (!vote(i, j, name))
+                {
+                    printf(&quot;Invalid vote.n&quot;);
+                    return 4;
+                }
+            }
+
+            printf(&quot;n&quot;);
+        }
+
+        // Keep holding runoffs until winner exists
+        while (true)
+        {
+            // Calculate votes given remaining candidates
+            tabulate();
+
+            // Check if election has been won
+            bool won = print_winner();
+            if (won)
+            {
+                break;
+            }
+
+            // Eliminate last-place candidates
+            int min = find_min();
+            bool tie = is_tie(min);
+
+            // If tie, everyone wins
+            if (tie)
+            {
+                for (int i = 0; i &lt; candidate_count; i++)
+                {
+                    if (!candidates[i].eliminated)
+                    {
+                        printf(&quot;%sn&quot;, candidates[i].name);
+                    }
+                }
+                break;
+            }
+
+            // Eliminate anyone with minimum number of votes
+            eliminate(min);
+
+            // Reset vote counts back to zero
+            for (int i = 0; i &lt; candidate_count; i++)
+            {
+                candidates[i].votes = 0;
+            }
+        }
+        return 0;
+    }
+
+    // Record preference if vote is valid
+    bool vote(int voter, int rank, string name)
+    {
+        // TODO-------------------------------------------------------------------------------------
+        for (int k = 0; k &lt; candidate_count; k++)
+        {
+            if (strcmp(candidates[k].name, name) == 0)
+            {
+                preferences[voter][rank] = k;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // Tabulate votes for non-eliminated candidates
+    void tabulate(void)
+    {
+        // TODO-------------------------------------------------------------------------------------
+        for (int l = 0; l &lt; voter_count; l++) // Vote number
+        {
+            for (int m = 0; m &lt; candidate_count; m++) // jth preference
+            {
+                int k = preferences[l][m];
+
+                if (candidates[k].eliminated == false)
+                {
+                    candidates[k].votes++;
+                    break;
+                }
+            }
+        }
+        return;
+    }
+
+    // Print the winner of the election, if there is one
+    bool print_winner(void)
+    {
+        // TODO-------------------------------------------------------------------------------------
+        for (int o = 0; o &lt; candidate_count; o++)
+        {
+            if (candidates[o].votes &gt; (voter_count / 2))
+            {
+                printf(&quot;%sn&quot;, candidates[o].name);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // Return the minimum number of votes any remaining candidate has
+    int find_min(void)
+    {
+        // TODO-------------------------------------------------------------------------------------
+        int min_vote = voter_count; // The minimum vote will become less and less therefore it needs to start at the highest
+
+        for (int p = 0; p &lt; candidate_count; p++)
+        {
+            if (candidates[p].eliminated == false &amp;&amp; candidates[p].votes &lt; min_vote)
+            {
+                min_vote = candidates[p].votes;
+            }
+        }
+        return min_vote;
+    }
+
+    // Return true if the election is tied between all candidates, false otherwise
+    bool is_tie(int min)
+    {
+        // TODO-------------------------------------------------------------------------------------
+        int tieCount = 0; // To see how many candidates are tied
+        int running = 0; // To see how many candidates are still in the runoff
+
+        for (int q = 0; q &lt; candidate_count; q++)
+        {
+            if (candidates[q].eliminated == false &amp;&amp; candidates[q].votes == min)
+            {
+                tieCount++;
+                running++;
+            }
+            else if (candidates[q].eliminated == false)
+            {
+                running++;
+            }
+        }
+
+        if (tieCount == running) // If ALL candidates still in the runoff have the same amount of votes, they are tied
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    // Eliminate the candidate (or candidates) in last place
+    void eliminate(int min)
+    {
+        // TODO-------------------------------------------------------------------------------------
+        for (int r = 0; r &lt; candidate_count; r++)
+        {
+            if (candidates[r].eliminated == false &amp;&amp; candidates[r].votes == min)
+            {
+                candidates[r].eliminated = true;
+            }
+        }
+        return;
+    }
+                </pre>
+            </div>
+            <div>
+                <p>
+                    <b>Output</b>
+                </p>
+                <img src="CS50%20terminal/runoff-C.png" alt="runoff.c output">
+            </div>
+        </section>
+        <!-- ------------------------------ filterLess.c -->
+        <section>
+            <div>
+                <h3>filterLess.c</h3>
+                <p>One common filter is the “grayscale” filter, where we take an image and want to convert it to
+                    black-and-white.</p>
+                <p>Most image editing programs support a “sepia” filter, which gives images an old-timey feel by making
+                    the whole image look a bit reddish-brown. An image can be converted to sepia by taking each pixel,
+                    and computing new red, green, and blue values based on the original values of the three. </p>
+                <p>Some filters might also move pixels around. Reflecting an image, for example, is a filter where the
+                    resulting image is what you would get by placing the original image in front of a mirror. So any
+                    pixels on the left side of the image should end up on the right, and vice versa.</p>
+                <p>There are a number of ways to create the effect of blurring or softening an image. For this problem,
+                    we’ll use the “box blur,” which works by taking each pixel and, for each color value, giving it a
+                    new value by averaging the color values of neighboring pixels.</p>
+                <pre>
+    #include &lt;getopt.h&gt;
+    #include &lt;stdio.h&gt;
+    #include &lt;stdlib.h&gt;
+
+    #include &quot;helpers.h&quot;
+
+    int main(int argc, char *argv[])
+    {
+
+    // Define allowable filters
+    char *filters = &quot;bgrs&quot;;
+
+    // Get filter flag and check validity
+    char filter = getopt(argc, argv, filters);
+    if (filter == '?')
+    {
+        fprintf(stderr, &quot;Invalid filter.n&quot;);
+        return 1;
+    }
+
+    // Ensure only one filter
+    if (getopt(argc, argv, filters) != -1)
+    {
+        fprintf(stderr, &quot;Only one filter allowed.n&quot;);
+        return 2;
+    }
+
+    // Ensure proper usage
+    if (argc != optind + 2)
+    {
+        fprintf(stderr, &quot;Usage: filter [flag] infile outfilen&quot;);
+        return 3;
+    }
+
+    // Remember filenames
+    char *infile = argv[optind];
+    char *outfile = argv[optind + 1];
+
+    // Open input file
+    FILE *inptr = fopen(infile, &quot;r&quot;);
+    if (inptr == NULL)
+    {
+        fprintf(stderr, &quot;Could not open %s.n&quot;, infile);
+        return 4;
+    }
+
+    // Open output file
+    FILE *outptr = fopen(outfile, &quot;w&quot;);
+    if (outptr == NULL)
+    {
+        fclose(inptr);
+        fprintf(stderr, &quot;Could not create %s.n&quot;, outfile);
+        return 5;
+    }
+
+    // Read infile's BITMAPFILEHEADER
+    BITMAPFILEHEADER bf;
+    fread(&amp;bf, sizeof(BITMAPFILEHEADER), 1, inptr);
+
+    // Read infile's BITMAPINFOHEADER
+    BITMAPINFOHEADER bi;
+    fread(&amp;bi, sizeof(BITMAPINFOHEADER), 1, inptr);
+
+    // Ensure infile is (likely) a 24-bit uncompressed BMP 4.0
+    if (bf.bfType != 0x4d42 || bf.bfOffBits != 54 || bi.biSize != 40 ||
+        bi.biBitCount != 24 || bi.biCompression != 0)
+    {
+        fclose(outptr);
+        fclose(inptr);
+        fprintf(stderr, &quot;Unsupported file format.n&quot;);
+        return 6;
+    }
+
+    int height = abs(bi.biHeight);
+    int width = bi.biWidth;
+
+    // Allocate memory for image
+    RGBTRIPLE(*image)[width] = calloc(height, width * sizeof(RGBTRIPLE));
+    if (image == NULL)
+    {
+        fprintf(stderr, &quot;Not enough memory to store image.n&quot;);
+        fclose(outptr);
+        fclose(inptr);
+        return 7;
+    }
+
+    // Determine padding for scanlines
+    int padding = (4 - (width * sizeof(RGBTRIPLE)) % 4) % 4;
+
+    // Iterate over infile's scanlines
+    for (int i = 0; i &lt; height; i++)
+    {
+        // Read row into pixel array
+        fread(image[i], sizeof(RGBTRIPLE), width, inptr);
+
+        // Skip over padding
+        fseek(inptr, padding, SEEK_CUR);
+    }
+
+    // Filter image
+    switch (filter)
+    {
+        // Blur
+        case 'b':
+            blur(height, width, image);
+            break;
+
+        // Grayscale
+        case 'g':
+            grayscale(height, width, image);
+            break;
+
+        // Reflection
+        case 'r':
+            reflect(height, width, image);
+            break;
+
+        // Sepia
+        case 's':
+            sepia(height, width, image);
+            break;
+    }
+
+    // Write outfile's BITMAPFILEHEADER
+    fwrite(&amp;bf, sizeof(BITMAPFILEHEADER), 1, outptr);
+
+    // Write outfile's BITMAPINFOHEADER
+    fwrite(&amp;bi, sizeof(BITMAPINFOHEADER), 1, outptr);
+
+    // Write new pixels to outfile
+    for (int i = 0; i &lt; height; i++)
+    {
+        // Write row to outfile
+        fwrite(image[i], sizeof(RGBTRIPLE), width, outptr);
+
+        // Write padding at end of row
+        for (int k = 0; k &lt; padding; k++)
+        {
+            fputc(0x00, outptr);
+        }
+    }
+
+    // Free memory for image
+    free(image);
+
+    // Close infile
+    fclose(inptr);
+
+    // Close outfile
+    fclose(outptr);
+
+    return 0;
+    }
+                </pre>
+            </div>
+            <div>
+                <p>
+                    <b>Code</b>
+                </p>
+                <img src="CS50%20terminal/filterLess-C.png" alt="filter grayscale output">
+            </div>
+            <div class="flexbox-container">
+                <div>
+                    <p>Original image</p>
+                    <img src="CS50%20terminal/filter/tower.png" alt="image of a tower">
+                </div>
+                <div>
+                    <p>Grayscale filter</p>
+                    <img src="CS50%20terminal/filter/grayscale.png" alt="grayscale image of a tower">
+                </div>
+                <div>
+                    <p>Sepia filter</p>
+                    <img src="CS50%20terminal/filter/sepia.png" alt="sepia image of a tower">
+                </div>
+                <div>
+                    <p>Reflection filter</p>
+                    <img src="CS50%20terminal/filter/reflection.png" alt="reflected image of a tower">
+                </div>
+                <div>
+                    <p>Blur filter</p>
+                    <img src="CS50%20terminal/filter/blur.png" alt="blurred image of a tower">
+                </div>
+            </div>
+        </section>
+        <!-- ------------------------------ filter.c -->
+        <section>
+            <div>
+                <h3>filter.c</h3>
+                <p>One common filter is the “grayscale” filter, where we take an image and want to convert it to
+                    black-and-white.</p>
+                <p>Some filters might also move pixels around. Reflecting an image, for example, is a filter where the
+                    resulting image is what you would get by placing the original image in front of a mirror. So any
+                    pixels on the left side of the image should end up on the right, and vice versa.</p>
+                <p>There are a number of ways to create the effect of blurring or softening an image. For this problem,
+                    we’ll use the “box blur,” which works by taking each pixel and, for each color value, giving it a
+                    new value by averaging the color values of neighboring pixels.</p>
+                <p>In artificial intelligence algorithms for image processing, it is often useful to detect edges in an
+                    image: lines in the image that create a boundary between one object and another. One way to achieve
+                    this effect is by applying the Sobel operator to the image.</p>
+                <pre>
+    #include &lt;getopt.h&gt;
+    #include &lt;stdio.h&gt;
+    #include &lt;stdlib.h&gt;
+
+    #include &quot;helpers.h&quot;
+
+    int main(int argc, char *argv[])
+    {
+
+        // Define allowable filters
+        char *filters = &quot;begr&quot;;
+
+        // Get filter flag and check validity
+        char filter = getopt(argc, argv, filters);
+        if (filter == '?')
+        {
+            fprintf(stderr, &quot;Invalid filter.n&quot;);
+            return 1;
+        }
+
+        // Ensure only one filter
+        if (getopt(argc, argv, filters) != -1)
+        {
+            fprintf(stderr, &quot;Only one filter allowed.n&quot;);
+            return 2;
+        }
+
+        // Ensure proper usage
+        if (argc != optind + 2)
+        {
+            fprintf(stderr, &quot;Usage: filter [flag] infile outfilen&quot;);
+            return 3;
+        }
+
+        // Remember filenames
+        char *infile = argv[optind];
+        char *outfile = argv[optind + 1];
+
+        // Open input file
+        FILE *inptr = fopen(infile, &quot;r&quot;);
+        if (inptr == NULL)
+        {
+            fprintf(stderr, &quot;Could not open %s.n&quot;, infile);
+            return 4;
+        }
+
+        // Open output file
+        FILE *outptr = fopen(outfile, &quot;w&quot;);
+        if (outptr == NULL)
+        {
+            fclose(inptr);
+            fprintf(stderr, &quot;Could not create %s.n&quot;, outfile);
+            return 5;
+        }
+
+        // Read infile's BITMAPFILEHEADER
+        BITMAPFILEHEADER bf;
+        fread(&amp;bf, sizeof(BITMAPFILEHEADER), 1, inptr);
+
+        // Read infile's BITMAPINFOHEADER
+        BITMAPINFOHEADER bi;
+        fread(&amp;bi, sizeof(BITMAPINFOHEADER), 1, inptr);
+
+        // Ensure infile is (likely) a 24-bit uncompressed BMP 4.0
+        if (bf.bfType != 0x4d42 || bf.bfOffBits != 54 || bi.biSize != 40 ||
+            bi.biBitCount != 24 || bi.biCompression != 0)
+        {
+            fclose(outptr);
+            fclose(inptr);
+            fprintf(stderr, &quot;Unsupported file format.n&quot;);
+            return 6;
+        }
+
+        int height = abs(bi.biHeight);
+        int width = bi.biWidth;
+
+        // Allocate memory for image
+        RGBTRIPLE(*image)[width] = calloc(height, width * sizeof(RGBTRIPLE));
+        if (image == NULL)
+        {
+            fprintf(stderr, &quot;Not enough memory to store image.n&quot;);
+            fclose(outptr);
+            fclose(inptr);
+            return 7;
+        }
+
+        // Determine padding for scanlines
+        int padding = (4 - (width * sizeof(RGBTRIPLE)) % 4) % 4;
+
+        // Iterate over infile's scanlines
+        for (int i = 0; i &lt; height; i++)
+        {
+            // Read row into pixel array
+            fread(image[i], sizeof(RGBTRIPLE), width, inptr);
+
+            // Skip over padding
+            fseek(inptr, padding, SEEK_CUR);
+        }
+
+        // Filter image
+        switch (filter)
+        {
+            // Blur
+            case 'b':
+                blur(height, width, image);
+                break;
+
+            // Edges
+            case 'e':
+                edges(height, width, image);
+                break;
+
+            // Grayscale
+            case 'g':
+                grayscale(height, width, image);
+                break;
+
+            // Reflect
+            case 'r':
+                reflect(height, width, image);
+                break;
+        }
+
+        // Write outfile's BITMAPFILEHEADER
+        fwrite(&amp;bf, sizeof(BITMAPFILEHEADER), 1, outptr);
+
+        // Write outfile's BITMAPINFOHEADER
+        fwrite(&amp;bi, sizeof(BITMAPINFOHEADER), 1, outptr);
+
+        // Write new pixels to outfile
+        for (int i = 0; i &lt; height; i++)
+        {
+            // Write row to outfile
+            fwrite(image[i], sizeof(RGBTRIPLE), width, outptr);
+
+            // Write padding at end of row
+            for (int k = 0; k &lt; padding; k++)
+            {
+                fputc(0x00, outptr);
+            }
+        }
+
+        // Free memory for image
+        free(image);
+
+        // Close infile
+        fclose(inptr);
+
+        // Close outfile
+        fclose(outptr);
+
+        return 0;
+    }
+                </pre>
+            </div>
+            <div>
+                <p>
+                    <b>Code</b>
+                </p>
+                <img src="CS50%20terminal/filter-C.png" alt="filter.c output">
+            </div>
+            <div class="flexbox-container">
+                <div>
+                    <p>Original image</p>
+                    <img src="CS50%20terminal/filter/tower.png" alt="image of a tower">
+                </div>
+                <div>
+                    <p>Grayscale filter</p>
+                    <img src="CS50%20terminal/filter/grayscale.png" alt="grayscale image of a tower">
+                </div>
+                <div>
+                    <p>Reflection filter</p>
+                    <img src="CS50%20terminal/filter/reflection.png" alt="reflected image of a tower">
+                </div>
+                <div>
+                    <p>Blur filter</p>
+                    <img src="CS50%20terminal/filter/blur.png" alt="blurred image of a tower">
+                </div>
+                <div>
+                    <p>Edges filter</p>
+                    <img src="CS50%20terminal/filter/edges.png" alt="image of a tower with highlighted lines">
+                </div>
+            </div>
+        </section>
+        
     </section>
 </main>
 

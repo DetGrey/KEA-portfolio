@@ -251,6 +251,11 @@ section section {
 
 .pset div {
     margin-top: 2vw;
+    padding-inline: 1vw;
+}
+
+.pset div div {
+    margin-top: 0;
 }
 
 .pset h3, pre, .pset p {
