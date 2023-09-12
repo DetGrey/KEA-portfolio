@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Databases</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<!-- ------------------------------ BODY -->
+<body>
+<img id="background" src="background.png" alt="background">
+<!-- ------------------------------ HEADER -->
+<header>
+    <img id="triangle" src="Triangle.svg" alt="triangle">
+
+    <nav>
+        <!-- NAVIGATION LINKS -->
+        <ul>
+            <li><a class="flexbox-item" href="index.html">Home</a></li>
+            <li class="dropdown flexbox-item">
+                <a class="dropbtn">Projects</a>
+                <div class="dropdown-content">
+                    <a class="flexbox-item" href="CS50.html">CS50</a>
+                    <a class="flexbox-item" href="databases.html">Databases</a>
+                    <a class="flexbox-item" href="webtechnology.html">Web techonology</a>
+                </div>
+            </li>
+            <li><a class="flexbox-item" href="index.html#aboutme">About me</a></li>
+        </ul>
+    </nav>
+    <img id="logo" src="P.gif" alt="Logo"/>
+</header>
+
+<!-- ------------------------------ MAIN -->
+<main class="flexbox-container-c">
+    <section>
+        <h1>Webtechnology exercises</h1>
+        <h2>Overview</h2>
+        <ol>
+            <li><a href="#JS">JavaScript</a></li>
+        </ol>
+    </section>
+
+    <section class="pset databases" id="JS">
+        <h2>JavaScript</h2>
+        <!-- ------------------------------ hello.c -->
+        <section>
+            <div>
+                <h3>Exercise 1 - level 1</h3>
+                <p>Log 4 statements like these to the console, but in different languages.</p>
+                <pre>
+    console.log(`Hola, mundo`);
+    console.log(`Hello, world`);
+    console.log(`Hej, verden`);
+    console.log(`Bonjour, monde`);
+                </pre>
+            </div>
+        </section>
+        <section>
+            <div>
+                <h3>Exercise 2 - level 1</h3>
+                <p>1. Add a variable `greeting` and assign a greeting of your choice to the variable. Fx `Hello how are
+                    you</p>
+                <p>2. Print your `greeting` to the console 3 times. You should see the greeting 3 times on the console,
+                    one on each line.</p>
+                <pre>
+    const greeting = `Hola, cómo estás, amigo?`;
+
+    for (let i = 0; i < 3; i++) {
+        console.log(greeting);
+    }
+                </pre>
+            </div>
+        </section>
+        <section>
+            <div>
+                <h3>Exercise 3 - level 1</h3>
+                <p>Consider this code, it has a syntax error in it. Fix it so that when running this file it logs the
+                    message `'I'm awesome!'</p>
+                <p>console.log('I'm awesome'!;</p>
+                <pre>
+    console.log(`I'm awesome!`);
+                </pre>
+            </div>
+        </section>
+        <section>
+            <div>
+                <h3>Exercise 4 - level 1</h3>
+                <p>Using string literals, string length and the following code. Log out a string that says: `"My name is
+                    peter. It has 5 characters"</p>
+                <pre>
+    const name = "peter";
+
+    // YOUR CODE GOES HERE
+    console.log(`My name is ${name}. It has ${name.length} characters`);
+                </pre>
+            </div>
+        </section>
+        <section>
+            <div>
+                <h3>Exercise 5 - level 1</h3>
+                <p>write down what the following will log out</p>
+                <pre>
+    console.log(typeof 3 + 5); // number5
+
+    console.log(typeof "3 + 5"); // string
+
+    console.log(typeof "+"); // string
+
+    console.log(typeof ""); // string
+
+    console.log(typeof "3" + 5); // string5
+
+    console.log(typeof typeof 3+5); // string5
+                </pre>
+            </div>
+        </section>
+        <section>
+            <div>
+                <h3>Exercise 6 - level 2</h3>
+                <p>1. Create two variables `numberOfStudents` and `numberOfteachers` and assign them to some numbers of
+                    your choosing</p>
+                <p>2. Log a message that displays the total number of students and teachers</p>
+                <pre>
+    let numberOfStudents = 23;
+    let numberOfTeachers = 2;
+
+    console.log(`Number of teachers: ${numberOfTeachers}`);
+    console.log(`Number of students: ${numberOfStudents}`);
+    console.log(`Total number of teachers and students: ${numberOfStudents + numberOfTeachers}`);
+                </pre>
+            </div>
+        </section>
+        <section>
+            <div>
+                <h3>Exercise 7 - level 2</h3>
+                <p>Now log out the percentage of students and percentage of teachers</p>
+                <pre>
+    let numberOfStudents = 23;
+    let numberOfTeachers = 2;
+    let total = numberOfStudents + numberOfTeachers;
+
+    console.log(`Percentage of teachers: ${numberOfTeachers / total * 100}%`);
+    console.log(`Percentage of students: ${numberOfStudents / total * 100}%`);
+                </pre>
+            </div>
+        </section>
+        <section>
+            <div>
+                <h3>Exercise 8 - level 3</h3>
+                <p class="bold">Part 1</p>
+                <p>Create a variable to store the name of your favourite pizza. Create a variable to store the price of
+                    the pizza. Now log at statement to the console that will show the pizza man the entire pizza order
+                    in a language he understands, eg. like this: `New pizza order: (name of pizza). The price of the
+                    pizza is: (price of pizza>)</p>
+                <pre>
+    let favouritePizza = `Hawaii`;
+    let favouritePizzaPrice = 69;
+
+    console.log(`New pizza order: ${favouritePizza}. The price of the pizza is: ${favouritePizzaPrice}`)
+                </pre>
+                <p class="bold">Part 2</p>
+                <p>Now we will modify the program so that you can order multiple pizzas.</p>
+                <p>1. Create a new variable to store the amount of pizzas you would like to order</p>
+                <p>2. Now write a formula to calculate the total price of your pizza order, and save it in a variable
+                    called totalPrice</p>
+                <p>3. Modify the log statement for the pizza man so it shows the total price of the order `New pizza
+                    order: (amount of pizzas) (name of pizza). Total cost for the order is: (total price)`</p>
+                <p>4. Try to change the price of the pizza and check if the total price is calculated correctly.</p>
+                <p>5. Research how the `prompt()` functions works. Now use the prompt function to make the user write
+                    how many pizzas should be ordered</p>
+                <pre>
+    const favouritePizza = `Hawaii`;
+    const favouritePizzaPrice = 70;
+    let pizzaAmount = parseInt(prompt("Please enter the amount of pizza", "1"), 10) || 0;
+    let totalPrice = favouritePizzaPrice * pizzaAmount;
+
+    if (pizzaAmount !== `NaN` && pizzaAmount !== 0) {
+        console.log(`New pizza order: ${pizzaAmount} ${favouritePizza}. Total cost for the order is: ${totalPrice}`)
+    }
+    else {
+        console.log(`Amount not possible.`)
+    }
+                </pre>
+            </div>
+        </section>
+        <section>
+            <div>
+                <h3>Age-ify (A future age calculator)</h3>
+                <p>You are talking to a friend who suddently looks at you and asks: "How old will you be in 2045?" Hmm
+                    you remember the year you were born and try to do some calculation: Born in 1987 + 3 that's 1990. 90
+                    - 40 is 50 + 5 thats 58. I will be 58! Wow that was painful! Let's fix that by making some code that
+                    automatically does this!</p>
+                <p>Create two variables called `yearOfBirth` and `yearFuture`. Assign these your own age and a future
+                    year. What type will these two variables be? Using `yearOfBirth` and `yearFuture` calculate the age
+                    and store that in a variable called `age`. Log out this string: "You will be 40 years old in 2027".
+                    With 40 being the result of the `age` variable and 2027 being the `yearFuture` variable. (Hint use
+                    string concatenation)</p>
+                <pre>
+    let yearOfBirth = parseInt(prompt("Please enter your birth year", "2000"), 10) || 0;
+    let yearFuture = parseInt(prompt("Please enter a year in the future", "2100"), 10) || 0;
+
+    let age = yearFuture - yearOfBirth;
+
+    console.log(`You will be ${age} years old in ${yearFuture}`);
+                </pre>
+            </div>
+        </section>
+        <section>
+            <div>
+                <h3>Goodboy-Oldboy (A dog age calculator)</h3>
+                <p>The same friend (who by the way loves dogs) asks how old his dog will be in 2045. Hmm you think, lets
+                    make this into a product as well! Dogs age can either be measured in dog years or in human years,
+                    this we want to take into consideration!</p>
+                <p>Like before lets create three variables but this time we call
+                    them `dogYearOfBirth`, `dogYearFuture` and `dogYear`. We add an extra variable
+                    called `shouldShowResultInDogYears`. If it is `true` we should show the result in dog years, if it
+                    is false we should show it in human years. What do we call this type of variable? Now dependent
+                    on `shouldShowResultInDogYears` log this string out: "Your dog will be 10 human years old in 2027"
+                    or "Your dog will be 70 dog years old in 2027"</p>
+                <pre>
+    let dogYearOfBirth = parseInt(prompt("Please enter the birth year of the dog", "2000"), 10) || 0;
+    let dogYearFuture = parseInt(prompt("Please enter a year in the future", "2010"), 10) || 0;
+    let dogYear = (dogYearFuture - dogYearOfBirth) * 7;
+
+    let shouldShowResultInDogYears = confirm(`Show results in dog years? Cancel if not`);
+
+    if (shouldShowResultInDogYears === true) {
+        console.log(`Your dog will be ${dogYear} dog years old in ${dogYearFuture}`);
+    }
+    else {
+        console.log(`Your dog will be ${dogYearFuture - dogYearOfBirth} human years old in ${dogYearFuture}`);
+    }
+                </pre>
+            </div>
+        </section>
+        <section>
+            <div>
+                <h3>Housey pricey (A house price estimator)</h3>
+                <p>Two of your friends are considering buying a house, but cannot figure out what the right price should
+                    be. Your friends know the width, the height and the depth of the house and the garden size. Lets
+                    help them figure out if they paid too much:</p>
+                <p>We have made our own formula for calculating the price of a house. This formula is VERY simplified
+                    and not at all close to the <a
+                            href="https://www.kaggle.com/erick5/predicting-house-prices-with-machine-learning">real
+                        calculation</a> which can get [quite complicated]:</p>
+                <p>housePrice = volumeInMeters * 2.5 * 1000 + gardenSizeInM2 * 300;</p>
+                <p>Your friend Peter is considering a house that is 8m wide, 10m deep and 10m high. The garden size is
+                    100m2. The house costs 2.500.000. Your friend Julia is considering a house that is 5m wide, 11m deep
+                    and 8m high. The garden size is 70m2. This house costs 1.000.000. Figure out if Peter and Julia are
+                    paying too much or too little using JavaScript and the formula specified above.</p>
+                <pre>
+    // Peter
+
+    let volumeInMeters = 8 * 10 * 10;
+    let gardenSizeInM2 = 100;
+    let offerPrice = 2500000;
+
+    let housePrice = volumeInMeters * 2.5 * 1000 + gardenSizeInM2 * 300;
+
+    if (housePrice < offerPrice) {
+        console.log(`You pay too much. The right price would be ${housePrice} and not ${offerPrice}`);
+    }
+    else if (housePrice > offerPrice) {
+        console.log(`You pay too little. The right price would be ${housePrice} and not ${offerPrice}`);
+    }
+    else {
+        console.log(`The calculated price is the same as the offer`)
+    }
+
+    // Julia
+
+    volumeInMeters = 5 * 11 * 8;
+    gardenSizeInM2 = 70;
+    offerPrice = 1000000;
+
+    housePrice = volumeInMeters * 2.5 * 1000 + gardenSizeInM2 * 300;
+
+    if (housePrice < offerPrice) {
+        console.log(`You pay too much. The right price would be ${housePrice} and not ${offerPrice}`);
+    }
+    else if (housePrice > offerPrice) {
+        console.log(`You pay too little. The right price would be ${housePrice} and not ${offerPrice}`);
+    }
+    else {
+        console.log(`The calculated price is the same as the offer`);
+    }
+                </pre>
+            </div>
+        </section>
+    </section>
+</main>
+
+<!-- ------------------------------ FOOTER -->
+<footer>
+    <p>>>> 2023. 1st semester of IT-Architecture on KEA. Ane Novrup Larsen <<<</p>
+</footer>
+</body>
+</html>
