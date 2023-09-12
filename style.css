@@ -71,17 +71,14 @@ body {
 }
 
 /* -------------------------------- BACKGROUND AND LOGO */
-body {
-    background-color: var(--purple);
-    max-width: 100%;
+html {
+    background: var(--purple);
 }
 
-#background {
-    position: absolute;
-    opacity: 0.3;
-    width: 100%;
-    max-height: 100%;
-    /*-webkit-box-reflect: below;*/
+body {
+    max-width: 100%;
+    background-image: url("background.svg");
+    background-size: 100%;
 }
 
 #logo {
