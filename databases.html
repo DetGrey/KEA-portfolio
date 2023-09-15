@@ -47,9 +47,16 @@
                     <li><a href="#pokemon">Pokemon database</a></li>
                 </ul>
             </li>
+            <li>
+                <a href="#RegEx">RegEx</a>
+                <ul>
+                    <li><a href="#firstRegEx">First exercises</a></li>
+                    <li><a href="#RegExInMySQL">RegEx in MySQL</a></li>
+                </ul>
+            </li>
         </ol>
     </section>
-
+    <!-- ------------------------------ MySQL -->
     <section class="pset databases" id="MySQL">
         <h2>MySQL</h2>
 
@@ -349,6 +356,63 @@
     OR (employees.commission IS NULL AND departments.location = "NEW YORK" AND employees.job != "CLERK");
                 </pre>
             </div>
+            <div class="flexbox-item">
+                <p>- Retrieve the average salary of all employees</p>
+                <pre>
+    SELECT AVG(salary)
+    FROM employees;
+                </pre>
+            </div>
+            <div class="flexbox-item">
+                <p>- Retrieve the names of employees with a salary above the average</p>
+                <pre>
+    SELECT employee_name
+    FROM employees
+    WHERE salary > (SELECT AVG(salary)
+                    FROM employees);
+                </pre>
+            </div>
+            <div class="flexbox-item">
+                <p>- Retrieve the department name and average salary of all departments</p>
+                <pre>
+    SELECT department_name, AVG(salary)
+    FROM departments
+    INNER JOIN employees USING(department_number)
+    GROUP BY department_name;
+                </pre>
+            </div>
+            <div class="flexbox-item">
+                <p>- Retrieve the department name and average salary of all departments with an average higher than the
+                    average department salary</p>
+                <pre>
+    SELECT department_name, AVG(salary)
+    FROM departments
+    INNER JOIN employees USING(department_number)
+    GROUP BY department_name
+    HAVING AVG(salary) > (SELECT AVG(salary) FROM employees);
+                </pre>
+            </div>
+            <div class="flexbox-item">
+                <p>- Retrieve all departments and their average salary if the department has an salary average higher
+                    than the total average department salary excluding commission?</p>
+                <pre>
+    SELECT department_name, AVG(salary)
+    FROM departments
+    INNER JOIN employees USING(department_number)
+    GROUP BY department_name
+    HAVING AVG(salary) > (SELECT AVG(salary) FROM employees);
+                </pre>
+            </div>
+            <div class="flexbox-item">
+                <p>- Same question: Including commission?</p>
+                <pre>
+    SELECT department_name, AVG(salary)
+    FROM departments
+    INNER JOIN employees USING(department_number)
+    GROUP BY department_name
+    HAVING AVG(salary) > (SELECT AVG(salary + commission) FROM employees);
+                </pre>
+            </div>
         </section>
 
         <!-- ------------------------------ Spotify -->
@@ -558,6 +622,102 @@
     FROM pokemon
     GROUP BY primary_type
     ORDER BY primary_type;
+                </pre>
+            </div>
+            <div class="flexbox-item">
+                <p>- Retrieve a result set of a pokemons name, their speed and the average speed of their
+                    primary_type:</p>
+                <img src="pokemon-primary-speed.png" alt="Table of pokemon data">
+                <pre>
+    SELECT `name`, speed, primary_type, primary_type_average
+    FROM pokemon p1
+
+    INNER JOIN (SELECT primary_type, AVG(speed) AS primary_type_average
+        FROM pokemon
+        GROUP BY primary_type) p2
+    USING(primary_type)
+                </pre>
+            </div>
+            <div class="flexbox-item">
+                <p>- Retrieve a result set with pokemon whose secondary type speed is faster than their primary type
+                    speed on average</p>
+                <img src="pokemon-secondary-speed.png" alt="Table of pokemon data">
+                <pre>
+    SELECT `name`, speed, primary_type, primary_type_average, secondary_type, secondary_type_average
+    FROM pokemon p1
+
+    INNER JOIN (SELECT primary_type, AVG(speed) AS primary_type_average
+        FROM pokemon
+        WHERE primary_type != 'null'
+        GROUP BY primary_type) p2
+    USING(primary_type)
+
+    INNER JOIN (SELECT secondary_type, AVG(speed) AS secondary_type_average
+        FROM pokemon
+        WHERE secondary_type != 'null'
+        GROUP BY secondary_type) p3
+    USING(secondary_type)
+
+    HAVING secondary_type_average > primary_type_average;
+                </pre>
+            </div>
+        </section>
+    </section>
+
+    <!-- ------------------------------ RegEx -->
+    <section class="pset databases" id="RegEx">
+        <h2>RegEx - Regular Expressions</h2>
+
+        <!-- ------------------------------ First exercises -->
+        <h3 class="scroll-margin" id="firstRegEx">First exercises</h3>
+        <section class="database-flex">
+            <div class="flexbox-item">
+                <p>- Write a regular expression such that a correct input lives up to the following Danish phone number
+                    standard: +45 54342355</p>
+                <pre>
+    ^\+45 \d{8}$
+                </pre>
+            </div>
+            <div class="flexbox-item">
+                <p>- Write a regular expression such that a correct input lives up to the standard of a Danish cpr
+                    number</p>
+                <pre>
+    ^\d{6}-\d{4}$
+                </pre>
+            </div>
+            <div class="flexbox-item">
+                <p>- Write a regular expression that checks if a given string is a valid email address</p>
+                <pre>
+    ^\w{1,}@\w{1,}(.\w{2,})+$
+                </pre>
+            </div>
+        </section>
+
+        <!-- ------------------------------ RegEx in MySQL -->
+        <h3 class="scroll-margin" id="RegExInMySQL">RegEx in MySQL - Spotify Database</h3>
+        <section class="database-flex">
+            <div class="flexbox-item">
+                <p>- How many artist have numbers in their artist name?</p>
+                <pre>
+    SELECT COUNT(DISTINCT artist)
+    FROM spotify
+    WHERE artist REGEXP '[:digit:]+';
+                </pre>
+            </div>
+            <div class="flexbox-item">
+                <p>- How many distinct artists either start with a number and ends with a number?</p>
+                <pre>
+    SELECT COUNT(DISTINCT artist)
+    FROM spotify
+    WHERE artist REGEXP '^[:digit:]+ | [:digit:]+$';
+                </pre>
+            </div>
+            <div class="flexbox-item">
+                <p>- How many songs have features?</p>
+                <pre>
+    SELECT COUNT(DISTINCT song)
+    FROM spotify
+    WHERE song REGEXP 'feat';
                 </pre>
             </div>
         </section>
