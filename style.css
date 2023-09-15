@@ -58,8 +58,12 @@ body {
 .flexbox-container-c {
     display: flex;
     flex-direction: column;
+}
+
+main.flexbox-container-c {
     margin: 0 8vw 0 8vw;
     padding-top: 9vw;
+    flex: 1 0 auto;
 }
 
 .flexbox-container {
@@ -76,7 +80,7 @@ html {
 }
 
 body {
-    max-width: 100%;
+    min-height: 100vh;
     background-image: url("background.svg");
     background-size: 100%;
 }
@@ -95,6 +99,10 @@ body {
 }
 
 /* -------------------------------- NAVIGATION */
+header {
+    height: fit-content;
+}
+
 nav ul {
     display: flex;
     align-items: center;
@@ -298,14 +306,14 @@ footer {
     text-align: center;
     margin-top: 6vw;
     background-color: black;
-    height: auto;
-
+    height: fit-content;
 }
 
 footer p {
     font-size: 3vw;
     color: var(--purple);
     padding: 2vw;
+    flex-shrink: 0;
 }
 
 /* -------------------------------- RESPONSIVE DESIGN */
@@ -348,7 +356,7 @@ footer p {
         font-size: 2vw;
     }
 
-    .flexbox-container-c {
+    main.flexbox-container-c {
         padding-top: 4.5vw;
     }
 
