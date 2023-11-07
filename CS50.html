@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
 
     <title>CS50</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/code.css">
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
 
 <!-- ------------------------------ BODY -->
@@ -13,44 +15,43 @@
 <header>
     <img id="triangle" src="Triangle.svg" alt="triangle">
 
-    <nav>
-        <!-- NAVIGATION LINKS -->
-        <ul>
-            <li><a class="flexbox-item" href="index.html">Home</a></li>
-            <li class="dropdown flexbox-item">
-                <a class="dropbtn">Projects</a>
-                <div class="dropdown-content">
-                    <a class="flexbox-item" href="CS50.html">CS50</a>
-                    <a class="flexbox-item" href="databases.html">Databases</a>
-                    <a class="flexbox-item" href="webtechnology.html">Web techonology</a>
-                </div>
-            </li>
-            <li><a class="flexbox-item" href="index.html#aboutme">About me</a></li>
-        </ul>
-    </nav>
+    <nav></nav>
     <img id="logo" src="P.gif" alt="Logo"/>
 </header>
 
 <!-- ------------------------------ MAIN -->
 <main class="flexbox-container-c">
     <section>
-        <h1>CS50 Problem Sets</h1>
+        <h1>CS50x Problem Sets</h1>
+
+        <p>During the CS50 course, I got introduced to computer science. To better understand the basics of coding, they
+            made us learn to program in the C language first before continuing into Python, SQL, HTML, CSS, and
+            JavaScript.</p>
+
         <h2>Overview</h2>
         <ol>
             <li>
                 <a href="#C">C language</a>
             </li>
-            <li>...</li>
+            <li>
+                <a href="#python">Python</a>
+            </li>
+            <li>
+                <a href="#flask-website">Flask website</a>
+            </li>
+            <li>
+                <a href="#sql">SQL</a>
+            </li>
         </ol>
     </section>
     <section class="pset" id="C">
         <h2>C language</h2>
         <!-- ------------------------------ hello.c -->
         <section>
+            <h3>hello.c</h3>
+            <p>Modify this program in such a way that it first prompts the user for their name and then prints
+                hello, so-and-so, where so-and-so is their actual name.</p>
             <div>
-                <h3>hello.c</h3>
-                <p>Modify this program in such a way that it first prompts the user for their name and then prints
-                    hello, so-and-so, where so-and-so is their actual name.</p>
                 <pre>
     #include &lt;stdio.h&gt;
     #include &lt;cs50.h&gt;
@@ -65,20 +66,20 @@
         printf(&quot;hello, %s\n&quot;, name);
     }
             </pre>
-            </div>
-            <div>
                 <p>
                     <b>Output</b>
                 </p>
-                <img src="CS50%20terminal/hello-C.png" alt="hello.c output">
+                <img src="CS50-terminal/hello-C.png" alt="hello.c output">
             </div>
         </section>
         <!-- ------------------------------ mario.c -->
         <section>
-            <div>
-                <h3>mario.c</h3>
-                <p>Toward the end of World 1-1 in Nintendo’s Super Mario Brothers, Mario must ascend right-aligned
-                    pyramid of blocks. Let’s recreate that pyramid in C, albeit in text, using hashes (#) for
+            <h3>mario.c</h3>
+            <p>Toward the end of World 1-1 in Nintendo’s Super Mario Brothers, Mario must ascend right-aligned
+                pyramid of blocks.</p>
+
+            <div class="hidden">
+                <p>Let’s recreate that pyramid in C, albeit in text, using hashes (#) for
                     bricks. Each hash is a bit taller than it is wide, so the pyramid itself will also be
                     taller than it is wide.</p>
                 <p>And let’s allow the user to decide just how tall the pyramid should be by first prompting them for a
@@ -114,20 +115,26 @@
         }
     }
             </pre>
-            </div>
-            <div>
                 <p>
                     <b>Output</b>
                 </p>
-                <img src="CS50%20terminal/mario-C.png" alt="mario.c output">
+                <img src="CS50-terminal/mario-C.png" alt="mario.c output">
+            </div>
+            <div class="show-more">
+                <span>Show more</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="more-arrow">
+                    <path d="M7.293 4.707 14.586 12l-7.293 7.293 1.414 1.414L17.414 12 8.707 3.293 7.293 4.707z"/>
+                </svg>
             </div>
         </section>
         <!-- ------------------------------ marioMore.c -->
         <section>
-            <div>
-                <h3>marioMore.c</h3>
-                <p>Toward the beginning of World 1-1 in Nintendo’s Super Mario Brothers, Mario must hop over adjacent
-                    pyramids of blocks. Let’s recreate those pyramids in C, albeit in text, using hashes (#) for bricks.
+            <h3>marioMore.c</h3>
+            <p>Toward the beginning of World 1-1 in Nintendo’s Super Mario Brothers, Mario must hop over adjacent
+                pyramids of blocks.</p>
+
+            <div class="hidden">
+                <p>Let’s recreate those pyramids in C, albeit in text, using hashes (#) for bricks.
                     Each hash is a bit taller than it is wide, so the pyramids themselves will also be taller than they
                     are wide.</p>
                 <p>And let’s allow the user to decide just how tall the pyramids should be by first prompting them for a
@@ -175,22 +182,28 @@
         }
     }
             </pre>
-            </div>
-            <div>
                 <p>
                     <b>Output</b>
                 </p>
-                <img src="CS50%20terminal/marioMore-C.png" alt="marioMore.c output">
+                <img src="CS50-terminal/marioMore-C.png" alt="marioMore.c output">
+            </div>
+            <div class="show-more">
+                <span>Show more</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="more-arrow">
+                    <path d="M7.293 4.707 14.586 12l-7.293 7.293 1.414 1.414L17.414 12 8.707 3.293 7.293 4.707z"/>
+                </svg>
             </div>
         </section>
         <!-- ------------------------------ cash.c -->
         <section>
-            <div>
-                <h3>cash.c</h3>
-                <p>When making change, odds are you want to minimize the number of coins you’re dispensing for each
-                    customer. Well, suppose that a cashier owes a customer some change and in that cashier’s drawer are
-                    quarters (25¢), dimes (10¢), nickels (5¢), and pennies (1¢). The problem to be solved is to decide
-                    which coins and how many of each to hand to the customer. </p>
+            <h3>cash.c</h3>
+            <p>When making change, odds are you want to minimize the number of coins you’re dispensing for each
+                customer.</p>
+
+            <div class="hidden">
+                <p>Well, suppose that a cashier owes a customer some change and in that cashier’s drawer are
+                    quarters (25¢), dimes (10¢), nickels (5¢), and pennies (1¢).</p>
+                <p>The problem to be solved is to decide which coins and how many of each to hand to the customer. </p>
                 <pre>
     #include &lt;cs50.h&gt;
     #include &lt;stdio.h&gt;
@@ -300,21 +313,27 @@
         return pennies;
     }
             </pre>
-            </div>
-            <div>
+
                 <p>
                     <b>Output</b>
                 </p>
-                <img src="CS50%20terminal/cash-C.png" alt="cash.c output">
+                <img src="CS50-terminal/cash-C.png" alt="cash.c output">
+            </div>
+            <div class="show-more">
+                <span>Show more</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="more-arrow">
+                    <path d="M7.293 4.707 14.586 12l-7.293 7.293 1.414 1.414L17.414 12 8.707 3.293 7.293 4.707z"/>
+                </svg>
             </div>
         </section>
         <!-- ------------------------------ credit.c -->
         <section>
-            <div>
-                <h3>credit.c</h3>
-                <p>There are a lot of people with credit cards in this world, so those numbers are pretty long: American
-                    Express uses 15-digit numbers, MasterCard uses 16-digit numbers, and Visa uses 13- and 16-digit
-                    numbers.</p>
+            <h3>credit.c</h3>
+            <p>There are a lot of people with credit cards in this world, so those numbers are pretty long: American
+                Express uses 15-digit numbers, MasterCard uses 16-digit numbers, and Visa uses 13- and 16-digit
+                numbers.</p>
+
+            <div class="hidden">
                 <p>All American Express numbers start with 34 or 37; most MasterCard numbers start with 51,
                     52, 53, 54, or 55 (they also have some other potential starting numbers which we won’t concern
                     ourselves with for this problem); and all Visa numbers start with 4. </p>
@@ -327,7 +346,6 @@
                 <p>So what’s the secret formula? Well, most cards use an algorithm invented by Hans Peter Luhn of IBM.
                     According to Luhn’s algorithm, you can determine if a credit card number is (syntactically)
                     valid.</p>
-
                 <pre>
     #include &lt;stdio.h&gt;
     #include &lt;cs50.h&gt;
@@ -461,23 +479,29 @@
         }
     }
             </pre>
-            </div>
-            <div>
                 <p>
                     <b>Output</b>
                 </p>
-                <img src="CS50%20terminal/credit-C.png" alt="credit.c output">
-                <img src="CS50%20terminal/credit2-C.png" alt="credit.c output">
+                <img src="CS50-terminal/credit-C.png" alt="credit.c output">
+                <img src="CS50-terminal/credit2-C.png" alt="credit.c output">
+            </div>
+            <div class="show-more">
+                <span>Show more</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="more-arrow">
+                    <path d="M7.293 4.707 14.586 12l-7.293 7.293 1.414 1.414L17.414 12 8.707 3.293 7.293 4.707z"/>
+                </svg>
             </div>
         </section>
         <!-- ------------------------------ readability.c -->
         <section>
-            <div>
-                <h3>readability.c</h3>
-                <p>For this problem, you’ll implement a program that calculates the approximate grade level needed to
-                    comprehend some text.</p>
+            <h3>readability.c</h3>
+            <p>For this problem, you’ll implement a program that calculates the approximate grade level needed to
+                comprehend some text.</p>
+
+            <div class="hidden">
                 <p>A number of “readability tests” have been developed over the years that define formulas for computing
-                    the reading level of a text. One such readability test is the Coleman-Liau index. The Coleman-Liau
+                    the reading level of a text.</p>
+                <p>One such readability test is the Coleman-Liau index. The Coleman-Liau
                     index of a text is designed to output that (U.S.) grade level that is needed to understand some
                     text.</p>
                 <pre>
@@ -557,24 +581,29 @@
         }
     }
                 </pre>
-            </div>
-            <div>
                 <p>
                     <b>Output</b>
                 </p>
-                <img src="CS50%20terminal/readability-C.png" alt="readability.c output">
-                <img src="CS50%20terminal/readability2-C.png" alt="readability2.c output">
+                <img src="CS50-terminal/readability-C.png" alt="readability.c output">
+                <img src="CS50-terminal/readability2-C.png" alt="readability2.c output">
+            </div>
+            <div class="show-more">
+                <span>Show more</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="more-arrow">
+                    <path d="M7.293 4.707 14.586 12l-7.293 7.293 1.414 1.414L17.414 12 8.707 3.293 7.293 4.707z"/>
+                </svg>
             </div>
         </section>
         <!-- ------------------------------ caesar.c -->
         <section>
-            <div>
-                <h3>caesar.c</h3>
-                <p>Let’s write a program called caesar that enables you to encrypt messages using Caesar’s cipher. At
-                    the time the user executes the program, they should decide, by providing a command-line argument,
-                    what the key should be in the secret message they’ll provide at runtime. We shouldn’t necessarily
-                    assume that the user’s key is going to be a number; though you may assume that, if it is a number,
-                    it will be a positive integer.</p>
+            <h3>caesar.c</h3>
+            <p>Let’s write a program called caesar that enables you to encrypt messages using Caesar’s cipher.</p>
+
+            <div class="hidden">
+                <p>At the time the user executes the program, they should decide, by providing a command-line argument,
+                    what the key should be in the secret message they’ll provide at runtime.</p>
+                <p>We shouldn’t necessarily assume that the user’s key is going to be a number; though you may assume
+                    that, if it is a number, it will be a positive integer.</p>
                 <pre>
     #include &lt;cs50.h&gt;
     #include &lt;ctype.h&gt;
@@ -704,20 +733,26 @@
         return 0;
     }
                 </pre>
-            </div>
-            <div>
                 <p>
                     <b>Output</b>
                 </p>
-                <img src="CS50%20terminal/caesar-C.png" alt="caesar.c output">
+                <img src="CS50-terminal/caesar-C.png" alt="caesar.c output">
+            </div>
+            <div class="show-more">
+                <span>Show more</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="more-arrow">
+                    <path d="M7.293 4.707 14.586 12l-7.293 7.293 1.414 1.414L17.414 12 8.707 3.293 7.293 4.707z"/>
+                </svg>
             </div>
         </section>
         <!-- ------------------------------ substitution.c -->
         <section>
-            <div>
-                <h3>substitution.c</h3>
-                <p>Let’s write a program called substitution that enables you to encrypt messages using a substitution
-                    cipher. At the time the user executes the program, they should decide, by providing a command-line
+            <h3>substitution.c</h3>
+            <p>Let’s write a program called substitution that enables you to encrypt messages using a substitution
+                cipher.</p>
+
+            <div class="hidden">
+                <p>At the time the user executes the program, they should decide, by providing a command-line
                     argument, on what the key should be in the secret message they’ll provide at runtime.</p>
                 <pre>
     #include &lt;cs50.h&gt;
@@ -853,22 +888,27 @@
         return 0;
     }
                 </pre>
-            </div>
-            <div>
                 <p>
                     <b>Output</b>
                 </p>
-                <img src="CS50%20terminal/substitution-C.png" alt="substitution.c output">
+                <img src="CS50-terminal/substitution-C.png" alt="substitution.c output">
+            </div>
+            <div class="show-more">
+                <span>Show more</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="more-arrow">
+                    <path d="M7.293 4.707 14.586 12l-7.293 7.293 1.414 1.414L17.414 12 8.707 3.293 7.293 4.707z"/>
+                </svg>
             </div>
         </section>
         <!-- ------------------------------ plurality.c -->
         <section>
-            <div>
-                <h3>plurality.c</h3>
-                <p>Perhaps the simplest way to hold an election, though, is via a method commonly known as the
-                    “plurality vote” (also known as “first-past-the-post” or “winner take all”). In the plurality vote,
-                    every voter gets to vote for one candidate. At the end of the election, whichever candidate has the
-                    greatest number of votes is declared the winner of the election.</p>
+            <h3>plurality.c</h3>
+            <p>Perhaps the simplest way to hold an election, though, is via a method commonly known as the
+                “plurality vote” (also known as “first-past-the-post” or “winner take all”).</p>
+
+            <div class="hidden">
+                <p>In the plurality vote, every voter gets to vote for one candidate. At the end of the election,
+                    whichever candidate has the greatest number of votes is declared the winner of the election.</p>
                 <pre>
     #include &lt;cs50.h&gt;
     #include &lt;stdio.h&gt;
@@ -979,21 +1019,27 @@
         return;
     }
                 </pre>
-            </div>
-            <div>
                 <p>
                     <b>Output</b>
                 </p>
-                <img src="CS50%20terminal/plurality-C.png" alt="plurality.c output">
+                <img src="CS50-terminal/plurality-C.png" alt="plurality.c output">
+            </div>
+
+            <div class="show-more">
+                <span>Show more</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="more-arrow">
+                    <path d="M7.293 4.707 14.586 12l-7.293 7.293 1.414 1.414L17.414 12 8.707 3.293 7.293 4.707z"/>
+                </svg>
             </div>
         </section>
         <!-- ------------------------------ runoff.c -->
         <section>
-            <div>
-                <h3>runoff.c</h3>
-                <p>In an instant runoff election, voters can rank as many candidates as they wish. If any candidate has
-                    a majority (more than 50%) of the first preference votes, that candidate is declared the winner of
-                    the election.</p>
+            <h3>runoff.c</h3>
+            <p>In an instant runoff election, voters can rank as many candidates as they wish. If any candidate has
+                a majority (more than 50%) of the first preference votes, that candidate is declared the winner of
+                the election.</p>
+
+            <div class="hidden">
                 <p>If no candidate has more than 50% of the vote, then an “instant runoff” occurs. The candidate who
                     received the fewest number of votes is eliminated from the election, and anyone who originally chose
                     that candidate as their first preference now has their second preference considered. Why do it this
@@ -1244,20 +1290,25 @@
         return;
     }
                 </pre>
-            </div>
-            <div>
                 <p>
                     <b>Output</b>
                 </p>
-                <img src="CS50%20terminal/runoff-C.png" alt="runoff.c output">
+                <img src="CS50-terminal/runoff-C.png" alt="runoff.c output">
+            </div>
+            <div class="show-more">
+                <span>Show more</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="more-arrow">
+                    <path d="M7.293 4.707 14.586 12l-7.293 7.293 1.414 1.414L17.414 12 8.707 3.293 7.293 4.707z"/>
+                </svg>
             </div>
         </section>
         <!-- ------------------------------ filterLess.c -->
         <section>
-            <div>
-                <h3>filterLess.c</h3>
-                <p>One common filter is the “grayscale” filter, where we take an image and want to convert it to
-                    black-and-white.</p>
+            <h3>filterLess.c</h3>
+            <p>One common filter is the “grayscale” filter, where we take an image and want to convert it to
+                black-and-white.</p>
+
+            <div class="hidden">
                 <p>Most image editing programs support a “sepia” filter, which gives images an old-timey feel by making
                     the whole image look a bit reddish-brown. An image can be converted to sepia by taking each pixel,
                     and computing new red, green, and blue values based on the original values of the three. </p>
@@ -1422,42 +1473,46 @@
     return 0;
     }
                 </pre>
-            </div>
-            <div>
                 <p>
                     <b>Code</b>
                 </p>
-                <img src="CS50%20terminal/filterLess-C.png" alt="filter grayscale output">
+                <img src="CS50-terminal/filterLess-C.png" alt="filter grayscale output">
+                <div class="flexbox-container">
+                    <div>
+                        <p>Original image</p>
+                        <img src="CS50-terminal/filter/tower.png" alt="image of a tower">
+                    </div>
+                    <div>
+                        <p>Grayscale filter</p>
+                        <img src="CS50-terminal/filter/grayscale.png" alt="grayscale image of a tower">
+                    </div>
+                    <div>
+                        <p>Sepia filter</p>
+                        <img src="CS50-terminal/filter/sepia.png" alt="sepia image of a tower">
+                    </div>
+                    <div>
+                        <p>Reflection filter</p>
+                        <img src="CS50-terminal/filter/reflection.png" alt="reflected image of a tower">
+                    </div>
+                    <div>
+                        <p>Blur filter</p>
+                        <img src="CS50-terminal/filter/blur.png" alt="blurred image of a tower">
+                    </div>
+                </div>
             </div>
-            <div class="flexbox-container">
-                <div>
-                    <p>Original image</p>
-                    <img src="CS50%20terminal/filter/tower.png" alt="image of a tower">
-                </div>
-                <div>
-                    <p>Grayscale filter</p>
-                    <img src="CS50%20terminal/filter/grayscale.png" alt="grayscale image of a tower">
-                </div>
-                <div>
-                    <p>Sepia filter</p>
-                    <img src="CS50%20terminal/filter/sepia.png" alt="sepia image of a tower">
-                </div>
-                <div>
-                    <p>Reflection filter</p>
-                    <img src="CS50%20terminal/filter/reflection.png" alt="reflected image of a tower">
-                </div>
-                <div>
-                    <p>Blur filter</p>
-                    <img src="CS50%20terminal/filter/blur.png" alt="blurred image of a tower">
-                </div>
+            <div class="show-more">
+                <span>Show more</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="more-arrow">
+                    <path d="M7.293 4.707 14.586 12l-7.293 7.293 1.414 1.414L17.414 12 8.707 3.293 7.293 4.707z"/>
+                </svg>
             </div>
         </section>
         <!-- ------------------------------ filter.c -->
         <section>
-            <div>
-                <h3>filter.c</h3>
-                <p>One common filter is the “grayscale” filter, where we take an image and want to convert it to
-                    black-and-white.</p>
+            <h3>filter.c</h3>
+            <p>One common filter is the “grayscale” filter, where we take an image and want to convert it to
+                black-and-white.</p>
+            <div class="hidden">
                 <p>Some filters might also move pixels around. Reflecting an image, for example, is a filter where the
                     resulting image is what you would get by placing the original image in front of a mirror. So any
                     pixels on the left side of the image should end up on the right, and vice versa.</p>
@@ -1622,43 +1677,1407 @@
         return 0;
     }
                 </pre>
-            </div>
-            <div>
                 <p>
                     <b>Code</b>
                 </p>
-                <img src="CS50%20terminal/filter-C.png" alt="filter.c output">
+                <img src="CS50-terminal/filter-C.png" alt="filter.c output">
+                <div class="flexbox-container">
+                    <div>
+                        <p>Original image</p>
+                        <img src="CS50-terminal/filter/tower.png" alt="image of a tower">
+                    </div>
+                    <div>
+                        <p>Grayscale filter</p>
+                        <img src="CS50-terminal/filter/grayscale.png" alt="grayscale image of a tower">
+                    </div>
+                    <div>
+                        <p>Reflection filter</p>
+                        <img src="CS50-terminal/filter/reflection.png" alt="reflected image of a tower">
+                    </div>
+                    <div>
+                        <p>Blur filter</p>
+                        <img src="CS50-terminal/filter/blur.png" alt="blurred image of a tower">
+                    </div>
+                    <div>
+                        <p>Edges filter</p>
+                        <img src="CS50-terminal/filter/edges.png" alt="image of a tower with highlighted lines">
+                    </div>
+                </div>
             </div>
-            <div class="flexbox-container">
-                <div>
-                    <p>Original image</p>
-                    <img src="CS50%20terminal/filter/tower.png" alt="image of a tower">
-                </div>
-                <div>
-                    <p>Grayscale filter</p>
-                    <img src="CS50%20terminal/filter/grayscale.png" alt="grayscale image of a tower">
-                </div>
-                <div>
-                    <p>Reflection filter</p>
-                    <img src="CS50%20terminal/filter/reflection.png" alt="reflected image of a tower">
-                </div>
-                <div>
-                    <p>Blur filter</p>
-                    <img src="CS50%20terminal/filter/blur.png" alt="blurred image of a tower">
-                </div>
-                <div>
-                    <p>Edges filter</p>
-                    <img src="CS50%20terminal/filter/edges.png" alt="image of a tower with highlighted lines">
-                </div>
+            <div class="show-more">
+                <span>Show more</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="more-arrow">
+                    <path d="M7.293 4.707 14.586 12l-7.293 7.293 1.414 1.414L17.414 12 8.707 3.293 7.293 4.707z"/>
+                </svg>
             </div>
         </section>
+        <!-- ------------------------------ recover.c -->
+        <section>
+            <h3>recover.c</h3>
+            <p>Now, I only have one memory card, but there are a lot of you! And so I’ve gone ahead and created a
+                “forensic image” of the card, storing its contents, byte after byte, in a file called card.raw.</p>
+            <p>So that you don’t waste time iterating over millions of 0s unnecessarily, I’ve only imaged the first
+                few megabytes of the memory card. But you should ultimately find that the image contains 50 JPEGs.</p>
 
+            <div class="hidden">
+                <p>Implement a program that recovers JPEGs from a forensic image</p>
+                <pre>
+    #include &lt;stdio.h&gt;
+    #include &lt;stdlib.h&gt;
+    #include &lt;stdint.h&gt;
+
+    int main(int argc, char *argv[])
+    {
+        // If more than one or less than one argument, return 1
+        if (argc != 2)
+        {
+            printf(&quot;One command-line argument neededn&quot;);
+            return 1;
+        }
+
+        // r stands for &quot;read mode&quot;
+        FILE *input = fopen(argv[1], &quot;r&quot;);
+
+        // If it cannot be opened, return 1
+        if (input == NULL)
+        {
+            return 1;
+        }
+
+        //Create new type
+        typedef uint8_t BYTE;
+        int block = 512;
+
+        int count = 0;
+        FILE *img = NULL;
+        char filename[8];
+
+        //Read first 4 bytes
+        BYTE buffer[block];
+
+
+        //fread(data, size, number, inptr)
+        // data: pointer to where to store data you're reading
+        // size: size of each element to read
+        // number: number of elements  to read
+        // inptr: FILE * to read from
+
+        // If an error occurs, or the end of the file is reached, the return value is a short item count (or zero)
+        while (fread(&amp;buffer, sizeof(block), 1, input) != 0)
+        {
+            // If start of a JPEG
+            if ((buffer[0] == 0xff) &amp;&amp; (buffer[1] == 0xd8) &amp;&amp; (buffer[2] == 0xff) &amp;&amp; ((buffer[3] &amp; 0xf0) == 0xe0))
+            {
+                // If there has already been found a file
+                if (count &gt; 0)
+                {
+                    fclose(img);
+                }
+                //create new jpeg file
+                sprintf(filename, &quot;i.jpg&quot;, count);
+
+                //open new jpeg file
+                // w stands for &quot;writing&quot;
+                img = fopen(filename, &quot;w&quot;);
+
+                //write on the new jpeg file
+                // remember to use &amp;buffer and not filename
+                fwrite(&amp;buffer, sizeof(block), 1, img);
+                count++;
+            }
+            // If already found a JPEG, keep writing
+            // if img has data written, then there must have been found something
+            else if (img != NULL)
+            {
+                // remember to use &amp;buffer and not filename
+                fwrite(&amp;buffer, sizeof(block), 1, img);
+            }
+        }
+
+        fclose(img);
+        fclose(input);
+    }
+                </pre>
+                <p>
+                    <b>Output</b>
+                </p>
+                <img src="CS50-terminal/recover-C.png" alt="recover.c output">
+            </div>
+            <div class="show-more">
+                <span>Show more</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="more-arrow">
+                    <path d="M7.293 4.707 14.586 12l-7.293 7.293 1.414 1.414L17.414 12 8.707 3.293 7.293 4.707z"/>
+                </svg>
+            </div>
+        </section>
+        <!-- ------------------------------ speller.c -->
+        <section>
+            <h3>speller.c</h3>
+            <p>The challenge ahead of you is to implement the fastest spell checker you can! By “fastest,” though,
+                we’re talking actual “wall-clock,” not asymptotic, time.</p>
+
+            <div class="hidden">
+                <p>In speller.c, we’ve put together a program that’s designed to spell-check a file after loading a
+                    dictionary of words from disk into memory.</p>
+                <p>That dictionary, meanwhile, is implemented in a file called dictionary.c. (It could just be
+                    implemented in speller.c, but as programs get more complex, it’s often convenient to break them into
+                    multiple files.)</p>
+                <p>The prototypes for the functions therein, meanwhile, are defined not in dictionary.c itself but in
+                    dictionary.h instead. That way, both speller.c and dictionary.c can #include the file.</p>
+                <p>Unfortunately, we didn’t quite get around to implementing the loading part. Or the checking part.
+                    Both (and a bit more) we leave to you!</p>
+                <p>Alright, the challenge now before you is to implement, in order, load, hash, size, check, and unload
+                    as efficiently as possible using a hash table in such a way that TIME IN load, TIME IN check, TIME
+                    IN size, and TIME IN unload are all minimized. </p>
+                <pre>
+    // Implements a dictionary's functionality
+
+    #include &lt;ctype.h&gt;
+    #include &lt;stdbool.h&gt;
+    #include &lt;stdio.h&gt;
+    #include &lt;string.h&gt;
+    #include &lt;strings.h&gt;
+    #include &lt;stdlib.h&gt;
+
+    #include &quot;dictionary.h&quot;
+
+    // Represents a node in a hash table
+    typedef struct node
+    {
+        char word[LENGTH + 1];
+        struct node *next;
+    }
+    node;
+
+    // Make a counter for size function
+    int sizecount = 0;
+
+    // TODO: Choose number of buckets in hash table ---------------------------------------------------------------------------------------- NUMBER
+    const unsigned int N = 10000;
+
+    // Hash table
+    node *table[N];
+
+    // Returns true if word is in dictionary, else false
+    bool check(const char *word)
+    {
+        // TODO ---------------------------------------------------------------------------------------------------------------------------- CHECK
+        // Hash word to obtain a hash value
+        int hVal = hash(word);
+
+        if (table[hVal] == NULL)
+        {
+            return false;
+        }
+
+        // Access linked list at that index/value in the hash table
+        // Traverse (go through) linked list, looking for the word (strcasecmp)
+
+        for (node *tmp = table[hVal]; tmp != NULL; tmp = tmp-&gt;next)
+        {
+            if (strcasecmp(word, tmp-&gt;word) == 0)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // Hashes word to a number
+    unsigned int hash(const char *word)
+    {
+        // TODO: Improve this hash function ------------------------------------------------------------------------------------------------ HASH
+        char *w = malloc(LENGTH + 1);
+        strcpy(w, word);
+        for (int i = 0; i &lt; strlen(w); i++)
+        {
+            // returns 0 if it is not lower
+            // If it is alphabetical and not lowercase
+            if (isalpha(w[i]) != 0 &amp;&amp; islower(w[i]) == 0)
+            {
+                w[i] = tolower(w[i]);
+            }
+        }
+
+        // Source of hash function: https://stackoverflow.com/questions/14409466/simple-hash-functions
+        // sdbm
+        int value = 0;
+        for (int i = 0; w[i] != ''; i++)
+        {
+            value = w[i] + (value &lt;&lt; 6) + (value &lt;&lt; 16) - value;
+        }
+
+        free(w);
+        //Input: word with alphabetical characters and (possibly) '
+        //Output: number between 0 and N - 1
+        return (value % N);
+    }
+
+    // Loads dictionary into memory, returning true if successful, else false
+    bool load(const char *dictionary)
+    {
+        // TODO ---------------------------------------------------------------------------------------------------------------------------- LOAD
+        // Open dictionary file --------------------------------------------------------------
+        FILE *dict = fopen(dictionary, &quot;r&quot;);
+        if (dict == NULL)
+        {
+            printf(&quot;Could not open file.n&quot;);
+            return false;
+        }
+
+        // Read strings from file one at a time ----------------------------------------------
+        char buffer[LENGTH + 1];
+        while (fscanf(dict, &quot;%s&quot;, buffer) != EOF)
+        {
+            sizecount++;
+            // Create a new node for each word -----------------------------------------------
+            //Allocate space in memory for the new node
+            node *n = malloc(sizeof(node));
+            if (n == NULL)
+            {
+                return false;
+            }
+
+            //Copy word into the node and make sure there's no trash
+            strcpy(n-&gt;word, buffer);
+            n-&gt;next = NULL;
+
+            // Hash word to obtain a hash value ----------------------------------------------
+            int hValue = hash(n-&gt;word);
+
+            // Insert node into hash table at that location ----------------------------------
+            n-&gt;next = table[hValue];
+            table[hValue] = n;
+        }
+
+        fclose(dict);
+        return true;
+    }
+
+    // Returns number of words in dictionary if loaded, else 0 if not yet loaded
+    unsigned int size(void)
+    {
+        // TODO ---------------------------------------------------------------------------------------------------------------------------- SIZE
+        if (sizecount &gt; 0)
+        {
+            return sizecount;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
+    // Unloads dictionary from memory, returning true if successful, else false
+    bool unload(void)
+    {
+        // TODO ---------------------------------------------------------------------------------------------------------------------------- UNLOAD
+        for (int i = 0; i &lt; N; i++)
+        {
+            node *tmp = table[i];
+
+            while (tmp != NULL)
+            {
+                node *cursor = tmp-&gt;next;
+                free(tmp);
+                tmp = cursor;
+            }
+        }
+        return true;
+    }
+                </pre>
+                <p>
+                    <b>Output</b>
+                </p>
+                <img src="CS50-terminal/speller-C.png" alt="speller.c output">
+            </div>
+            <div class="show-more">
+                <span>Show more</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="more-arrow">
+                    <path d="M7.293 4.707 14.586 12l-7.293 7.293 1.414 1.414L17.414 12 8.707 3.293 7.293 4.707z"/>
+                </svg>
+            </div>
+        </section>
     </section>
+
+    <section class="pset" id="python">
+        <h2>Python</h2>
+        <!-- ------------------------------ mario.py -->
+        <section>
+            <h3>mario.py</h3>
+            <p> Write, in a file called mario.py, a program that recreates the half-pyramid using hashes (#) for
+                blocks, exactly as you did in Problem Set 1, except that your program this time should be written in
+                Python.</p>
+
+            <div class="hidden">
+                <p>To make things more interesting, first prompt the user with get_int for the half-pyramid’s height, a
+                    positive integer between 1 and 8, inclusive.</p>
+                <p>If the user fails to provide a positive integer no greater than 8, you should re-prompt for the same
+                    again.</p>
+                <p>Then, generate (with the help of print and one or more loops) the desired half-pyramid.</p>
+                <p>Take care to align the bottom-left corner of your half-pyramid with the left-hand edge of your
+                    terminal window.</p>
+                <pre>
+# Import get_string if needed, else use input
+from cs50 import get_int
+
+def main():
+    # Get height by using get_height function
+    height = get_height()
+
+    # Print rows
+    for i in range(height):
+        # Print columns
+        # Print space before the pyramid
+        for j in range(height - i - 1):
+            # end="" means that there shouldn't be a new line
+            print(" ", end="")
+
+        # Create blocks
+        # As the amount of blocks should increase, we increase with i + 1
+        for k in range(i + 1):
+            print("#", end="")
+
+        # Print new line
+        print()
+
+
+# Get height function
+def get_height():
+    # Forever loop
+    while True:
+        # Get height from user
+        height = get_int("Height: ")
+
+        # If height is more than 0 and max 8, break out of loop and return height
+        if height > 0 and height < 9:
+            break
+
+    return height
+
+
+# Call the main function to start the program after all functions has been read
+main()
+            </pre>
+                <p>
+                    <b>Output</b>
+                </p>
+                <img src="CS50-terminal/marioLess-py.png" alt="mario.py output">
+            </div>
+            <div class="show-more">
+                <span>Show more</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="more-arrow">
+                    <path d="M7.293 4.707 14.586 12l-7.293 7.293 1.414 1.414L17.414 12 8.707 3.293 7.293 4.707z"/>
+                </svg>
+            </div>
+        </section>
+        <!-- ------------------------------ marioMore.py -->
+        <section>
+            <h3>marioMore.py</h3>
+            <p>Write, in a file called mario.py, a program that recreates these half-pyramids using hashes (#) for
+                blocks, exactly as you did in Problem Set 1, except that your program this time should be written in
+                Python.</p>
+            <div class="hidden">
+                <p>To make things more interesting, first prompt the user with get_int for the half-pyramid’s height, a
+                    positive integer between 1 and 8, inclusive. (The height of the half-pyramids pictured above happens
+                    to be 4, the width of each half-pyramid 4, with a gap of size 2 separating them).</p>
+                <p>If the user fails to provide a positive integer no greater than 8, you should re-prompt for the same
+                    again.</p>
+                <p>Then, generate (with the help of print and one or more loops) the desired half-pyramids.</p>
+                <p>Take care to align the bottom-left corner of your pyramid with the left-hand edge of your terminal
+                    window, and ensure that there are two spaces between the two pyramids, and that there are no
+                    additional spaces after the last set of hashes on each row.</p>
+                <pre>
+    # Import get_string if needed, else use input
+    from cs50 import get_int
+
+
+    def main():
+        # Get height by using get_height function
+        height = get_height()
+
+        # Print rows
+        for i in range(height):
+            # Print columns
+            # Print space before the pyramid
+            for j in range(height - i - 1):
+                # end=&quot;&quot; means that there shouldn't be a new line
+                print(&quot; &quot;, end=&quot;&quot;)
+
+            # Create blocks
+            # As the amount of blocks should increase, we increase with i + 1
+            for k in range(i + 1):
+                print(&quot;#&quot;, end=&quot;&quot;)
+
+            # Create space between pyramids
+            print(&quot;  &quot;, end=&quot;&quot;)
+
+            # Create blocks for second pyramid
+            for m in range(i + 1):
+                print(&quot;#&quot;, end=&quot;&quot;)
+
+            # Print new line
+            print()
+
+
+    # Get height function
+    def get_height():
+        # Forever loop
+        while True:
+            # Get height from user
+            height = get_int(&quot;Height: &quot;)
+
+            # If height is more than 0 and max 8, break out of loop and return height
+            if height &gt; 0 and height &lt; 9:
+                break
+
+        return height
+
+
+    # Call the main function to start the program after all functions has been read
+    main()
+                </pre>
+                <p>
+                    <b>Output</b>
+                </p>
+                <img src="CS50-terminal/marioMore-py.png" alt="marioMore.c output">
+            </div>
+            <div class="show-more">
+                <span>Show more</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="more-arrow">
+                    <path d="M7.293 4.707 14.586 12l-7.293 7.293 1.414 1.414L17.414 12 8.707 3.293 7.293 4.707z"/>
+                </svg>
+            </div>
+        </section>
+        <!-- ------------------------------ cash.py -->
+        <section>
+            <h3>cash.py</h3>
+            <p>Write, in a file called cash.py, a program that first asks the user how much change is owed and then
+                spits out the minimum number of coins with which said change can be made. You can do this exactly as
+                you did in Problem Set 1, except that your program this time should be written in Python, and you
+                should assume that the user will input their change in dollars (e.g., 0.50 dollars instead of 50
+                cents).</p>
+            <div class="hidden">
+                <p>Use get_float from the CS50 Library to get the user’s input and print to output your answer. Assume
+                    that the only coins available are quarters (25¢), dimes (10¢), nickels (5¢), and pennies (1¢).</p>
+                <p>We ask that you use get_float so that you can handle dollars and cents, albeit sans dollar sign. In
+                    other words, if some customer is owed $9.75 (as in the case where a newspaper costs 25¢ but the
+                    customer pays with a $10 bill), assume that your program’s input will be 9.75 and not $9.75 or 975.
+                    However, if some customer is owed $9 exactly, assume that your program’s input will be 9.00 or just
+                    9 but, again, not $9 or 900. Of course, by nature of floating-point values, your program will likely
+                    work with inputs like 9.0 and 9.000 as well; you need not worry about checking whether the user’s
+                    input is “formatted” like money should be.</p>
+                <p>If the user fails to provide a non-negative value, your program should re-prompt the user for a valid
+                    amount again and again until the user complies.</p>
+                <p>Incidentally, so that we can automate some tests of your code, we ask that your program’s last line
+                    of output be only the minimum number of coins possible: an integer followed by a newline.</p>
+                <pre>
+    from cs50 import get_float
+
+    def main():
+        # Ask how many cents the customer is owed
+        cents = get_cents()
+
+        # Calculate the number of quarters to give the customer
+        quarters = calculate_quarters(cents)
+        cents = cents - quarters * 25
+
+        # Calculate the number of dimes to give the customer
+        dimes = calculate_dimes(cents)
+        cents = cents - dimes * 10
+
+        # Calculate the number of nickels to give the customer
+        nickels = calculate_nickels(cents)
+        cents = cents - nickels * 5
+
+        # Calculate the number of pennies to give the customer
+        pennies = calculate_pennies(cents)
+        cents = cents - pennies * 1
+
+        # Sum coins
+        coins = quarters + dimes + nickels + pennies
+
+        # Print total number of coins to give the customer
+        print(coins)
+
+
+    def get_cents():
+        # TODO
+        cents = -1
+
+        # Ask until change is more than 0
+        while (cents &lt;= 0):
+            cents = get_float(&quot;Change: $&quot;)
+
+        # Make the dollars to cents
+        cents *= 100
+
+        return cents
+
+
+    def calculate_quarters(cents):
+        # TODO
+        quarters = 0
+
+        # While there's enough cents for the coin, add one coin and remove the amount from the cents
+        while (cents &gt;= 25):
+            quarters += 1
+            cents -= 25
+
+        return quarters
+
+
+    def calculate_dimes(cents):
+        # TODO
+        dimes = 0
+
+        # While there's enough cents for the coin, add one coin and remove the amount from the cents
+        while (cents &gt;= 10):
+            dimes += 1
+            cents -= 10
+
+        return dimes
+
+
+    def calculate_nickels(cents):
+        # TODO
+        nickels = 0
+
+        # While there's enough cents for the coin, add one coin and remove the amount from the cents
+        while (cents &gt;= 5):
+            nickels += 1
+            cents -= 5
+
+        return nickels
+
+
+    def calculate_pennies(cents):
+        # TODO
+        pennies = 0
+
+        # While there's enough cents for the coin, add one coin and remove the amount from the cents
+        while (cents &gt;= 1):
+            pennies += 1
+            cents -= 1
+
+        return pennies
+
+
+    main()
+                </pre>
+                <p>
+                    <b>Output</b>
+                </p>
+                <img src="CS50-terminal/cash-py.png" alt="cash.py output">
+            </div>
+            <div class="show-more">
+                <span>Show more</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="more-arrow">
+                    <path d="M7.293 4.707 14.586 12l-7.293 7.293 1.414 1.414L17.414 12 8.707 3.293 7.293 4.707z"/>
+                </svg>
+            </div>
+        </section>
+        <!-- ------------------------------ credit.py -->
+        <section>
+            <h3>credit.py</h3>
+            <p>In credit.py, write a program that prompts the user for a credit card number and then reports (via
+                print) whether it is a valid American Express, MasterCard, or Visa card number, exactly as you did
+                in Problem Set 1, except that your program this time should be written in Python.</p>
+            <div class="hidden">
+                <p>So that we can automate some tests of your code, we ask that your program’s last line of output be
+                    AMEX\n or MASTERCARD\n or VISA\n or INVALID\n, nothing more, nothing less.</p>
+                <p>For simplicity, you may assume that the user’s input will be entirely numeric (i.e., devoid of
+                    hyphens, as might be printed on an actual card).</p>
+                <p>Best to use get_int or get_string from CS50’s library to get users’ input, depending on how you to
+                    decide to implement this one.</p>
+                <pre>
+    from cs50 import get_string
+
+    # MASTERCARD: 16-Digit #'s, Start with: 51, 52, 53, 54, or 55
+    # VISA: 13-16-Digit #'s, Start with: 4
+    # AMEX: 15-Digit #'s, Star with: 34 or 37
+
+    # Luhn's Algorithm:
+    # 1. Multiply every other digit by 2, starting with the second number to the last
+    # 2. Add the sum of those digits
+    # 3. Add the sum of the other digits
+    # 4. If the total sum ends with a 0, it is valid!
+
+
+    def main():
+        # -----Promt user for credit card number
+        ccn = get_string(&quot;Number: &quot;)
+
+        # -----Check length
+        count = len(ccn)
+
+        # -----Check if the length is valid
+        if (count != 13 and count != 15 and count != 16):
+            print(&quot;INVALID&quot;)
+            return 0
+
+        # -----Calculate checksum
+        checksum = 0
+        # Use function check to find the checksum
+        checksum = Check(count, ccn, checksum)
+        csEnd = checksum % 10
+
+        if (csEnd != 0):
+            print(&quot;INVALID&quot;)
+            return 0
+
+        # -----Find start number with two digits
+        start = int(ccn)
+
+        for j in range(count - 2):
+            start /= 10
+        start = int(start)
+
+        # Check if it's American Express:
+        if (count == 15 and (start == 34 or start == 37)):
+            print(&quot;AMEX&quot;)
+
+        # Check if it's MasterCard:
+        elif (count == 16 and (start == 51 or start == 52 or start == 53 or start == 54 or start == 55)):
+            print(&quot;MASTERCARD&quot;)
+
+        # Check if it's VISA:
+        elif ((count == 13 or count == 16) and (int(start / 10) == 4)):
+            print(&quot;VISA&quot;)
+
+        # INVALID
+        else:
+            print(&quot;INVALID&quot;)
+
+
+    def Check(count, ccn, checksum):
+        # Case 1 (Multiply every other digit by 2)
+        ccn = int(ccn)
+
+        for i in range(1, count + 1, 1):
+            digit = int(ccn) % 10
+
+            # Case 1 (Multiply every other digit by 2 and add to checksum)
+            if (i % 2 == 0):
+                dd = digit * 2
+
+                if (dd &gt;= 10):
+                    checksum += dd % 10
+                    checksum += int(dd / 10)
+
+                else:
+                    checksum += digit * 2
+
+            # case 2 (add the other digits to checksum)
+            else:
+                checksum += digit
+
+            ccn /= 10
+
+        return checksum
+
+
+    main()
+                </pre>
+                <p>
+                    <b>Output</b>
+                </p>
+                <img src="CS50-terminal/credit-py.png" alt="credit.py output">
+            </div>
+            <div class="show-more">
+                <span>Show more</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="more-arrow">
+                    <path d="M7.293 4.707 14.586 12l-7.293 7.293 1.414 1.414L17.414 12 8.707 3.293 7.293 4.707z"/>
+                </svg>
+            </div>
+        </section>
+        <!-- ------------------------------ readability.py -->
+        <section>
+            <h3>readability.py</h3>
+            <p>Write, in a file called readability.py, a program that first asks the user to type in some text, and
+                then outputs the grade level for the text, according to the Coleman-Liau formula, exactly as you did
+                in Problem Set 2, except that your program this time should be written in Python.</p>
+
+            <div class="hidden">
+                <p>Recall that the Coleman-Liau index is computed as 0.0588 * L - 0.296 * S - 15.8, where L is the
+                    average number of letters per 100 words in the text, and S is the average number of sentences per
+                    100 words in the text.</p>
+                <p>Use get_string from the CS50 Library to get the user’s input, and print to output your answer.</p>
+                <p>Your program should count the number of letters, words, and sentences in the text. You may assume
+                    that a letter is any lowercase character from a to z or any uppercase character from A to Z, any
+                    sequence of characters separated by spaces should count as a word, and that any occurrence of a
+                    period, exclamation point, or question mark indicates the end of a sentence.</p>
+                <p>Your program should print as output "Grade X" where X is the grade level computed by the Coleman-Liau
+                    formula, rounded to the nearest integer.</p>
+                <p>If the resulting index number is 16 or higher (equivalent to or greater than a senior undergraduate
+                    reading level), your program should output "Grade 16+" instead of giving the exact index number. If
+                    the index number is less than 1, your program should output "Before Grade 1".</p>
+                <pre>
+    from cs50 import get_string
+
+    # Get text from user
+    text = get_string(&quot;Text: &quot;)
+
+    # Calculate length of string/text
+    length = len(text)
+
+    # Letter count, word count, sentence count
+    lcount = 0
+    wcount = 0
+    scount = 0
+
+    for i in range(length):
+        # Count letters
+        num = ord(text[i])
+        if ((num &gt;= 65 and num &lt;= 90) or (num &gt;= 97 and num &lt;= 122)):
+            lcount += 1
+
+        # Count words
+        elif (num == 32):
+            wcount += 1
+
+        # Count sentences
+        elif (text[i] == '.' or text[i] == '!' or text[i] == '?'):
+            scount += 1
+
+        # Count the last word
+        elif (text[i] == ''):
+            wcount += 1
+    wcount += 1
+
+    # Calculate average number of letters per 100 words
+    avgl = lcount / wcount * 100
+
+    # Calculate average number of sentences per 100 words
+    avgs = scount / wcount * 100
+
+    # Calculate Coleman-Liau Index
+    index = round(0.0588 * avgl - 0.296 * avgs - 15.8)
+
+    # If greater than grade 16
+    if (index &gt; 16):
+        print(&quot;Grade 16+&quot;)
+
+    # If less than grade 1
+    elif (index &lt; 1):
+        print(&quot;Before Grade 1&quot;)
+
+    # If grade is between 1 and 16
+    else:
+        print(f&quot;Grade {index}&quot;)
+                </pre>
+                <p>
+                    <b>Output</b>
+                </p>
+                <img src="CS50-terminal/readability-py.png" alt="readability.py output">
+            </div>
+            <div class="show-more">
+                <span>Show more</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="more-arrow">
+                    <path d="M7.293 4.707 14.586 12l-7.293 7.293 1.414 1.414L17.414 12 8.707 3.293 7.293 4.707z"/>
+                </svg>
+            </div>
+        </section>
+        <!-- ------------------------------ dna.py -->
+        <section>
+            <h3>dna.py</h3>
+            <p>In a file called dna.py, implement a program that identifies to whom a sequence of DNA belongs.</p>
+            <div class="hidden">
+                <p>The program should require as its first command-line argument the name of a CSV file containing the
+                    STR counts for a list of individuals and should require as its second command-line argument the name
+                    of a text file containing the DNA sequence to identify.</p>
+                <p>If your program is executed with the incorrect number of command-line arguments, your program should
+                    print an error message of your choice (with print). If the correct number of arguments are provided,
+                    you may assume that the first argument is indeed the filename of a valid CSV file and that the
+                    second argument is the filename of a valid text file.</p>
+                <p>Your program should open the CSV file and read its contents into memory.</p>
+                <p>Your program should open the DNA sequence and read its contents into memory.</p>
+                <p>For each of the STRs (from the first line of the CSV file), your program should compute the longest
+                    run of consecutive repeats of the STR in the DNA sequence to identify. Notice that we’ve defined a
+                    helper function for you, longest_match, which will do just that!</p>
+                <p>If the STR counts match exactly with any of the individuals in the CSV file, your program should
+                    print out the name of the matching individual.</p>
+                <p>If the STR counts do not match exactly with any of the individuals in the CSV file, your program
+                    should print No match.</p>
+                <pre>
+    import csv
+    import sys
+
+
+    def main():
+
+        # TODO: Check for command-line usage
+        if len(sys.argv) != 3:
+            sys.exit(&quot;Usage: python dna.py data.csv sequence.txt&quot;)
+
+        # TODO: Read database file into a variable
+        # Make a list of dictionaries
+        database = []
+
+        # Open csv file
+        with open(sys.argv[1], &quot;r&quot;) as f:
+            reader = csv.DictReader(f)
+
+            # Copy file into database
+            for name in reader:
+                database.append(name)
+
+        # TODO: Read DNA sequence file into a variable
+        # Open text file
+        with open(sys.argv[2], &quot;r&quot;) as f:
+            # Copy text into variable
+            DNA = f.read()
+
+        # TODO: Find longest match of each STR in DNA sequence
+        # Make a dictionary for all the different STR's
+        matches = {}
+
+        # For every STR in the database (therefore not 'name')
+        for key in database[0]:
+            if (key != 'name'):
+                # subsequence is equal each STR
+                subsequence = key
+                # Find the longest match of each STR in the person's DNA
+                match = longest_match(DNA, subsequence)
+                #  Add each STR and their longest match to dictionary
+                matches[key] = match
+
+        # TODO: Check database for matching profiles
+        # For every person in the database
+        for i in range(len(database)):
+
+            matchingSTR = 0
+
+            # Every STR for that person
+            for key, value in database[i].items():
+
+                # Every matching STR for that person (therefore not 'name')
+                if (key != 'name'):
+                    for k, v in matches.items():
+                        # If both the STR name and the longest match value are the same
+                        if (int(value) == int(v) and key == k):
+                            # Add one to the total amount of matches
+                            matchingSTR += 1
+
+            # If every STR has a match with the same person,
+            # the amount of matches will be equal the amount of different STR sequences
+            if (matchingSTR == len(matches)):
+                print(database[i]['name'])
+                return
+
+        # If not found after going through the whole database
+        print(&quot;No match&quot;)
+        return
+
+
+    def longest_match(sequence, subsequence):
+        &quot;&quot;&quot;Returns length of longest run of subsequence in sequence.&quot;&quot;&quot;
+
+        # Initialize variables
+        longest_run = 0
+        subsequence_length = len(subsequence)
+        sequence_length = len(sequence)
+
+        # Check each character in sequence for most consecutive runs of subsequence
+        for i in range(sequence_length):
+
+            # Initialize count of consecutive runs
+            count = 0
+
+            # Check for a subsequence match in a &quot;substring&quot; (a subset of characters) within sequence
+            # If a match, move substring to next potential match in sequence
+            # Continue moving substring and checking for matches until out of consecutive matches
+            while True:
+
+                # Adjust substring start and end
+                start = i + count * subsequence_length
+                end = start + subsequence_length
+
+                # If there is a match in the substring
+                if sequence[start:end] == subsequence:
+                    count += 1
+
+                # If there is no match in the substring
+                else:
+                    break
+
+            # Update most consecutive matches found
+            longest_run = max(longest_run, count)
+
+        # After checking for runs at each character in seqeuence, return longest run found
+        return longest_run
+
+
+    main()
+                </pre>
+                <p>
+                    <b>Output</b>
+                </p>
+                <img src="CS50-terminal/dna-py.png" alt="dna.py output">
+            </div>
+            <div class="show-more">
+                <span>Show more</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="more-arrow">
+                    <path d="M7.293 4.707 14.586 12l-7.293 7.293 1.414 1.414L17.414 12 8.707 3.293 7.293 4.707z"/>
+                </svg>
+            </div>
+        </section>
+    </section>
+
+    <section class="pset" id="flask-website">
+        <h2>Flask/Python website</h2>
+        <p>For my final project in the CS50 course I had to create a website using Flask, Python, HTML, CSS, and
+            JavaScript.</p>
+        <a href="https://github.com/DetGrey/pset7-finance">Link to GitHub repository</a>
+        <a href="">Introduction video to my website</a>
+    </section>
+
+    <section class="pset databases" id="sql">
+        <h2>SQL</h2>
+        <!-- ------------------------------ movies -->
+        <section class="database-flex">
+            <h3>movies database</h3>
+            <div class="flexbox-item">
+                <p>-- In 1.sql, write a SQL query to list the titles of all movies released in 2008.</p>
+                <p>-- Your query should output a table with a single column for the title of each movie.</p>
+                <pre>
+    SELECT title
+    FROM movies
+    WHERE year = 2008;
+                </pre>
+            </div>
+            <div class="flexbox-item">
+                <p>-- In 2.sql, write a SQL query to determine the birth year of Emma Stone.</p>
+                <p>-- Your query should output a table with a single column and a single row (not including the header)
+                    containing Emma Stone’s birth year.</p>
+                <p>-- You may assume that there is only one person in the database with the name Emma Stone.</p>
+                <pre>
+    SELECT birth
+    FROM people
+    WHERE name = "Emma Stone";
+                </pre>
+            </div>
+            <div class="flexbox-item">
+                <p>-- In 3.sql, write a SQL query to list the titles of all movies with a release date on or after 2018,
+                    in alphabetical order.</p>
+                <p>-- Your query should output a table with a single column for the title of each movie.</p>
+                <p>-- Movies released in 2018 should be included, as should movies with release dates in the future.</p>
+                <pre>
+    SELECT title
+    FROM movies
+    WHERE year >= 2018
+    ORDER BY title;
+                </pre>
+            </div>
+
+            <div class="hidden">
+                <div class="flexbox-item">
+                    <p>-- In 4.sql, write a SQL query to determine the number of movies with an IMDb rating of 10.0.</p>
+                    <p>-- Your query should output a table with a single column and a single row (not including the
+                        header)
+                        containing the number of movies with a 10.0 rating.</p>
+                    <pre>
+        SELECT COUNT(title)
+        FROM movies
+        JOIN ratings
+        ON ratings.movie_id = movies.id
+        WHERE ratings.rating = 10.0;
+                    </pre>
+                </div>
+                <div class="flexbox-item">
+                    <p>-- In 5.sql, write a SQL query to list the titles and release years of all Harry Potter movies,
+                        in
+                        chronological order.</p>
+                    <p>-- Your query should output a table with two columns, one for the title of each movie and one for
+                        the
+                        release year of each movie.</p>
+                    <p>-- You may assume that the title of all Harry Potter movies will begin with the words “Harry
+                        Potter”,
+                        and that if a movie title begins with the words “Harry Potter”, it is a Harry Potter movie.</p>
+                    <p>-- The percentage sign on the right means 0 or more characters on the right of the words</p>
+                    <pre>
+        SELECT year, title
+        FROM movies
+        WHERE title LIKE "Harry Potter%"
+        ORDER BY year;
+                    </pre>
+                </div>
+                <div class="flexbox-item">
+                    <p>-- In 6.sql, write a SQL query to determine the average rating of all movies released in
+                        2012.</p>
+                    <p>-- Your query should output a table with a single column and a single row (not including the
+                        header)
+                        containing the average rating.</p>
+                    <pre>
+        SELECT AVG(rating)
+        FROM ratings
+        JOIN movies ON movies.id = ratings.movie_id
+        WHERE movies.year = 2012;
+                    </pre>
+                </div>
+                <div class="flexbox-item">
+                    <p>-- In 7.sql, write a SQL query to list all movies released in 2010 and their ratings, in
+                        descending
+                        order by rating. For movies with the same rating, order them alphabetically by title.</p>
+                    <p>-- Your query should output a table with two columns, one for the title of each movie and one for
+                        the
+                        rating of each movie.</p>
+                    <p>-- Movies that do not have ratings should not be included in the result.</p>
+                    <pre>
+        SELECT ratings.rating, movies.title
+        FROM movies
+        JOIN ratings
+        ON ratings.movie_id = movies.id
+        WHERE movies.year = 2010
+        ORDER BY rating DESC, title ASC;
+                    </pre>
+                </div>
+                <div class="flexbox-item">
+                    <p>-- In 8.sql, write a SQL query to list the names of all people who starred in Toy Story.</p>
+                    <p>-- Your query should output a table with a single column for the name of each person.</p>
+                    <p>-- You may assume that there is only one movie in the database with the title Toy Story.</p>
+                    <pre>
+        SELECT name
+        FROM people
+        JOIN stars
+        ON stars.person_id = people.id
+
+        JOIN movies
+        ON stars.movie_id = movies.id
+
+        WHERE movies.title = "Toy Story";
+                    </pre>
+                </div>
+                <div class="flexbox-item">
+                    <p>-- In 9.sql, write a SQL query to list the names of all people who starred in a movie released in
+                        2004, ordered by birth year.</p>
+                    <p>-- Your query should output a table with a single column for the name of each person.</p>
+                    <p>-- People with the same birth year may be listed in any order.</p>
+                    <p>-- No need to worry about people who have no birth year listed, so long as those who do have a
+                        birth
+                        year are listed in order.</p>
+                    <p>-- If a person appeared in more than one movie in 2004, they should only appear in your results
+                        once.</p>
+                    <pre>
+        SELECT DISTINCT name
+        FROM people
+        JOIN stars
+        ON stars.person_id = people.id
+
+        JOIN movies
+        ON movies.id = stars.movie_id
+
+        WHERE movies.year = 2004
+        ORDER BY people.birth;
+                    </pre>
+                </div>
+                <div class="flexbox-item">
+                    <p>-- In 10.sql, write a SQL query to list the names of all people who have directed a movie that
+                        received a rating of at least 9.0.</p>
+                    <p>-- Your query should output a table with a single column for the name of each person.</p>
+                    <p>-- If a person directed more than one movie that received a rating of at least 9.0, they should
+                        only
+                        appear in your results once.</p>
+                    <pre>
+        SELECT DISTINCT people.name
+        FROM people
+        JOIN directors
+        ON directors.person_id = people.id
+
+        JOIN movies
+        ON movies.id = directors.movie_id
+
+        JOIN ratings
+        ON ratings.movie_id = movies.id
+
+        WHERE rating >= 9.0;
+                    </pre>
+                </div>
+                <div class="flexbox-item">
+                    <p>-- In 11.sql, write a SQL query to list the titles of the five highest rated movies (in order)
+                        that</p>
+                    <p>-- Chadwick Boseman starred in, starting with the highest rated.</p>
+                    <p>-- Your query should output a table with a single column for the title of each movie.</p>
+                    <p>-- You may assume that there is only one person in the database with the name Chadwick
+                        Boseman.</p>
+                    <pre>
+        SELECT title
+        FROM movies
+        JOIN stars
+        ON stars.movie_id = movies.id
+
+        JOIN people
+        ON people.id = stars.person_id
+
+        JOIN ratings
+        ON ratings.movie_id = movies.id
+
+        WHERE people.name = "Chadwick Boseman"
+        ORDER BY ratings.rating DESC
+        LIMIT 5;
+                    </pre>
+                </div>
+                <div class="flexbox-item">
+                    <p>-- In 12.sql, write a SQL query to list the titles of all movies in which both Johnny Depp and
+                        Helena
+                        Bonham Carter starred.</p>
+                    <p>-- Your query should output a table with a single column for the title of each movie.</p>
+                    <p>-- You may assume that there is only one person in the database with the name Johnny Depp.</p>
+                    <p>-- You may assume that there is only one person in the database with the name Helena Bonham
+                        Carter.</p>
+                    <pre>
+        SELECT movies.title
+        FROM movies
+        JOIN stars
+        ON stars.movie_id = movies.id
+
+        JOIN people
+        ON people.id = stars.person_id
+
+        WHERE people.name = "Johnny Depp"
+
+        INTERSECT
+
+        SELECT movies.title
+        FROM movies
+        JOIN stars
+        ON stars.movie_id = movies.id
+
+        JOIN people
+        ON people.id = stars.person_id
+
+        WHERE people.name = "Helena Bonham Carter";
+                    </pre>
+                </div>
+                <div class="flexbox-item">
+                    <p>-- In 13.sql, write a SQL query to list the names of all people who starred in a movie</p>
+                    <p>-- in which Kevin Bacon also starred.</p>
+                    <p>-- Your query should output a table with a single column for the name of each person.</p>
+                    <p>-- There may be multiple people named Kevin Bacon in the database.</p>
+                    <p>-- Be sure to only select the Kevin Bacon born in 1958.</p>
+                    <p>-- Kevin Bacon himself should not be included in the resulting list.</p>
+                    <pre>
+        SELECT name
+        FROM people
+        JOIN stars
+        ON stars.person_id = people.id
+
+        JOIN movies
+        ON movies.id = stars.movie_id
+
+        -- Remember IN instead of =
+        WHERE movies.title IN
+        (SELECT movies.title
+        FROM movies
+        JOIN stars
+        ON stars.movie_id = movies.id
+
+        JOIN people
+        ON people.id = stars.person_id
+
+        WHERE people.name = "Kevin Bacon"
+        AND people.birth = 1958)
+        AND NOT people.name = "Kevin Bacon"
+                    </pre>
+                </div>
+            </div>
+            <div class="show-more">
+                <span>Show more</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="more-arrow">
+                    <path d="M7.293 4.707 14.586 12l-7.293 7.293 1.414 1.414L17.414 12 8.707 3.293 7.293 4.707z"/>
+                </svg>
+            </div>
+        </section>
+        <!-- ------------------------------ fiftyville -->
+        <section>
+            <h3>fiftyville</h3>
+            <p>The CS50 Duck has been stolen! The town of Fiftyville has called upon you to solve the mystery of the
+                stolen duck. Authorities believe that the thief stole the duck and then, shortly afterwards, took a
+                flight out of town with the help of an accomplice. Your goal is to identify:</p>
+            <ul>
+                <li>Who the thief is,</li>
+                <li>What city the thief escaped to, and</li>
+                <li>Who the thief’s accomplice is who helped them escape</li>
+            </ul>
+            <div class="hidden">
+                <p>All you know is that the theft took place on July 28, 2021 and that it took place on Humphrey
+                    Street.</p>
+                <p>How will you go about solving this mystery? The Fiftyville authorities have taken some of the town’s
+                    records from around the time of the theft and prepared a SQLite database for you, fiftyville.db,
+                    which
+                    contains tables of data from around the town.</p>
+                <p>You can query that table using SQL SELECT queries to access the data of interest to you.</p>
+                <p>Using just the information in the database, your task is to solve the mystery.</p>
+
+                <pre id="fiftyville">
+        -- Keep a log of any SQL queries you execute as you solve the mystery.
+
+        -- took place on July 28, 2021 on place on Humphrey Street.
+
+        -- Find out more about the crime scene
+        SELECT description
+        FROM crime_scene_reports
+
+        WHERE year = 2021
+        AND month = 7
+        AND day = 28
+        AND street = "Humphrey Street"
+        AND description LIKE "%CS50 Duck%";
+
+        -- Took place at 10:15am at Humphrey Street Bakery
+        -- Three interviews that all mentions the bakery
+        --------------------------------------------------------------------------------------------
+
+        -- Learn what the witnesses tell
+        SELECT name, transcript
+        FROM interviews
+
+        WHERE year = 2021
+        AND month = 7
+        AND day = 28
+        AND transcript LIKE "%bakery%";
+        -- REMEMBER LIKE AND NOT =
+
+        -- Within 10 min of theft: Thief goes to a car in the bakery parking lot
+        -- Recognize theif from ATM on Leggett Street earlier in the morning
+        --      Theif was withdrawing money
+        -- While theif left the bakery, they called someone for less than a minute
+        --      Said they're planning to take the earliest flight tomorrow
+        --      Theif asked the other person to purchase the flight ticket
+        -- Suspicious person talked on the phone for half an hour without buying anything in the bakery
+
+        --------------------------------------------------------------------------------------------
+        SELECT DISTINCT people.name, phone_calls.caller
+        FROM people
+            JOIN bakery_security_logs
+            ON people.license_plate = bakery_security_logs.license_plate
+
+            JOIN bank_accounts
+            ON bank_accounts.person_id = people.id
+
+            JOIN phone_calls
+            ON phone_calls.caller = people.phone_number
+
+        -- Check security logs for cars up to 10 minutes after the theft
+            WHERE bakery_security_logs.year = 2021
+            AND bakery_security_logs.month = 7
+            AND bakery_security_logs.day = 28
+            AND bakery_security_logs.hour = 10
+            AND bakery_security_logs.minute BETWEEN 15 AND 25
+
+            -- Bruce, Diana, Iman, Luca, Barry
+
+        -- Find the people who also made a withdrawal on Leggett Street that same day
+            AND bank_accounts.account_number IN (
+                SELECT account_number
+                FROM atm_transactions
+
+                WHERE atm_transactions.year = 2021
+                AND atm_transactions.month = 7
+                AND atm_transactions.day = 28
+                AND atm_location = "Leggett Street"
+                AND transaction_type = "withdraw")
+
+                -- Bruce, Diana, Iman, Luca
+
+        -- Find those who called someone for under a minute the same day
+            AND phone_calls.caller IN (
+                SELECT caller
+                FROM phone_calls
+
+                WHERE phone_calls.year = 2021
+                AND phone_calls.month = 7
+                AND phone_calls.day = 28
+                AND duration <= 60
+            )
+
+        -- Two names left: Bruce and Diana
+        --------------------------------------------------------------------------------------------
+
+        SELECT full_name, abbreviation
+        FROM airports
+
+        WHERE city = "Fiftyville";
+
+        -- Only one airport in Fiftyville called Fiftyville Regional Airport or "CSF"
+        -- Airport ID 8
+        --------------------------------------------------------------------------------------------
+
+        -- Find the earliest flight
+        SELECT id, hour, minute
+        FROM flights
+
+        WHERE year = 2021
+        AND month = 7
+        AND day = 29
+        AND origin_airport_id = 8;
+
+        -- Earliest flight from Fiftyville is flight id 36, destination airport id is 4
+        --------------------------------------------------------------------------------------------
+
+        SELECT DISTINCT people.name
+        FROM people
+            JOIN passengers
+            ON passengers.passport_number = people.passport_number
+
+            JOIN flights
+            ON passengers.flight_id = flights.id
+
+        -- Find the flights that originates from Fiftyville
+            WHERE flights.id = 36
+
+        -- Only look for the two names
+            AND people.name IN ('Bruce', 'Diana');
+
+        -- Only Bruce has this flight, not Diana
+        --------------------------------------------------------------------------------------------
+
+        -- Find which city flight 36 goes to when destiation airport id is 4
+        SELECT DISTINCT city
+        FROM airports
+
+        WHERE id = 4;
+
+        -- New York City
+        --------------------------------------------------------------------------------------------
+
+        -- Find accomplice -------------------------------------------------------------
+
+        SELECT DISTINCT people.name
+        FROM people
+            JOIN phone_calls
+            ON phone_calls.receiver = people.phone_number
+
+        -- Find those who Bruce called that day
+            WHERE phone_calls.receiver IN (
+                SELECT receiver
+                FROM phone_calls
+
+                WHERE phone_calls.year = 2021
+                AND phone_calls.month = 7
+                AND phone_calls.day = 28
+                AND duration <= 60
+                AND caller IN ('(367) 555-5533')) -- Bruce's number
+
+        -- Robin is the accomplice
+                </pre>
+            </div>
+            <div class="show-more">
+                <span>Show more</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="more-arrow">
+                    <path d="M7.293 4.707 14.586 12l-7.293 7.293 1.414 1.414L17.414 12 8.707 3.293 7.293 4.707z"/>
+                </svg>
+            </div>
+        </section>
+    </section>
+
 </main>
 
 <!-- ------------------------------ FOOTER -->
 <footer>
-    <p>>>> 2023. 1st semester of IT-Architecture on KEA. Ane Novrup Larsen <<<</p>
+    <p>>>> 2023. 1st semester of IT-Architecture at KEA <<<</p>
+    <p>>>> Ane Novrup Larsen <<<</p>
 </footer>
+<script src="main.js"></script>
 </body>
 </html>

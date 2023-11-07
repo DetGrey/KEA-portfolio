@@ -1,0 +1,278 @@
+/* -------------------------------- FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lacquer&family=Ubuntu:wght@500&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+
+/* -------------------------------- VARIABLES */
+:root {
+    --purple: #721e73;
+}
+
+/* -------------------------------- BASICS */
+html {
+    scroll-behavior: smooth;
+
+    background: #602e60;
+}
+
+* {
+    margin: 0;
+    position: relative;
+    max-width: 100%;
+    color: black;
+    scroll-margin-top: 15vw;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    font-size: 4vw;
+    font-weight: 600;
+
+    min-height: 100vh;
+    background-image: url("../background.svg");
+    background-size: 100%;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.scroll-margin {
+    scroll-margin-top: 6vw;
+}
+
+#logo {
+    width: 15vw;
+    position: fixed;
+    z-index: 5;
+}
+
+#triangle {
+    width: 100%;
+    height: fit-content;
+    position: fixed;
+    z-index: 3;
+}
+
+
+/* -------------------------------- SCROLLBAR */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+/* Track and corner */
+::-webkit-scrollbar-track, ::-webkit-scrollbar-corner {
+    background: #89498c;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--purple);
+    border-radius: 0.5vw;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #4c0e4d;
+}
+
+/* -------------------------------- FLEXBOX */
+.flexbox-container-c {
+    display: flex;
+    flex-direction: column;
+}
+
+main.flexbox-container-c {
+    margin: 0 8vw 0 8vw;
+    padding: 15vw 2vw 2vw 2vw;
+    flex: 1 0 auto;
+    background: rgba(123, 79, 124, 0.35);
+}
+
+.flexbox-container {
+    display: flex;
+}
+
+/* -------------------------------- NAVIGATION */
+header {
+    height: fit-content;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    margin-right: 4vw;
+    position: fixed;
+    z-index: 5;
+    right: 0;
+}
+
+nav ul li {
+    list-style-type: none;
+    padding: 1.5vw 2vw;
+}
+
+nav a, .dropdown-content {
+    color: var(--purple);
+    font-size: 4.5vw;
+    font-family: 'Architects Daughter', cursive;
+    background-color: transparent;
+}
+
+a, .dropdown-content {
+    text-decoration: none;
+}
+
+a:hover, .dropbtn:hover {
+    color: white;
+    background-color: transparent;
+}
+
+/* Dropdown lists */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    text-align: end;
+    min-width: fit-content;
+    z-index: 1;
+    background-color: black;
+    padding: 2vw;
+}
+
+.dropdown-content a {
+    display: block;
+    font-size: 4.5vw;
+    white-space: nowrap;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content:hover {
+    color: white;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* -------------------------------- TEXT AND HEADINGS */
+h1 {
+    margin: 4vw 0;
+    font-size: 10vw;
+    font-family: 'Bebas Neue', sans-serif;
+    line-height: 50%;
+}
+
+h1 span {
+    font-size: 4.5vw;
+    font-family: 'Lacquer', cursive;
+}
+
+h2 {
+    font-family: 'Architects Daughter', cursive;
+    font-size: 8vw;
+    margin-bottom: 1vw;
+}
+
+h2 span {
+    font-family: 'Lacquer', cursive;
+    font-size: 6vw;
+}
+
+h3 {
+    font-size: 6vw;
+
+}
+
+ul {
+    padding-inline-start: 20px;
+}
+
+ul li {
+    padding-bottom: 2vw;
+    font-size: 5.5vw;
+}
+
+ul li ul li, ol li ul li {
+    padding: 0;
+    font-weight: 500;
+}
+
+ol {
+    padding-inline-start: 25px;
+}
+
+ol li {
+    padding-bottom: 2vw;
+    font-size: 5vw;
+}
+
+/* -------------------------------- SECTIONS */
+section {
+    padding-bottom: 5vw;
+}
+
+/* -------------------------------- BUTTONS */
+button {
+    font-size: 5vw;
+    font-family: 'Architects Daughter', cursive;
+    background-color: #ffffff30;
+    border: none;
+    padding: 2vw;
+    margin: 3vw 0;
+}
+
+
+/* -------------------------------- SHOW MORE ARROW */
+
+.show-more {
+    display: flex;
+    margin: 0 auto;
+    width: fit-content;
+    padding: 0 5px 3px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'Architects Daughter', cursive;
+
+    & span:hover {
+        color: white;
+    }
+}
+
+svg {
+    transform: rotate(0deg) scale(0.7);
+}
+
+.rotate {
+    transform: rotate(-90deg) scale(0.7);
+}
+
+.hidden {
+    display: none;
+}
+
+/* -------------------------------- FOOTER */
+footer {
+    text-align: center;
+    margin-top: 6vw;
+    background-color: black;
+    height: fit-content;
+    padding: 15px;
+}
+
+footer p {
+    font-size: 3vw;
+    color: var(--purple);
+    flex-shrink: 0;
+}

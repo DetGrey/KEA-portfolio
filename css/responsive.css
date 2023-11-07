@@ -1,0 +1,129 @@
+/* -------------------------------- RESPONSIVE DESIGN */
+@media screen and (min-width: 500px) {
+    #AnePhoto {
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 400px) and (max-width: 900px) {
+    section {
+        padding-top: 10vw;
+    }
+
+    .dropdown-content a {
+        font-size: 3.5vw;
+    }
+
+    #aboutme p {
+        font-size: 2.5vw;
+    }
+
+    .pset p {
+        font-size: 2vw;
+    }
+
+    pre {
+        font-size: 2vw;
+        max-height: 50vh;
+    }
+
+    .pset img {
+        max-height: 20vw;
+        width: auto;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    body {
+        font-size: 2vw;
+    }
+
+    main.flexbox-container-c {
+        padding-top: 4.5vw;
+    }
+
+    nav ul {
+        padding-top: 0.5%;
+    }
+
+    .dropdown-content a {
+        font-size: 2.75vw;
+    }
+
+    #logo {
+        width: 10vw;
+    }
+
+    #triangle {
+        top: -5vw;
+    }
+
+    nav a {
+        font-size: 3.5vw;
+    }
+
+    h1 {
+        font-size: 5vw;
+    }
+
+    h2, h2 span {
+        font-size: 3vw;
+    }
+
+    h3 {
+        font-size: 2.5vw;
+    }
+
+    #intro h2, #intro span {
+        font-size: 3vw;
+    }
+
+    #intro p {
+        font-size: 3.5vw;
+    }
+
+    #aboutme p {
+        font-size: 1.5vw;
+    }
+
+    ul {
+        padding-inline-start: 40px;
+    }
+
+    ol {
+        padding-inline-start: 40px;
+    }
+
+    .pset p {
+        font-size: 1.5vw;
+    }
+
+    pre {
+        font-size: 1.25vw;
+        max-height: 50vh;
+    }
+
+    .pset img {
+        max-height: 20vw;
+        width: auto;
+    }
+
+    footer p {
+        font-size: 1.5vw;
+        padding: 1vw;
+    }
+
+    .database-flex {
+        display: flex;
+    }
+
+    .databases .database-flex {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .databases .flexbox-item {
+        width: 36vw;
+
+    }
+}

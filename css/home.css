@@ -1,0 +1,69 @@
+/* -------------------------------- INTRODUCTION */
+#intro h2, #intro span {
+    display: inline-block;
+    white-space: pre;
+    font-size: 5vw;
+    cursor: default;
+}
+
+/* Hello, world */
+#intro p {
+    display: inline-block;
+    font-size: 7vw;
+    font-family: 'Lacquer', cursive;
+    cursor: default;
+}
+
+#intro p:hover {
+    color: darkcyan;
+}
+
+#imagining:hover {
+    color: mediumpurple;
+}
+
+#creating:hover {
+    color: darkcyan;
+}
+
+#designing:hover {
+    color: yellowgreen;
+}
+
+/* -------------------------------- ABOUT ME */
+#AnePhoto {
+    width: 100%;
+}
+
+#aboutme p {
+    font-size: 4vw;
+    padding: 1.5vw;
+}
+
+/* -------------------------------- EDUCATION LIST */
+#education-list {
+    list-style-type: none;
+    padding-inline-start: 0;
+
+    & li {
+        list-style-type: none;
+        font-weight: 600;
+        font-size: 4.5vw;
+    }
+}
+
+.highlight-number {
+    font-size: 6.5vw;
+
+}
+
+/* -------------------------------- LISTS */
+ul li {
+    font-family: 'Architects Daughter', cursive;
+}
+
+ul li ul li {
+    font-family: 'Raleway', sans-serif;
+    font-size: smaller;
+}
+

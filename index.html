@@ -4,28 +4,18 @@
     <meta charset="UTF-8">
 
     <title>Ane Novrup Larsen</title>
-    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
 <!-- ------------------------------ BODY -->
 <body class="flexbox-container-c">
 <!-- ------------------------------ HEADER -->
 <header>
-    <img id="triangle" src="Extra/Triangle.svg" alt="triangle">
+    <img id="triangle" src="extra/Triangle.svg" alt="triangle">
 
     <nav>
-        <!-- NAVIGATION LINKS -->
-        <ul>
-            <li><a class="flexbox-item" href="index.html">Home</a></li>
-            <li class="dropdown flexbox-item">
-                <a class="dropbtn">Projects</a>
-                <div class="dropdown-content">
-                    <a class="flexbox-item" href="CS50.html">CS50</a>
-                    <a class="flexbox-item" href="databases.html">Databases</a>
-                    <a class="flexbox-item" href="webtechnology.html">Web techonology</a>
-                </div>
-            </li>
-            <li><a class="flexbox-item" href="index.html#aboutme">About me</a></li>
-        </ul>
     </nav>
     <img id="logo" src="P.gif" alt="Logo"/>
 </header>
@@ -34,11 +24,49 @@
 <main class="flexbox-container-c">
     <section id="intro">
         <p>Hello, world.</p>
-        <h1>Hi! I'm Ane Novrup Larsen</h1>
+        <h1>I'm Ane Novrup Larsen</h1>
         <h2><span id="imagining">Imagining</span>, <span id="creating">creating</span>, <span
                 id="designing">designing</span></h2>
     </section>
 
+    <section id="aboutme">
+        <h2>About me</h2>
+        <img src="AneFoto.png" id="AnePhoto" alt="photo of Ane Novrup Larsen">
+        <p>
+            As already mentioned, my name is Ane Novrup Larsen. I'm 21 years old and have just started my profession
+            bachelor at KEA (Copenhagen Business Academy) in IT-architecture.
+        </p>
+        <div class="hidden">
+            <p>
+                Creating digital content is nothing new for me. It started with making lots of Minecraft and Sims 3
+                building projects when I was younger, but now my projects are a bit more "grown-up" so to say. Over the
+                years, I have been video editing, photo editing, making logos, designing webpages and more.
+            </p>
+            <p>
+                I've always been passionate about technology, and in 2022 I completed the online course called CS50x
+                from
+                Harvard University. Through the course, I was taught the basics of programming and worked with different
+                problem sets in C, Python, SQL, HTML, CSS, JavaScript and Flask.
+            </p>
+            <p>
+                What I like the most about technology is the opportunity to make just about whatever you want. You have
+                the
+                freedom to create, edit, save, and even undo if needed. Just by having a computer or another electronic
+                device, you have a world of options for your next project.
+            </p>
+        </div>
+        <div class="show-more">
+            <span>Show more</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="more-arrow">
+                <path d="M7.293 4.707 14.586 12l-7.293 7.293 1.414 1.414L17.414 12 8.707 3.293 7.293 4.707z"/>
+            </svg>
+        </div>
+        <!--        <p>-->
+        <!--            Nickname: DetGrey. Not black. Not white. But everything in between.-->
+        <!--        </p>-->
+    </section>
+
+    <!--    Skills and projects -->
     <section>
         <h2>Skills and projects</h2>
         <ul>
@@ -51,56 +79,107 @@
                     <li>Flask basics</li>
                 </ul>
             </li>
-            <li>Illustrator/logos</li>
-            <li>Photoshop</li>
-            <li>Video editing</li>
+            <li><a>KEA IT-architecture</a>
+                <ul class="inner-list">
+                    <li>HTML, CSS, JavaScript, JSON</li>
+                    <li>MySQL</li>
+                    <li>RegEx</li>
+                    <li>Firebase</li>
+                    <li>Tableau</li>
+                </ul>
+            </li>
         </ul>
     </section>
 
+    <!--    Known software -->
+    <section>
+        <h2>Known software</h2>
+        <ul>
+            <li>Coding
+                <ul>
+                    <li>Visual Studio Code</li>
+                    <li>GitHub codespaces</li>
+                    <li>WebStorm</li>
+                </ul>
+            </li>
+            <li>Databases
+                <ul>
+                    <li>MySQL Workbench</li>
+                    <li>Firebase/firestore</li>
+                </ul>
+            </li>
+            <li>Visualisation / graphs
+                <ul>
+                    <li>Tableau</li>
+                    <li>Excel</li>
+                </ul>
+            </li>
+            <li>Vector graphics
+                <ul>
+                    <li>Illustrator</li>
+                    <li>Inkscape</li>
+                </ul>
+            </li>
+            <li>Photo editing
+                <ul>
+                    <li>Photoshop</li>
+                    <li>Krita</li>
+                    <li>Gimp</li>
+                </ul>
+            </li>
+            <li>Video editing
+                <ul>
+                    <li>Adobe Premier Pro</li>
+                    <li>CyberLink PowerDirector</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <!--    Education -->
     <section>
         <h2>Education</h2>
-        <ul>
-            <li>2023-2027 - Currently studying IT-architecture bachelor at KEA</li>
-            <li>2022-2023 - Skive College HHX (last year)</li>
-            <li>2021-2022 - High School in Costa Rica (10 months)</li>
-            <li>2019-2021 - Skive College HHX (first two years)</li>
-            <li>2018-2019 - Hammerum efterskole</li>
-            <li>2008-2018 - Aakjærskolen, Skive</li>
+        <ul id="education-list">
+            <li><span class="highlight-number">2023-2027</span>
+                <ul>
+                    <li>Currently studying <a href="it-architecture.html">IT-architecture</a> bachelor at KEA</li>
+                </ul>
+            </li>
+            <li><span class="highlight-number">2022-2023</span>
+                <ul>
+                    <li>Skive College HHX (final year)</li>
+                </ul>
+            </li>
+            <li><span class="highlight-number">2021-2022</span>
+                <ul>
+                    <li>High School in Costa Rica (10 months)</li>
+                </ul>
+            </li>
+            <li><span class="highlight-number">2019-2021</span>
+                <ul>
+                    <li>Skive College HHX (first two years)</li>
+                </ul>
+            </li>
+            <li><span class="highlight-number">2018-2019</span>
+                <ul>
+                    <li>Hammerum efterskole</li>
+                </ul>
+            </li>
+            <li><span class="highlight-number">2008-2018</span>
+                <ul>
+                    <li>Aakjærskolen, Skive</li>
+                </ul>
+            </li>
         </ul>
     </section>
 
-    <section id="aboutme">
-        <h2>About me</h2>
-        <img src="AneFoto.png" id="AnePhoto" alt="photo of Ane Novrup Larsen">
-        <p>
-            As you might have noticed, my name is Ane Novrup Larsen. I'm 21 years old and have just started my bachelor
-            at KEA (Copenhagen Business Academy) in IT-architecture.
-        </p>
-        <p>
-            Creating digital content is nothing new for me. It started with making lots of Minecraft and Sims 3
-            building projects when I was younger, but now my projects are a bit more "grown-up" so to say. Over the
-            years, I have been video editing, photo editing, making logos, designing webpages and more.
-        </p>
-        <p>
-            I've always been passionate about technology, and in 2022 I completed the online course called CS50x from
-            Harvard University. Through the course, I learned the basics of programming and worked with different
-            problem sets in C, Python, SQL, HTML, CSS, JavaScript and Flask.
-        </p>
-        <p>
-            What I like the most about technology is the opportunity to make just about whatever you want. You have the
-            freedom to create, edit, save, and even undo if needed. Just by having a computer or another device, you
-            have a world of options for your next project.
-        </p>
-        <p>
-            Nickname: DetGrey. Not black. Not white. But everything in between.
-        </p>
-    </section>
 </main>
 
 <!-- ------------------------------ FOOTER -->
 <footer>
-    <p>>>> 2023. 1st semester of IT-Architecture on KEA. Ane Novrup Larsen <<<</p>
+    <p>>>> 2023. 1st semester of IT-Architecture at KEA <<<</p>
+    <p>>>> Ane Novrup Larsen <<<</p>
 </footer>
-
+<script src="main.js"></script>
 </body>
 </html>
