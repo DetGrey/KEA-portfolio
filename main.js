@@ -13,7 +13,6 @@ showMoreToggle.forEach(showMore => {
 const headers = document.querySelectorAll('header');
 headers.forEach(header => {
     header.innerHTML = `
-<header>
     <img id="triangle" src="Triangle.svg" alt="triangle">
 
     <!-- NAVIGATION LINKS -->
@@ -49,7 +48,6 @@ headers.forEach(header => {
     </nav>
     
     <img id="logo" src="P.gif" alt="Logo"/>
-</header>
 `;
 })
 
