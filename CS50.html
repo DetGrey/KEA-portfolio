@@ -22,7 +22,9 @@
         <p>During the CS50 course, I got introduced to computer science. To better understand the basics of coding, they
             made us learn to program in the C language first before continuing into Python, SQL, HTML, CSS, and
             JavaScript.</p>
+    </section>
 
+    <section>
         <h2>Overview</h2>
         <ol>
             <li>
@@ -39,6 +41,7 @@
             </li>
         </ol>
     </section>
+
     <section class="pset" id="C">
         <h2>C language</h2>
         <!-- ------------------------------ hello.c -->
@@ -48,18 +51,18 @@
                 hello, so-and-so, where so-and-so is their actual name.</p>
             <div>
                 <pre>
-    #include &lt;stdio.h&gt;
-    #include &lt;cs50.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;cs50.h&gt;
 
-    int main(void)
-    {
-        // Ask user for name
-        string name = get_string(&quot;What's your name? &quot;);
+int main(void)
+{
+    // Ask user for name
+    string name = get_string(&quot;What's your name? &quot;);
 
-        // Print hello + their name
-        // %s means insert a string where name is the selected string
-        printf(&quot;hello, %s\n&quot;, name);
-    }
+    // Print hello + their name
+    // %s means insert a string where name is the selected string
+    printf(&quot;hello, %s\n&quot;, name);
+}
             </pre>
                 <p>
                     <b>Output</b>
@@ -80,35 +83,35 @@
                 <p>And let’s allow the user to decide just how tall the pyramid should be by first prompting them for a
                     positive integer between, say, 1 and 8, inclusive.</p>
                 <pre>
-    #include &lt;stdio.h&gt;
-    #include &lt;cs50.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;cs50.h&gt;
 
-    int main(void)
+int main(void)
+{
+    int n;
+    do
     {
-        int n;
-        do
-        {
-            // Get the height of the pyramid from user
-            n = get_int(&quot;Height: &quot;);
-        }
-        // Must be more than 1 and less than 8
-        while (n &gt; 8 || n &lt; 1);
-
-        for (int i = 1; i &lt;= n; i++)
-        {
-            // Make the space before the blocks to make it right-aligned
-            for (int k = (n - i); k &gt; 0; k--)
-            {
-                printf(&quot; &quot;);
-            }
-            // Make the blocks of the pyramid
-            for (int j = 0; j &lt; i; j++)
-            {
-                printf(&quot;#&quot;);
-            }
-            printf(&quot;n&quot;);
-        }
+        // Get the height of the pyramid from user
+        n = get_int(&quot;Height: &quot;);
     }
+    // Must be more than 1 and less than 8
+    while (n &gt; 8 || n &lt; 1);
+
+    for (int i = 1; i &lt;= n; i++)
+    {
+        // Make the space before the blocks to make it right-aligned
+        for (int k = (n - i); k &gt; 0; k--)
+        {
+            printf(&quot; &quot;);
+        }
+        // Make the blocks of the pyramid
+        for (int j = 0; j &lt; i; j++)
+        {
+            printf(&quot;#&quot;);
+        }
+        printf(&quot;n&quot;);
+    }
+}
             </pre>
                 <p>
                     <b>Output</b>
@@ -135,47 +138,47 @@
                 <p>And let’s allow the user to decide just how tall the pyramids should be by first prompting them for a
                     positive integer between, say, 1 and 8, inclusive.</p>
                 <pre>
-    #include &lt;stdio.h&gt;
-    #include &lt;cs50.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;cs50.h&gt;
 
-    int main(void)
+int main(void)
+{
+    int height;
+
+    //Ask user for height
+    do
     {
-        int height;
-
-        //Ask user for height
-        do
-        {
-            height = get_int(&quot;Height: &quot;);
-        }
-        while (height &gt; 8 || height &lt; 1);
-
-        //Make the columns
-        for (int i = 1; i &lt;= height; i++)
-        {
-            //Make the space in front
-            for (int k = (height - i); k &gt; 0; k--)
-            {
-                printf(&quot; &quot;);
-            }
-
-            //Make the rows
-            for (int j = 1; j &lt;= i; j++)
-            {
-                printf(&quot;#&quot;);
-            }
-
-            //Make space between the two pyramids
-            printf(&quot;  &quot;);
-
-            //Make rows again
-            for (int j = 1; j &lt;= i; j++)
-            {
-                printf(&quot;#&quot;);
-            }
-
-            printf(&quot;n&quot;);
-        }
+        height = get_int(&quot;Height: &quot;);
     }
+    while (height &gt; 8 || height &lt; 1);
+
+    //Make the columns
+    for (int i = 1; i &lt;= height; i++)
+    {
+        //Make the space in front
+        for (int k = (height - i); k &gt; 0; k--)
+        {
+            printf(&quot; &quot;);
+        }
+
+        //Make the rows
+        for (int j = 1; j &lt;= i; j++)
+        {
+            printf(&quot;#&quot;);
+        }
+
+        //Make space between the two pyramids
+        printf(&quot;  &quot;);
+
+        //Make rows again
+        for (int j = 1; j &lt;= i; j++)
+        {
+            printf(&quot;#&quot;);
+        }
+
+        printf(&quot;n&quot;);
+    }
+}
             </pre>
                 <p>
                     <b>Output</b>
@@ -200,113 +203,113 @@
                     quarters (25¢), dimes (10¢), nickels (5¢), and pennies (1¢).</p>
                 <p>The problem to be solved is to decide which coins and how many of each to hand to the customer. </p>
                 <pre>
-    #include &lt;cs50.h&gt;
-    #include &lt;stdio.h&gt;
+#include &lt;cs50.h&gt;
+#include &lt;stdio.h&gt;
 
-    int get_cents(void);
-    int calculate_quarters(int cents);
-    int calculate_dimes(int cents);
-    int calculate_nickels(int cents);
-    int calculate_pennies(int cents);
+int get_cents(void);
+int calculate_quarters(int cents);
+int calculate_dimes(int cents);
+int calculate_nickels(int cents);
+int calculate_pennies(int cents);
 
-    int main(void)
+int main(void)
+{
+    // Ask how many cents the customer is owed
+    int cents = get_cents();
+
+    // Calculate the number of quarters to give the customer
+    int quarters = calculate_quarters(cents);
+    cents = cents - quarters * 25;
+
+    // Calculate the number of dimes to give the customer
+    int dimes = calculate_dimes(cents);
+    cents = cents - dimes * 10;
+
+    // Calculate the number of nickels to give the customer
+    int nickels = calculate_nickels(cents);
+    cents = cents - nickels * 5;
+
+    // Calculate the number of pennies to give the customer
+    int pennies = calculate_pennies(cents);
+    cents = cents - pennies * 1;
+
+    // Sum coins
+    int coins = quarters + dimes + nickels + pennies;
+
+    // Print total number of coins to give the customer
+    printf("Total number of coins: %i\n", coins);
+}
+
+int get_cents(void)
+{
+    // TODO
+    int cents = 0;
+
+    // Ask until change is more than 0
+    do
     {
-        // Ask how many cents the customer is owed
-        int cents = get_cents();
-
-        // Calculate the number of quarters to give the customer
-        int quarters = calculate_quarters(cents);
-        cents = cents - quarters * 25;
-
-        // Calculate the number of dimes to give the customer
-        int dimes = calculate_dimes(cents);
-        cents = cents - dimes * 10;
-
-        // Calculate the number of nickels to give the customer
-        int nickels = calculate_nickels(cents);
-        cents = cents - nickels * 5;
-
-        // Calculate the number of pennies to give the customer
-        int pennies = calculate_pennies(cents);
-        cents = cents - pennies * 1;
-
-        // Sum coins
-        int coins = quarters + dimes + nickels + pennies;
-
-        // Print total number of coins to give the customer
-        printf("Total number of coins: %i\n", coins);
+        cents = get_int(&quot;Change: &quot;);
     }
+    while (cents &lt; 1);
 
-    int get_cents(void)
+    return cents;
+}
+
+int calculate_quarters(int cents)
+{
+    // TODO
+    int quarters = 0;
+
+    // While there's enough cents for the coin, add one coin and remove the amount from the cents
+    while (cents &gt;= 25)
     {
-        // TODO
-        int cents = 0;
-
-        // Ask until change is more than 0
-        do
-        {
-            cents = get_int(&quot;Change: &quot;);
-        }
-        while (cents &lt; 1);
-
-        return cents;
+        quarters++;
+        cents -= 25;
     }
+    return quarters;
+}
 
-    int calculate_quarters(int cents)
+int calculate_dimes(int cents)
+{
+    // TODO
+    int dimes = 0;
+
+    // While there's enough cents for the coin, add one coin and remove the amount from the cents
+    while (cents &gt;= 10)
     {
-        // TODO
-        int quarters = 0;
-
-        // While there's enough cents for the coin, add one coin and remove the amount from the cents
-        while (cents &gt;= 25)
-        {
-            quarters++;
-            cents -= 25;
-        }
-        return quarters;
+        dimes++;
+        cents -= 10;
     }
+    return dimes;
+}
 
-    int calculate_dimes(int cents)
+int calculate_nickels(int cents)
+{
+    // TODO
+    int nickels = 0;
+
+    // While there's enough cents for the coin, add one coin and remove the amount from the cents
+    while (cents &gt;= 5)
     {
-        // TODO
-        int dimes = 0;
-
-        // While there's enough cents for the coin, add one coin and remove the amount from the cents
-        while (cents &gt;= 10)
-        {
-            dimes++;
-            cents -= 10;
-        }
-        return dimes;
+        nickels++;
+        cents -= 5;
     }
+    return nickels;
+}
 
-    int calculate_nickels(int cents)
+int calculate_pennies(int cents)
+{
+    // TODO
+    int pennies = 0;
+
+    // While there's enough cents for the coin, add one coin and remove the amount from the cents
+    while (cents &gt;= 1)
     {
-        // TODO
-        int nickels = 0;
-
-        // While there's enough cents for the coin, add one coin and remove the amount from the cents
-        while (cents &gt;= 5)
-        {
-            nickels++;
-            cents -= 5;
-        }
-        return nickels;
+        pennies++;
+        cents -= 1;
     }
-
-    int calculate_pennies(int cents)
-    {
-        // TODO
-        int pennies = 0;
-
-        // While there's enough cents for the coin, add one coin and remove the amount from the cents
-        while (cents &gt;= 1)
-        {
-            pennies++;
-            cents -= 1;
-        }
-        return pennies;
-    }
+    return pennies;
+}
             </pre>
 
                 <p>
@@ -342,137 +345,137 @@
                     According to Luhn’s algorithm, you can determine if a credit card number is (syntactically)
                     valid.</p>
                 <pre>
-    #include &lt;stdio.h&gt;
-    #include &lt;cs50.h&gt;
-    #include &lt;math.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;cs50.h&gt;
+#include &lt;math.h&gt;
 
-    // MASTERCARD: 16-Digit #'s, Start with: 51, 52, 53, 54, or 55
-    // VISA: 13-16-Digit #'s, Start with: 4
-    // AMEX: 15-Digit #'s, Star with: 34 or 37
+// MASTERCARD: 16-Digit #'s, Start with: 51, 52, 53, 54, or 55
+// VISA: 13-16-Digit #'s, Start with: 4
+// AMEX: 15-Digit #'s, Star with: 34 or 37
 
-    // Luhn's Algorithm:
-    // 1. Multiply every other digit by 2, starting with the second number to the last
-    // 2. Add the sum of those digits
-    // 3. Add the sum of the other digits
-    // 4. If the total sum ends with a 0, it is valid!
-
-
-    // Declare variables
-    long ccn;
-    long checksum = 0;
-    int count = 0;
+// Luhn's Algorithm:
+// 1. Multiply every other digit by 2, starting with the second number to the last
+// 2. Add the sum of those digits
+// 3. Add the sum of the other digits
+// 4. If the total sum ends with a 0, it is valid!
 
 
-    void Check(void);
+// Declare variables
+long ccn;
+long checksum = 0;
+int count = 0;
 
-    int main(void)
+
+void Check(void);
+
+int main(void)
+{
+    //-----Promt user for credit card number
+    do
     {
-        //-----Promt user for credit card number
-        do
-        {
-            ccn = get_long(&quot;Number: &quot;);
-        }
-        while (ccn &lt;= 0);
+        ccn = get_long(&quot;Number: &quot;);
+    }
+    while (ccn &lt;= 0);
 
-        long CCnumber = ccn;
+    long CCnumber = ccn;
 
-        //-----Check length
-        long digits = ccn;
+    //-----Check length
+    long digits = ccn;
 
-        while (digits &gt; 0)
-        {
-            digits /= 10;
-            count++;
-        }
-
-
-        //-----Check if the length is valid
-        if (count != 13 &amp;&amp; count != 15 &amp;&amp; count != 16)
-        {
-            printf(&quot;INVALIDn&quot;);
-            return 0;
-        }
-
-
-        //-----Calculate checksum
-        Check();
-        long csEnd = checksum % 10;
-
-        if (csEnd != 0)
-        {
-            printf(&quot;INVALIDn&quot;);
-            return 0;
-        }
-
-
-        //-----Find start number with two digits
-        long start = CCnumber;
-
-        for (int j = 0; j &lt; count - 2; j++)
-        {
-            start /= 10;
-        }
-
-
-        //Check if it's American Express:
-        if (count == 15 &amp;&amp; (start == 34 || start == 37))
-        {
-            printf(&quot;AMEXn&quot;);
-        }
-
-        //Check if it's MasterCard:
-        else if (count == 16 &amp;&amp; (start == 51 || start == 52 || start == 53 || start == 54 || start == 55))
-        {
-            printf(&quot;MASTERCARDn&quot;);
-        }
-
-        //Check if it's VISA:
-        else if ((count == 13 || count == 16) &amp;&amp; (start / 10 == 4))
-        {
-            printf(&quot;VISAn&quot;);
-        }
-
-        //INVALID
-        else
-        {
-            printf(&quot;INVALIDn&quot;);
-        }
+    while (digits &gt; 0)
+    {
+        digits /= 10;
+        count++;
     }
 
-    void Check()
+
+    //-----Check if the length is valid
+    if (count != 13 &amp;&amp; count != 15 &amp;&amp; count != 16)
     {
-        //Case 1 (Multiply every other digit by 2)
-        long long digit[count];
+        printf(&quot;INVALIDn&quot;);
+        return 0;
+    }
 
-        for (int i = 1; i &lt;= count; i++)
+
+    //-----Calculate checksum
+    Check();
+    long csEnd = checksum % 10;
+
+    if (csEnd != 0)
+    {
+        printf(&quot;INVALIDn&quot;);
+        return 0;
+    }
+
+
+    //-----Find start number with two digits
+    long start = CCnumber;
+
+    for (int j = 0; j &lt; count - 2; j++)
+    {
+        start /= 10;
+    }
+
+
+    //Check if it's American Express:
+    if (count == 15 &amp;&amp; (start == 34 || start == 37))
+    {
+        printf(&quot;AMEXn&quot;);
+    }
+
+    //Check if it's MasterCard:
+    else if (count == 16 &amp;&amp; (start == 51 || start == 52 || start == 53 || start == 54 || start == 55))
+    {
+        printf(&quot;MASTERCARDn&quot;);
+    }
+
+    //Check if it's VISA:
+    else if ((count == 13 || count == 16) &amp;&amp; (start / 10 == 4))
+    {
+        printf(&quot;VISAn&quot;);
+    }
+
+    //INVALID
+    else
+    {
+        printf(&quot;INVALIDn&quot;);
+    }
+}
+
+void Check()
+{
+    //Case 1 (Multiply every other digit by 2)
+    long long digit[count];
+
+    for (int i = 1; i &lt;= count; i++)
+    {
+        digit[i] = ccn % 10;
+
+        //Case 1 (Multiply every other digit by 2 and add to checksum)
+        if (i % 2 == 0)
         {
-            digit[i] = ccn % 10;
+            long long dd = digit[i] * 2;
 
-            //Case 1 (Multiply every other digit by 2 and add to checksum)
-            if (i % 2 == 0)
+            if (dd &gt;= 10)
             {
-                long long dd = digit[i] * 2;
-
-                if (dd &gt;= 10)
-                {
-                    checksum += dd % 10;
-                    checksum += dd / 10;
-                }
-                else
-                {
-                    checksum += digit[i] * 2;
-                }
+                checksum += dd % 10;
+                checksum += dd / 10;
             }
-
-            //case 2 (add the other digits to checksum)
             else
             {
-                checksum += digit[i];
+                checksum += digit[i] * 2;
             }
-
-            ccn /= 10;
         }
+
+        //case 2 (add the other digits to checksum)
+        else
+        {
+            checksum += digit[i];
+        }
+
+        ccn /= 10;
     }
+}
             </pre>
                 <p>
                     <b>Output</b>
@@ -500,81 +503,81 @@
                     index of a text is designed to output that (U.S.) grade level that is needed to understand some
                     text.</p>
                 <pre>
-    #include &lt;cs50.h&gt;
-    #include &lt;string.h&gt;
-    #include &lt;ctype.h&gt;
-    #include &lt;stdio.h&gt;
-    #include &lt;math.h&gt;
+#include &lt;cs50.h&gt;
+#include &lt;string.h&gt;
+#include &lt;ctype.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
 
-    int main(void)
+int main(void)
+{
+    //Get text from user
+    string text = get_string(&quot;Text: &quot;);
+
+    //Calculate length of string/text
+    int length = strlen(text);
+
+    //Letter count, word count, sentence count
+    int lcount = 0;
+    int wcount = 0;
+    int scount = 0;
+
+
+    for (int i = 0; i &lt;= length; i++)
     {
-        //Get text from user
-        string text = get_string(&quot;Text: &quot;);
-
-        //Calculate length of string/text
-        int length = strlen(text);
-
-        //Letter count, word count, sentence count
-        int lcount = 0;
-        int wcount = 0;
-        int scount = 0;
-
-
-        for (int i = 0; i &lt;= length; i++)
+        //Count letters
+        if (isalpha(text[i]))
         {
-            //Count letters
-            if (isalpha(text[i]))
-            {
-                lcount++;
-            }
-
-            //Count words
-            else if (isspace(text[i]))
-            {
-                wcount++;
-            }
-
-            //Count sentences
-            else if (text[i] == '.' || text[i] == '!' || text[i] == '?')
-            {
-                scount++;
-            }
-
-            //Count the last word
-            else if (text[i] == '')
-            {
-                wcount++;
-            }
+            lcount++;
         }
 
-        //Calculate average number of letters per 100 words
-        float avgl = (float) lcount / wcount * 100;
-
-        //Calculate average number of sentences per 100 words
-        float avgs = (float) scount / wcount * 100;
-
-        //Calculate Coleman-Liau Index
-        int index = round(0.0588 * avgl - 0.296 * avgs - 15.8);
-
-
-        //If greater than grade 16
-        if (index &gt; 16)
+        //Count words
+        else if (isspace(text[i]))
         {
-            printf(&quot;Grade 16+n&quot;);
+            wcount++;
         }
 
-        //If less than grade 1
-        else if (index &lt; 1)
+        //Count sentences
+        else if (text[i] == '.' || text[i] == '!' || text[i] == '?')
         {
-            printf(&quot;Before Grade 1n&quot;);
+            scount++;
         }
 
-        //If grade is between 1 and 16
-        else
+        //Count the last word
+        else if (text[i] == '')
         {
-            printf(&quot;Grade %in&quot;, index);
+            wcount++;
         }
     }
+
+    //Calculate average number of letters per 100 words
+    float avgl = (float) lcount / wcount * 100;
+
+    //Calculate average number of sentences per 100 words
+    float avgs = (float) scount / wcount * 100;
+
+    //Calculate Coleman-Liau Index
+    int index = round(0.0588 * avgl - 0.296 * avgs - 15.8);
+
+
+    //If greater than grade 16
+    if (index &gt; 16)
+    {
+        printf(&quot;Grade 16+n&quot;);
+    }
+
+    //If less than grade 1
+    else if (index &lt; 1)
+    {
+        printf(&quot;Before Grade 1n&quot;);
+    }
+
+    //If grade is between 1 and 16
+    else
+    {
+        printf(&quot;Grade %in&quot;, index);
+    }
+}
                 </pre>
                 <p>
                     <b>Output</b>
@@ -600,133 +603,133 @@
                 <p>We shouldn’t necessarily assume that the user’s key is going to be a number; though you may assume
                     that, if it is a number, it will be a positive integer.</p>
                 <pre>
-    #include &lt;cs50.h&gt;
-    #include &lt;ctype.h&gt;
-    #include &lt;stdlib.h&gt;
-    #include &lt;stdio.h&gt;
-    #include &lt;string.h&gt;
+#include &lt;cs50.h&gt;
+#include &lt;ctype.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
 
-    int main(int argc, string argv[])
+int main(int argc, string argv[])
+{
+    //Make sure user entered the key
+    if (argc != 2)
     {
-        //Make sure user entered the key
-        if (argc != 2)
+        printf(&quot;Usage: ./caesar keyn&quot;);
+        return 1;
+    }
+
+    /*the issue is that you started your code
+
+    int main( int argc, string argv[])
+
+    { int k = atoi(argv[1];
+    . . . }
+
+    /// the mistakes is in the above assignment, if the there is no argv[1] so the OS will report error and terminates the program
+
+    so you have not to do k assignment to argv[1] unless you make sure there is
+
+    argv[1] */
+
+    int key = atoi(argv[1]);
+
+    // Make sure the key is a positive number
+    if (key &lt;= 0)
+    {
+        printf(&quot;Usage: ./caesar keyn&quot;);
+        return 1;
+    }
+
+    //Make sure there's only digits and not letters or symbols
+    else
+    {
+        for (int i = 0; i &lt; strlen(argv[1]); i++)
         {
-            printf(&quot;Usage: ./caesar keyn&quot;);
-            return 1;
-        }
-
-        /*the issue is that you started your code
-
-        int main( int argc, string argv[])
-
-        { int k = atoi(argv[1];
-        . . . }
-
-        /// the mistakes is in the above assignment, if the there is no argv[1] so the OS will report error and terminates the program
-
-        so you have not to do k assignment to argv[1] unless you make sure there is
-
-        argv[1] */
-
-        int key = atoi(argv[1]);
-
-        // Make sure the key is a positive number
-        if (key &lt;= 0)
-        {
-            printf(&quot;Usage: ./caesar keyn&quot;);
-            return 1;
-        }
-
-        //Make sure there's only digits and not letters or symbols
-        else
-        {
-            for (int i = 0; i &lt; strlen(argv[1]); i++)
+            if (isdigit(argv[1][i]) == false)
             {
-                if (isdigit(argv[1][i]) == false)
-                {
-                    printf(&quot;Usage: ./caesar keyn&quot;);
-                    return 1;
-                }
+                printf(&quot;Usage: ./caesar keyn&quot;);
+                return 1;
             }
         }
+    }
 
-        //To check the key is correct
-        //printf(&quot;key: %in&quot;, key);
-
-
-        //Get plaintext
-        string plain = get_string(&quot;plaintext: &quot;);
+    //To check the key is correct
+    //printf(&quot;key: %in&quot;, key);
 
 
+    //Get plaintext
+    string plain = get_string(&quot;plaintext: &quot;);
 
-        string cipher = plain;
-        printf(&quot;ciphertext: &quot;);
 
-        //If key is 26 it means all the letters will be the same
-        if (key == 26)
-        {
-            printf(&quot;%sn&quot;, plain);
-            return 0;
-        }
 
-        //If the key is more than 26, the alphabet will start over where 27 equals the same as 1 (A becomes B)
-        else if (key &gt; 26)
-        {
-            for (int i = 0, n = strlen(plain); i &lt; n; i++)
-            {
-                //If it's not a letter, the symbol should remain the same
-                if (isalpha(plain[i]) == false)
-                {
-                    cipher[i] = plain[i];
-                }
+    string cipher = plain;
+    printf(&quot;ciphertext: &quot;);
 
-                //If the letter is uppercase
-                else if (isupper(plain[i]))
-                {
-
-                    cipher[i] = (((plain[i] + key - 65 - 26) % 26) + 65);
-                }
-
-                //If the letter is lowercase
-                else
-                {
-                    cipher[i] = (((plain[i] + key - 97 - 26) % 26) + 97);
-                }
-                printf(&quot;%c&quot;, cipher[i]);
-            }
-            printf(&quot;n&quot;);
-        }
-
-        else if (key &lt; 26)
-        {
-            for (int i = 0, n = strlen(plain); i &lt; n; i++)
-            {
-                //If it's not a letter, the symbol should remain the same
-                if (isalpha(plain[i]) == false)
-                {
-                    cipher[i] = plain[i];
-                }
-
-                //If the letter is uppercase
-                else if (isupper(plain[i]))
-                {
-
-                    cipher[i] = (((plain[i] + key - 65) % 26) + 65);
-                }
-
-                //If the letter is lowercase
-                else
-                {
-                    cipher[i] = (((plain[i] + key - 97) % 26) + 97);
-                }
-
-                printf(&quot;%c&quot;, cipher[i]);
-            }
-            printf(&quot;n&quot;);
-        }
-
+    //If key is 26 it means all the letters will be the same
+    if (key == 26)
+    {
+        printf(&quot;%sn&quot;, plain);
         return 0;
     }
+
+    //If the key is more than 26, the alphabet will start over where 27 equals the same as 1 (A becomes B)
+    else if (key &gt; 26)
+    {
+        for (int i = 0, n = strlen(plain); i &lt; n; i++)
+        {
+            //If it's not a letter, the symbol should remain the same
+            if (isalpha(plain[i]) == false)
+            {
+                cipher[i] = plain[i];
+            }
+
+            //If the letter is uppercase
+            else if (isupper(plain[i]))
+            {
+
+                cipher[i] = (((plain[i] + key - 65 - 26) % 26) + 65);
+            }
+
+            //If the letter is lowercase
+            else
+            {
+                cipher[i] = (((plain[i] + key - 97 - 26) % 26) + 97);
+            }
+            printf(&quot;%c&quot;, cipher[i]);
+        }
+        printf(&quot;n&quot;);
+    }
+
+    else if (key &lt; 26)
+    {
+        for (int i = 0, n = strlen(plain); i &lt; n; i++)
+        {
+            //If it's not a letter, the symbol should remain the same
+            if (isalpha(plain[i]) == false)
+            {
+                cipher[i] = plain[i];
+            }
+
+            //If the letter is uppercase
+            else if (isupper(plain[i]))
+            {
+
+                cipher[i] = (((plain[i] + key - 65) % 26) + 65);
+            }
+
+            //If the letter is lowercase
+            else
+            {
+                cipher[i] = (((plain[i] + key - 97) % 26) + 97);
+            }
+
+            printf(&quot;%c&quot;, cipher[i]);
+        }
+        printf(&quot;n&quot;);
+    }
+
+    return 0;
+}
                 </pre>
                 <p>
                     <b>Output</b>
@@ -750,138 +753,138 @@
                 <p>At the time the user executes the program, they should decide, by providing a command-line
                     argument, on what the key should be in the secret message they’ll provide at runtime.</p>
                 <pre>
-    #include &lt;cs50.h&gt;
-    #include &lt;ctype.h&gt;
-    #include &lt;stdlib.h&gt;
-    #include &lt;stdio.h&gt;
-    #include &lt;string.h&gt;
+#include &lt;cs50.h&gt;
+#include &lt;ctype.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
 
-    int main(int argc, string argv[]) //----------GET KEY----------
+int main(int argc, string argv[]) //----------GET KEY----------
+{
+    //----------VALIDATE KEY----------
+
+    //Make sure user entered the key
+    if (argc != 2)
     {
-        //----------VALIDATE KEY----------
+        printf(&quot;Usage: ./substitution keyn&quot;);
+        return 1;
+    }
 
-        //Make sure user entered the key
-        if (argc != 2)
+    string key = argv[1];
+
+    // Make sure the key has 26 letters
+    if (strlen(key) != 26)
+    {
+        printf(&quot;Key must contain 26 characters.n&quot;);
+        return 1;
+    }
+
+    //Make sure there's only letters and not digits or symbols
+    else
+    {
+        for (int i = 0; i &lt; strlen(argv[1]); i++)
         {
-            printf(&quot;Usage: ./substitution keyn&quot;);
-            return 1;
+            if (isalpha(argv[1][i]) == false)
+            {
+                printf(&quot;Key should only contain lettersn&quot;);
+                return 1;
+            }
+        }
+    }
+
+    // Make key to lowercase
+    string lowerkey = key;
+
+    for (int i = 0; i &lt; strlen(argv[1]); i++)
+    {
+        for (int j = i + 1; j &lt;= strlen(argv[1]); j++)
+        {
+            lowerkey[i] = tolower(key[i]);
+        }
+    }
+
+    //Check if there's a repeated character
+    for (int i = 0; i &lt; strlen(argv[1]); i++)
+    {
+        for (int j = i + 1; j &lt; strlen(argv[1]); j++)
+        {
+            if (lowerkey[i] == lowerkey[j])
+            {
+                printf(&quot;Key should not contain repeated letters.n&quot;);
+                return 1;
+            }
+        }
+    }
+
+
+    //----------GET PLAINTEXT----------
+    const string plain = get_string(&quot;plaintext:  &quot;);
+
+
+    //----------ENCIPHER----------
+    string cipher = plain;
+    string alpha = &quot;abcdefghijklmnopqrstuvwxyz&quot;;
+    printf(&quot;ciphertext: &quot;);
+
+    for (int i = 0, n = strlen(plain); i &lt; n; i++)
+    {
+        //If it's not a letter, the symbol should remain the same
+        if (isalpha(plain[i]) == false)
+        {
+            cipher[i] = plain[i];
         }
 
-        string key = argv[1];
-
-        // Make sure the key has 26 letters
-        if (strlen(key) != 26)
+        //If the letter is uppercase
+        else if (isupper(plain[i]))
         {
-            printf(&quot;Key must contain 26 characters.n&quot;);
-            return 1;
+            int found = 1;
+            int j = 0;
+
+            do
+            {
+                if (plain[i] == toupper(alpha[j]))
+                {
+                    cipher[i] = toupper(key[j]);
+                    found--;
+                }
+                else if (j &lt; strlen(alpha))
+                {
+                    j++;
+                }
+            }
+            while (found == 1);
         }
 
-        //Make sure there's only letters and not digits or symbols
+        //If the letter is lowercase
         else
         {
-            for (int i = 0; i &lt; strlen(argv[1]); i++)
+            int found = 1;
+            int j = 0;
+
+            do
             {
-                if (isalpha(argv[1][i]) == false)
+                if (plain[i] == alpha[j])
                 {
-                    printf(&quot;Key should only contain lettersn&quot;);
-                    return 1;
+                    cipher[i] = key[j];
+                    found--;
+                }
+                else if (j &lt; strlen(alpha))
+                {
+                    j++;
                 }
             }
+            while (found == 1);
         }
-
-        // Make key to lowercase
-        string lowerkey = key;
-
-        for (int i = 0; i &lt; strlen(argv[1]); i++)
-        {
-            for (int j = i + 1; j &lt;= strlen(argv[1]); j++)
-            {
-                lowerkey[i] = tolower(key[i]);
-            }
-        }
-
-        //Check if there's a repeated character
-        for (int i = 0; i &lt; strlen(argv[1]); i++)
-        {
-            for (int j = i + 1; j &lt; strlen(argv[1]); j++)
-            {
-                if (lowerkey[i] == lowerkey[j])
-                {
-                    printf(&quot;Key should not contain repeated letters.n&quot;);
-                    return 1;
-                }
-            }
-        }
-
-
-        //----------GET PLAINTEXT----------
-        const string plain = get_string(&quot;plaintext:  &quot;);
-
-
-        //----------ENCIPHER----------
-        string cipher = plain;
-        string alpha = &quot;abcdefghijklmnopqrstuvwxyz&quot;;
-        printf(&quot;ciphertext: &quot;);
-
-        for (int i = 0, n = strlen(plain); i &lt; n; i++)
-        {
-            //If it's not a letter, the symbol should remain the same
-            if (isalpha(plain[i]) == false)
-            {
-                cipher[i] = plain[i];
-            }
-
-            //If the letter is uppercase
-            else if (isupper(plain[i]))
-            {
-                int found = 1;
-                int j = 0;
-
-                do
-                {
-                    if (plain[i] == toupper(alpha[j]))
-                    {
-                        cipher[i] = toupper(key[j]);
-                        found--;
-                    }
-                    else if (j &lt; strlen(alpha))
-                    {
-                        j++;
-                    }
-                }
-                while (found == 1);
-            }
-
-            //If the letter is lowercase
-            else
-            {
-                int found = 1;
-                int j = 0;
-
-                do
-                {
-                    if (plain[i] == alpha[j])
-                    {
-                        cipher[i] = key[j];
-                        found--;
-                    }
-                    else if (j &lt; strlen(alpha))
-                    {
-                        j++;
-                    }
-                }
-                while (found == 1);
-            }
-            printf(&quot;%c&quot;, cipher[i]);
-        }
-        printf(&quot;n&quot;);
-
-
-        //----------PRINT CIPHERTEXT----------
-        //printf(&quot;ciphertext: %sn&quot;, cipher);
-
-        return 0;
+        printf(&quot;%c&quot;, cipher[i]);
     }
+    printf(&quot;n&quot;);
+
+
+    //----------PRINT CIPHERTEXT----------
+    //printf(&quot;ciphertext: %sn&quot;, cipher);
+
+    return 0;
+}
                 </pre>
                 <p>
                     <b>Output</b>
@@ -905,114 +908,114 @@
                 <p>In the plurality vote, every voter gets to vote for one candidate. At the end of the election,
                     whichever candidate has the greatest number of votes is declared the winner of the election.</p>
                 <pre>
-    #include &lt;cs50.h&gt;
-    #include &lt;stdio.h&gt;
-    #include &lt;string.h&gt;
+#include &lt;cs50.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
 
-    // Max number of candidates
-    #define MAX 9
+// Max number of candidates
+#define MAX 9
 
-    // Candidates have name and vote count
-    typedef struct
+// Candidates have name and vote count
+typedef struct
+{
+    string name;
+    int votes;
+}
+candidate;
+
+// Array of candidates
+candidate candidates[MAX];
+
+// Number of candidates
+int candidate_count;
+
+// Function prototypes
+bool vote(string name);
+void print_winner(void);
+
+int main(int argc, string argv[])
+{
+    // Check for invalid usage
+    if (argc &lt; 2)
     {
-        string name;
-        int votes;
-    }
-    candidate;
-
-    // Array of candidates
-    candidate candidates[MAX];
-
-    // Number of candidates
-    int candidate_count;
-
-    // Function prototypes
-    bool vote(string name);
-    void print_winner(void);
-
-    int main(int argc, string argv[])
-    {
-        // Check for invalid usage
-        if (argc &lt; 2)
-        {
-            printf(&quot;Usage: plurality [candidate ...]n&quot;);
-            return 1;
-        }
-
-        // Populate array of candidates
-        candidate_count = argc - 1;
-        if (candidate_count &gt; MAX)
-        {
-            printf(&quot;Maximum number of candidates is %in&quot;, MAX);
-            return 2;
-        }
-        for (int i = 0; i &lt; candidate_count; i++)
-        {
-            candidates[i].name = argv[i + 1];
-            candidates[i].votes = 0;
-        }
-
-        int voter_count = get_int(&quot;Number of voters: &quot;);
-
-        // Loop over all voters
-        for (int i = 0; i &lt; voter_count; i++)
-        {
-            string name = get_string(&quot;Vote: &quot;);
-
-            // Check for invalid vote
-            if (!vote(name))
-            {
-                printf(&quot;Invalid vote.n&quot;);
-            }
-        }
-
-        // Display winner of election
-        print_winner();
+        printf(&quot;Usage: plurality [candidate ...]n&quot;);
+        return 1;
     }
 
-    // Update vote totals given a new vote
-    bool vote(string name)
+    // Populate array of candidates
+    candidate_count = argc - 1;
+    if (candidate_count &gt; MAX)
     {
-        // TODO-------------------------------------------------------------------------------------
-        for (int i = 0; i &lt; candidate_count; i++)
-        {
-            if (strcmp(candidates[i].name, name) == 0)
-            {
-                candidates[i].votes++;
-                return true;
-            }
-        }
-        return false;
+        printf(&quot;Maximum number of candidates is %in&quot;, MAX);
+        return 2;
+    }
+    for (int i = 0; i &lt; candidate_count; i++)
+    {
+        candidates[i].name = argv[i + 1];
+        candidates[i].votes = 0;
     }
 
-    // Print the winner (or winners) of the election
-    void print_winner(void)
+    int voter_count = get_int(&quot;Number of voters: &quot;);
+
+    // Loop over all voters
+    for (int i = 0; i &lt; voter_count; i++)
     {
-        // TODO-------------------------------------------------------------------------------------
-        int most_votes = candidates[0].votes;
+        string name = get_string(&quot;Vote: &quot;);
 
-        // Starts at one as we won't compare the first candidates number of votes with their own number of votes
-        for (int i = 1; i &lt; candidate_count; i++)
+        // Check for invalid vote
+        if (!vote(name))
         {
-            // Check if
-            if (most_votes &lt; candidates[i].votes)
-            {
-                most_votes = candidates[i].votes;
-            }
+            printf(&quot;Invalid vote.n&quot;);
         }
-
-        // Print the winner(s)
-        for (int i = 0; i &lt; candidate_count; i++)
-        {
-            // Check if
-            if (most_votes == candidates[i].votes)
-            {
-                printf(&quot;%sn&quot;, candidates[i].name);
-            }
-        }
-
-        return;
     }
+
+    // Display winner of election
+    print_winner();
+}
+
+// Update vote totals given a new vote
+bool vote(string name)
+{
+    // TODO-------------------------------------------------------------------------------------
+    for (int i = 0; i &lt; candidate_count; i++)
+    {
+        if (strcmp(candidates[i].name, name) == 0)
+        {
+            candidates[i].votes++;
+            return true;
+        }
+    }
+    return false;
+}
+
+// Print the winner (or winners) of the election
+void print_winner(void)
+{
+    // TODO-------------------------------------------------------------------------------------
+    int most_votes = candidates[0].votes;
+
+    // Starts at one as we won't compare the first candidates number of votes with their own number of votes
+    for (int i = 1; i &lt; candidate_count; i++)
+    {
+        // Check if
+        if (most_votes &lt; candidates[i].votes)
+        {
+            most_votes = candidates[i].votes;
+        }
+    }
+
+    // Print the winner(s)
+    for (int i = 0; i &lt; candidate_count; i++)
+    {
+        // Check if
+        if (most_votes == candidates[i].votes)
+        {
+            printf(&quot;%sn&quot;, candidates[i].name);
+        }
+    }
+
+    return;
+}
                 </pre>
                 <p>
                     <b>Output</b>
@@ -1050,240 +1053,240 @@
                     eliminating everyone! So in that case, we’ll have to be careful not to eliminate everyone, and just
                     declare the election a tie between all remaining candidates.</p>
                 <pre>
-    #include &lt;cs50.h&gt;
-    #include &lt;stdio.h&gt;
-    #include &lt;string.h&gt;
+#include &lt;cs50.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
 
-    // Max voters and candidates
-    #define MAX_VOTERS 100
-    #define MAX_CANDIDATES 9
+// Max voters and candidates
+#define MAX_VOTERS 100
+#define MAX_CANDIDATES 9
 
-    // preferences[i][j] is jth preference for voter i
-    int preferences[MAX_VOTERS][MAX_CANDIDATES];
+// preferences[i][j] is jth preference for voter i
+int preferences[MAX_VOTERS][MAX_CANDIDATES];
 
-    // Candidates have name, vote count, eliminated status
-    typedef struct
+// Candidates have name, vote count, eliminated status
+typedef struct
+{
+    string name;
+    int votes;
+    bool eliminated;
+}
+candidate;
+
+// Array of candidates
+candidate candidates[MAX_CANDIDATES];
+
+// Numbers of voters and candidates
+int voter_count;
+int candidate_count;
+
+// Function prototypes
+bool vote(int voter, int rank, string name);
+void tabulate(void);
+bool print_winner(void);
+int find_min(void);
+bool is_tie(int min);
+void eliminate(int min);
+
+int main(int argc, string argv[])
+{
+    // Check for invalid usage
+    if (argc &lt; 2)
     {
-        string name;
-        int votes;
-        bool eliminated;
+        printf(&quot;Usage: runoff [candidate ...]n&quot;);
+        return 1;
     }
-    candidate;
 
-    // Array of candidates
-    candidate candidates[MAX_CANDIDATES];
-
-    // Numbers of voters and candidates
-    int voter_count;
-    int candidate_count;
-
-    // Function prototypes
-    bool vote(int voter, int rank, string name);
-    void tabulate(void);
-    bool print_winner(void);
-    int find_min(void);
-    bool is_tie(int min);
-    void eliminate(int min);
-
-    int main(int argc, string argv[])
+    // Populate array of candidates
+    candidate_count = argc - 1;
+    if (candidate_count &gt; MAX_CANDIDATES)
     {
-        // Check for invalid usage
-        if (argc &lt; 2)
-        {
-            printf(&quot;Usage: runoff [candidate ...]n&quot;);
-            return 1;
-        }
+        printf(&quot;Maximum number of candidates is %in&quot;, MAX_CANDIDATES);
+        return 2;
+    }
+    for (int i = 0; i &lt; candidate_count; i++)
+    {
+        candidates[i].name = argv[i + 1];
+        candidates[i].votes = 0;
+        candidates[i].eliminated = false;
+    }
 
-        // Populate array of candidates
-        candidate_count = argc - 1;
-        if (candidate_count &gt; MAX_CANDIDATES)
-        {
-            printf(&quot;Maximum number of candidates is %in&quot;, MAX_CANDIDATES);
-            return 2;
-        }
-        for (int i = 0; i &lt; candidate_count; i++)
-        {
-            candidates[i].name = argv[i + 1];
-            candidates[i].votes = 0;
-            candidates[i].eliminated = false;
-        }
+    voter_count = get_int(&quot;Number of voters: &quot;);
+    if (voter_count &gt; MAX_VOTERS)
+    {
+        printf(&quot;Maximum number of voters is %in&quot;, MAX_VOTERS);
+        return 3;
+    }
 
-        voter_count = get_int(&quot;Number of voters: &quot;);
-        if (voter_count &gt; MAX_VOTERS)
-        {
-            printf(&quot;Maximum number of voters is %in&quot;, MAX_VOTERS);
-            return 3;
-        }
+    // Keep querying for votes
+    for (int i = 0; i &lt; voter_count; i++)
+    {
 
-        // Keep querying for votes
-        for (int i = 0; i &lt; voter_count; i++)
+        // Query for each rank
+        for (int j = 0; j &lt; candidate_count; j++)
         {
+            string name = get_string(&quot;Rank %i: &quot;, j + 1);
 
-            // Query for each rank
-            for (int j = 0; j &lt; candidate_count; j++)
+            // Record vote, unless it's invalid
+            if (!vote(i, j, name))
             {
-                string name = get_string(&quot;Rank %i: &quot;, j + 1);
-
-                // Record vote, unless it's invalid
-                if (!vote(i, j, name))
-                {
-                    printf(&quot;Invalid vote.n&quot;);
-                    return 4;
-                }
+                printf(&quot;Invalid vote.n&quot;);
+                return 4;
             }
-
-            printf(&quot;n&quot;);
         }
 
-        // Keep holding runoffs until winner exists
-        while (true)
+        printf(&quot;n&quot;);
+    }
+
+    // Keep holding runoffs until winner exists
+    while (true)
+    {
+        // Calculate votes given remaining candidates
+        tabulate();
+
+        // Check if election has been won
+        bool won = print_winner();
+        if (won)
         {
-            // Calculate votes given remaining candidates
-            tabulate();
+            break;
+        }
 
-            // Check if election has been won
-            bool won = print_winner();
-            if (won)
-            {
-                break;
-            }
+        // Eliminate last-place candidates
+        int min = find_min();
+        bool tie = is_tie(min);
 
-            // Eliminate last-place candidates
-            int min = find_min();
-            bool tie = is_tie(min);
-
-            // If tie, everyone wins
-            if (tie)
-            {
-                for (int i = 0; i &lt; candidate_count; i++)
-                {
-                    if (!candidates[i].eliminated)
-                    {
-                        printf(&quot;%sn&quot;, candidates[i].name);
-                    }
-                }
-                break;
-            }
-
-            // Eliminate anyone with minimum number of votes
-            eliminate(min);
-
-            // Reset vote counts back to zero
+        // If tie, everyone wins
+        if (tie)
+        {
             for (int i = 0; i &lt; candidate_count; i++)
             {
-                candidates[i].votes = 0;
-            }
-        }
-        return 0;
-    }
-
-    // Record preference if vote is valid
-    bool vote(int voter, int rank, string name)
-    {
-        // TODO-------------------------------------------------------------------------------------
-        for (int k = 0; k &lt; candidate_count; k++)
-        {
-            if (strcmp(candidates[k].name, name) == 0)
-            {
-                preferences[voter][rank] = k;
-                return true;
-            }
-        }
-        return false;
-    }
-
-    // Tabulate votes for non-eliminated candidates
-    void tabulate(void)
-    {
-        // TODO-------------------------------------------------------------------------------------
-        for (int l = 0; l &lt; voter_count; l++) // Vote number
-        {
-            for (int m = 0; m &lt; candidate_count; m++) // jth preference
-            {
-                int k = preferences[l][m];
-
-                if (candidates[k].eliminated == false)
+                if (!candidates[i].eliminated)
                 {
-                    candidates[k].votes++;
-                    break;
+                    printf(&quot;%sn&quot;, candidates[i].name);
                 }
             }
+            break;
         }
-        return;
+
+        // Eliminate anyone with minimum number of votes
+        eliminate(min);
+
+        // Reset vote counts back to zero
+        for (int i = 0; i &lt; candidate_count; i++)
+        {
+            candidates[i].votes = 0;
+        }
     }
+    return 0;
+}
 
-    // Print the winner of the election, if there is one
-    bool print_winner(void)
+// Record preference if vote is valid
+bool vote(int voter, int rank, string name)
+{
+    // TODO-------------------------------------------------------------------------------------
+    for (int k = 0; k &lt; candidate_count; k++)
     {
-        // TODO-------------------------------------------------------------------------------------
-        for (int o = 0; o &lt; candidate_count; o++)
+        if (strcmp(candidates[k].name, name) == 0)
         {
-            if (candidates[o].votes &gt; (voter_count / 2))
-            {
-                printf(&quot;%sn&quot;, candidates[o].name);
-                return true;
-            }
-        }
-        return false;
-    }
-
-    // Return the minimum number of votes any remaining candidate has
-    int find_min(void)
-    {
-        // TODO-------------------------------------------------------------------------------------
-        int min_vote = voter_count; // The minimum vote will become less and less therefore it needs to start at the highest
-
-        for (int p = 0; p &lt; candidate_count; p++)
-        {
-            if (candidates[p].eliminated == false &amp;&amp; candidates[p].votes &lt; min_vote)
-            {
-                min_vote = candidates[p].votes;
-            }
-        }
-        return min_vote;
-    }
-
-    // Return true if the election is tied between all candidates, false otherwise
-    bool is_tie(int min)
-    {
-        // TODO-------------------------------------------------------------------------------------
-        int tieCount = 0; // To see how many candidates are tied
-        int running = 0; // To see how many candidates are still in the runoff
-
-        for (int q = 0; q &lt; candidate_count; q++)
-        {
-            if (candidates[q].eliminated == false &amp;&amp; candidates[q].votes == min)
-            {
-                tieCount++;
-                running++;
-            }
-            else if (candidates[q].eliminated == false)
-            {
-                running++;
-            }
-        }
-
-        if (tieCount == running) // If ALL candidates still in the runoff have the same amount of votes, they are tied
-        {
+            preferences[voter][rank] = k;
             return true;
         }
-
-        return false;
     }
+    return false;
+}
 
-    // Eliminate the candidate (or candidates) in last place
-    void eliminate(int min)
+// Tabulate votes for non-eliminated candidates
+void tabulate(void)
+{
+    // TODO-------------------------------------------------------------------------------------
+    for (int l = 0; l &lt; voter_count; l++) // Vote number
     {
-        // TODO-------------------------------------------------------------------------------------
-        for (int r = 0; r &lt; candidate_count; r++)
+        for (int m = 0; m &lt; candidate_count; m++) // jth preference
         {
-            if (candidates[r].eliminated == false &amp;&amp; candidates[r].votes == min)
+            int k = preferences[l][m];
+
+            if (candidates[k].eliminated == false)
             {
-                candidates[r].eliminated = true;
+                candidates[k].votes++;
+                break;
             }
         }
-        return;
     }
+    return;
+}
+
+// Print the winner of the election, if there is one
+bool print_winner(void)
+{
+    // TODO-------------------------------------------------------------------------------------
+    for (int o = 0; o &lt; candidate_count; o++)
+    {
+        if (candidates[o].votes &gt; (voter_count / 2))
+        {
+            printf(&quot;%sn&quot;, candidates[o].name);
+            return true;
+        }
+    }
+    return false;
+}
+
+// Return the minimum number of votes any remaining candidate has
+int find_min(void)
+{
+    // TODO-------------------------------------------------------------------------------------
+    int min_vote = voter_count; // The minimum vote will become less and less therefore it needs to start at the highest
+
+    for (int p = 0; p &lt; candidate_count; p++)
+    {
+        if (candidates[p].eliminated == false &amp;&amp; candidates[p].votes &lt; min_vote)
+        {
+            min_vote = candidates[p].votes;
+        }
+    }
+    return min_vote;
+}
+
+// Return true if the election is tied between all candidates, false otherwise
+bool is_tie(int min)
+{
+    // TODO-------------------------------------------------------------------------------------
+    int tieCount = 0; // To see how many candidates are tied
+    int running = 0; // To see how many candidates are still in the runoff
+
+    for (int q = 0; q &lt; candidate_count; q++)
+    {
+        if (candidates[q].eliminated == false &amp;&amp; candidates[q].votes == min)
+        {
+            tieCount++;
+            running++;
+        }
+        else if (candidates[q].eliminated == false)
+        {
+            running++;
+        }
+    }
+
+    if (tieCount == running) // If ALL candidates still in the runoff have the same amount of votes, they are tied
+    {
+        return true;
+    }
+
+    return false;
+}
+
+// Eliminate the candidate (or candidates) in last place
+void eliminate(int min)
+{
+    // TODO-------------------------------------------------------------------------------------
+    for (int r = 0; r &lt; candidate_count; r++)
+    {
+        if (candidates[r].eliminated == false &amp;&amp; candidates[r].votes == min)
+        {
+            candidates[r].eliminated = true;
+        }
+    }
+    return;
+}
                 </pre>
                 <p>
                     <b>Output</b>
@@ -1314,17 +1317,221 @@
                     we’ll use the “box blur,” which works by taking each pixel and, for each color value, giving it a
                     new value by averaging the color values of neighboring pixels.</p>
                 <pre>
-    #include &lt;getopt.h&gt;
-    #include &lt;stdio.h&gt;
-    #include &lt;stdlib.h&gt;
+#include &lt;getopt.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
 
-    #include &quot;helpers.h&quot;
+#include &quot;helpers.h&quot;
 
-    int main(int argc, char *argv[])
+int main(int argc, char *argv[])
+{
+
+// Define allowable filters
+char *filters = &quot;bgrs&quot;;
+
+// Get filter flag and check validity
+char filter = getopt(argc, argv, filters);
+if (filter == '?')
+{
+    fprintf(stderr, &quot;Invalid filter.n&quot;);
+    return 1;
+}
+
+// Ensure only one filter
+if (getopt(argc, argv, filters) != -1)
+{
+    fprintf(stderr, &quot;Only one filter allowed.n&quot;);
+    return 2;
+}
+
+// Ensure proper usage
+if (argc != optind + 2)
+{
+    fprintf(stderr, &quot;Usage: filter [flag] infile outfilen&quot;);
+    return 3;
+}
+
+// Remember filenames
+char *infile = argv[optind];
+char *outfile = argv[optind + 1];
+
+// Open input file
+FILE *inptr = fopen(infile, &quot;r&quot;);
+if (inptr == NULL)
+{
+    fprintf(stderr, &quot;Could not open %s.n&quot;, infile);
+    return 4;
+}
+
+// Open output file
+FILE *outptr = fopen(outfile, &quot;w&quot;);
+if (outptr == NULL)
+{
+    fclose(inptr);
+    fprintf(stderr, &quot;Could not create %s.n&quot;, outfile);
+    return 5;
+}
+
+// Read infile's BITMAPFILEHEADER
+BITMAPFILEHEADER bf;
+fread(&amp;bf, sizeof(BITMAPFILEHEADER), 1, inptr);
+
+// Read infile's BITMAPINFOHEADER
+BITMAPINFOHEADER bi;
+fread(&amp;bi, sizeof(BITMAPINFOHEADER), 1, inptr);
+
+// Ensure infile is (likely) a 24-bit uncompressed BMP 4.0
+if (bf.bfType != 0x4d42 || bf.bfOffBits != 54 || bi.biSize != 40 ||
+    bi.biBitCount != 24 || bi.biCompression != 0)
+{
+    fclose(outptr);
+    fclose(inptr);
+    fprintf(stderr, &quot;Unsupported file format.n&quot;);
+    return 6;
+}
+
+int height = abs(bi.biHeight);
+int width = bi.biWidth;
+
+// Allocate memory for image
+RGBTRIPLE(*image)[width] = calloc(height, width * sizeof(RGBTRIPLE));
+if (image == NULL)
+{
+    fprintf(stderr, &quot;Not enough memory to store image.n&quot;);
+    fclose(outptr);
+    fclose(inptr);
+    return 7;
+}
+
+// Determine padding for scanlines
+int padding = (4 - (width * sizeof(RGBTRIPLE)) % 4) % 4;
+
+// Iterate over infile's scanlines
+for (int i = 0; i &lt; height; i++)
+{
+    // Read row into pixel array
+    fread(image[i], sizeof(RGBTRIPLE), width, inptr);
+
+    // Skip over padding
+    fseek(inptr, padding, SEEK_CUR);
+}
+
+// Filter image
+switch (filter)
+{
+    // Blur
+    case 'b':
+        blur(height, width, image);
+        break;
+
+    // Grayscale
+    case 'g':
+        grayscale(height, width, image);
+        break;
+
+    // Reflection
+    case 'r':
+        reflect(height, width, image);
+        break;
+
+    // Sepia
+    case 's':
+        sepia(height, width, image);
+        break;
+}
+
+// Write outfile's BITMAPFILEHEADER
+fwrite(&amp;bf, sizeof(BITMAPFILEHEADER), 1, outptr);
+
+// Write outfile's BITMAPINFOHEADER
+fwrite(&amp;bi, sizeof(BITMAPINFOHEADER), 1, outptr);
+
+// Write new pixels to outfile
+for (int i = 0; i &lt; height; i++)
+{
+    // Write row to outfile
+    fwrite(image[i], sizeof(RGBTRIPLE), width, outptr);
+
+    // Write padding at end of row
+    for (int k = 0; k &lt; padding; k++)
     {
+        fputc(0x00, outptr);
+    }
+}
+
+// Free memory for image
+free(image);
+
+// Close infile
+fclose(inptr);
+
+// Close outfile
+fclose(outptr);
+
+return 0;
+}
+                </pre>
+                <p>
+                    <b>Code</b>
+                </p>
+                <img src="CS50-terminal/filterLess-C.png" alt="filter grayscale output">
+                <div class="flexbox-container">
+                    <div>
+                        <p>Original image</p>
+                        <img src="CS50-terminal/filter/tower.png" alt="image of a tower">
+                    </div>
+                    <div>
+                        <p>Grayscale filter</p>
+                        <img src="CS50-terminal/filter/grayscale.png" alt="grayscale image of a tower">
+                    </div>
+                    <div>
+                        <p>Sepia filter</p>
+                        <img src="CS50-terminal/filter/sepia.png" alt="sepia image of a tower">
+                    </div>
+                    <div>
+                        <p>Reflection filter</p>
+                        <img src="CS50-terminal/filter/reflection.png" alt="reflected image of a tower">
+                    </div>
+                    <div>
+                        <p>Blur filter</p>
+                        <img src="CS50-terminal/filter/blur.png" alt="blurred image of a tower">
+                    </div>
+                </div>
+            </div>
+            <div class="show-more">
+                <span>Show more</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="more-arrow">
+                    <path d="M7.293 4.707 14.586 12l-7.293 7.293 1.414 1.414L17.414 12 8.707 3.293 7.293 4.707z"/>
+                </svg>
+            </div>
+        </section>
+        <!-- ------------------------------ filter.c -->
+        <section>
+            <h3>filter.c</h3>
+            <p>One common filter is the “grayscale” filter, where we take an image and want to convert it to
+                black-and-white.</p>
+            <div class="hidden">
+                <p>Some filters might also move pixels around. Reflecting an image, for example, is a filter where the
+                    resulting image is what you would get by placing the original image in front of a mirror. So any
+                    pixels on the left side of the image should end up on the right, and vice versa.</p>
+                <p>There are a number of ways to create the effect of blurring or softening an image. For this problem,
+                    we’ll use the “box blur,” which works by taking each pixel and, for each color value, giving it a
+                    new value by averaging the color values of neighboring pixels.</p>
+                <p>In artificial intelligence algorithms for image processing, it is often useful to detect edges in an
+                    image: lines in the image that create a boundary between one object and another. One way to achieve
+                    this effect is by applying the Sobel operator to the image.</p>
+                <pre>
+#include &lt;getopt.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+#include &quot;helpers.h&quot;
+
+int main(int argc, char *argv[])
+{
 
     // Define allowable filters
-    char *filters = &quot;bgrs&quot;;
+    char *filters = &quot;begr&quot;;
 
     // Get filter flag and check validity
     char filter = getopt(argc, argv, filters);
@@ -1421,19 +1628,19 @@
             blur(height, width, image);
             break;
 
+        // Edges
+        case 'e':
+            edges(height, width, image);
+            break;
+
         // Grayscale
         case 'g':
             grayscale(height, width, image);
             break;
 
-        // Reflection
+        // Reflect
         case 'r':
             reflect(height, width, image);
-            break;
-
-        // Sepia
-        case 's':
-            sepia(height, width, image);
             break;
     }
 
@@ -1466,211 +1673,7 @@
     fclose(outptr);
 
     return 0;
-    }
-                </pre>
-                <p>
-                    <b>Code</b>
-                </p>
-                <img src="CS50-terminal/filterLess-C.png" alt="filter grayscale output">
-                <div class="flexbox-container">
-                    <div>
-                        <p>Original image</p>
-                        <img src="CS50-terminal/filter/tower.png" alt="image of a tower">
-                    </div>
-                    <div>
-                        <p>Grayscale filter</p>
-                        <img src="CS50-terminal/filter/grayscale.png" alt="grayscale image of a tower">
-                    </div>
-                    <div>
-                        <p>Sepia filter</p>
-                        <img src="CS50-terminal/filter/sepia.png" alt="sepia image of a tower">
-                    </div>
-                    <div>
-                        <p>Reflection filter</p>
-                        <img src="CS50-terminal/filter/reflection.png" alt="reflected image of a tower">
-                    </div>
-                    <div>
-                        <p>Blur filter</p>
-                        <img src="CS50-terminal/filter/blur.png" alt="blurred image of a tower">
-                    </div>
-                </div>
-            </div>
-            <div class="show-more">
-                <span>Show more</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="more-arrow">
-                    <path d="M7.293 4.707 14.586 12l-7.293 7.293 1.414 1.414L17.414 12 8.707 3.293 7.293 4.707z"/>
-                </svg>
-            </div>
-        </section>
-        <!-- ------------------------------ filter.c -->
-        <section>
-            <h3>filter.c</h3>
-            <p>One common filter is the “grayscale” filter, where we take an image and want to convert it to
-                black-and-white.</p>
-            <div class="hidden">
-                <p>Some filters might also move pixels around. Reflecting an image, for example, is a filter where the
-                    resulting image is what you would get by placing the original image in front of a mirror. So any
-                    pixels on the left side of the image should end up on the right, and vice versa.</p>
-                <p>There are a number of ways to create the effect of blurring or softening an image. For this problem,
-                    we’ll use the “box blur,” which works by taking each pixel and, for each color value, giving it a
-                    new value by averaging the color values of neighboring pixels.</p>
-                <p>In artificial intelligence algorithms for image processing, it is often useful to detect edges in an
-                    image: lines in the image that create a boundary between one object and another. One way to achieve
-                    this effect is by applying the Sobel operator to the image.</p>
-                <pre>
-    #include &lt;getopt.h&gt;
-    #include &lt;stdio.h&gt;
-    #include &lt;stdlib.h&gt;
-
-    #include &quot;helpers.h&quot;
-
-    int main(int argc, char *argv[])
-    {
-
-        // Define allowable filters
-        char *filters = &quot;begr&quot;;
-
-        // Get filter flag and check validity
-        char filter = getopt(argc, argv, filters);
-        if (filter == '?')
-        {
-            fprintf(stderr, &quot;Invalid filter.n&quot;);
-            return 1;
-        }
-
-        // Ensure only one filter
-        if (getopt(argc, argv, filters) != -1)
-        {
-            fprintf(stderr, &quot;Only one filter allowed.n&quot;);
-            return 2;
-        }
-
-        // Ensure proper usage
-        if (argc != optind + 2)
-        {
-            fprintf(stderr, &quot;Usage: filter [flag] infile outfilen&quot;);
-            return 3;
-        }
-
-        // Remember filenames
-        char *infile = argv[optind];
-        char *outfile = argv[optind + 1];
-
-        // Open input file
-        FILE *inptr = fopen(infile, &quot;r&quot;);
-        if (inptr == NULL)
-        {
-            fprintf(stderr, &quot;Could not open %s.n&quot;, infile);
-            return 4;
-        }
-
-        // Open output file
-        FILE *outptr = fopen(outfile, &quot;w&quot;);
-        if (outptr == NULL)
-        {
-            fclose(inptr);
-            fprintf(stderr, &quot;Could not create %s.n&quot;, outfile);
-            return 5;
-        }
-
-        // Read infile's BITMAPFILEHEADER
-        BITMAPFILEHEADER bf;
-        fread(&amp;bf, sizeof(BITMAPFILEHEADER), 1, inptr);
-
-        // Read infile's BITMAPINFOHEADER
-        BITMAPINFOHEADER bi;
-        fread(&amp;bi, sizeof(BITMAPINFOHEADER), 1, inptr);
-
-        // Ensure infile is (likely) a 24-bit uncompressed BMP 4.0
-        if (bf.bfType != 0x4d42 || bf.bfOffBits != 54 || bi.biSize != 40 ||
-            bi.biBitCount != 24 || bi.biCompression != 0)
-        {
-            fclose(outptr);
-            fclose(inptr);
-            fprintf(stderr, &quot;Unsupported file format.n&quot;);
-            return 6;
-        }
-
-        int height = abs(bi.biHeight);
-        int width = bi.biWidth;
-
-        // Allocate memory for image
-        RGBTRIPLE(*image)[width] = calloc(height, width * sizeof(RGBTRIPLE));
-        if (image == NULL)
-        {
-            fprintf(stderr, &quot;Not enough memory to store image.n&quot;);
-            fclose(outptr);
-            fclose(inptr);
-            return 7;
-        }
-
-        // Determine padding for scanlines
-        int padding = (4 - (width * sizeof(RGBTRIPLE)) % 4) % 4;
-
-        // Iterate over infile's scanlines
-        for (int i = 0; i &lt; height; i++)
-        {
-            // Read row into pixel array
-            fread(image[i], sizeof(RGBTRIPLE), width, inptr);
-
-            // Skip over padding
-            fseek(inptr, padding, SEEK_CUR);
-        }
-
-        // Filter image
-        switch (filter)
-        {
-            // Blur
-            case 'b':
-                blur(height, width, image);
-                break;
-
-            // Edges
-            case 'e':
-                edges(height, width, image);
-                break;
-
-            // Grayscale
-            case 'g':
-                grayscale(height, width, image);
-                break;
-
-            // Reflect
-            case 'r':
-                reflect(height, width, image);
-                break;
-        }
-
-        // Write outfile's BITMAPFILEHEADER
-        fwrite(&amp;bf, sizeof(BITMAPFILEHEADER), 1, outptr);
-
-        // Write outfile's BITMAPINFOHEADER
-        fwrite(&amp;bi, sizeof(BITMAPINFOHEADER), 1, outptr);
-
-        // Write new pixels to outfile
-        for (int i = 0; i &lt; height; i++)
-        {
-            // Write row to outfile
-            fwrite(image[i], sizeof(RGBTRIPLE), width, outptr);
-
-            // Write padding at end of row
-            for (int k = 0; k &lt; padding; k++)
-            {
-                fputc(0x00, outptr);
-            }
-        }
-
-        // Free memory for image
-        free(image);
-
-        // Close infile
-        fclose(inptr);
-
-        // Close outfile
-        fclose(outptr);
-
-        return 0;
-    }
+}
                 </pre>
                 <p>
                     <b>Code</b>
@@ -1717,81 +1720,81 @@
             <div class="hidden">
                 <p>Implement a program that recovers JPEGs from a forensic image</p>
                 <pre>
-    #include &lt;stdio.h&gt;
-    #include &lt;stdlib.h&gt;
-    #include &lt;stdint.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;stdint.h&gt;
 
-    int main(int argc, char *argv[])
+int main(int argc, char *argv[])
+{
+    // If more than one or less than one argument, return 1
+    if (argc != 2)
     {
-        // If more than one or less than one argument, return 1
-        if (argc != 2)
-        {
-            printf(&quot;One command-line argument neededn&quot;);
-            return 1;
-        }
-
-        // r stands for &quot;read mode&quot;
-        FILE *input = fopen(argv[1], &quot;r&quot;);
-
-        // If it cannot be opened, return 1
-        if (input == NULL)
-        {
-            return 1;
-        }
-
-        //Create new type
-        typedef uint8_t BYTE;
-        int block = 512;
-
-        int count = 0;
-        FILE *img = NULL;
-        char filename[8];
-
-        //Read first 4 bytes
-        BYTE buffer[block];
-
-
-        //fread(data, size, number, inptr)
-        // data: pointer to where to store data you're reading
-        // size: size of each element to read
-        // number: number of elements  to read
-        // inptr: FILE * to read from
-
-        // If an error occurs, or the end of the file is reached, the return value is a short item count (or zero)
-        while (fread(&amp;buffer, sizeof(block), 1, input) != 0)
-        {
-            // If start of a JPEG
-            if ((buffer[0] == 0xff) &amp;&amp; (buffer[1] == 0xd8) &amp;&amp; (buffer[2] == 0xff) &amp;&amp; ((buffer[3] &amp; 0xf0) == 0xe0))
-            {
-                // If there has already been found a file
-                if (count &gt; 0)
-                {
-                    fclose(img);
-                }
-                //create new jpeg file
-                sprintf(filename, &quot;i.jpg&quot;, count);
-
-                //open new jpeg file
-                // w stands for &quot;writing&quot;
-                img = fopen(filename, &quot;w&quot;);
-
-                //write on the new jpeg file
-                // remember to use &amp;buffer and not filename
-                fwrite(&amp;buffer, sizeof(block), 1, img);
-                count++;
-            }
-            // If already found a JPEG, keep writing
-            // if img has data written, then there must have been found something
-            else if (img != NULL)
-            {
-                // remember to use &amp;buffer and not filename
-                fwrite(&amp;buffer, sizeof(block), 1, img);
-            }
-        }
-
-        fclose(img);
-        fclose(input);
+        printf(&quot;One command-line argument neededn&quot;);
+        return 1;
     }
+
+    // r stands for &quot;read mode&quot;
+    FILE *input = fopen(argv[1], &quot;r&quot;);
+
+    // If it cannot be opened, return 1
+    if (input == NULL)
+    {
+        return 1;
+    }
+
+    //Create new type
+    typedef uint8_t BYTE;
+    int block = 512;
+
+    int count = 0;
+    FILE *img = NULL;
+    char filename[8];
+
+    //Read first 4 bytes
+    BYTE buffer[block];
+
+
+    //fread(data, size, number, inptr)
+    // data: pointer to where to store data you're reading
+    // size: size of each element to read
+    // number: number of elements  to read
+    // inptr: FILE * to read from
+
+    // If an error occurs, or the end of the file is reached, the return value is a short item count (or zero)
+    while (fread(&amp;buffer, sizeof(block), 1, input) != 0)
+    {
+        // If start of a JPEG
+        if ((buffer[0] == 0xff) &amp;&amp; (buffer[1] == 0xd8) &amp;&amp; (buffer[2] == 0xff) &amp;&amp; ((buffer[3] &amp; 0xf0) == 0xe0))
+        {
+            // If there has already been found a file
+            if (count &gt; 0)
+            {
+                fclose(img);
+            }
+            //create new jpeg file
+            sprintf(filename, &quot;i.jpg&quot;, count);
+
+            //open new jpeg file
+            // w stands for &quot;writing&quot;
+            img = fopen(filename, &quot;w&quot;);
+
+            //write on the new jpeg file
+            // remember to use &amp;buffer and not filename
+            fwrite(&amp;buffer, sizeof(block), 1, img);
+            count++;
+        }
+        // If already found a JPEG, keep writing
+        // if img has data written, then there must have been found something
+        else if (img != NULL)
+        {
+            // remember to use &amp;buffer and not filename
+            fwrite(&amp;buffer, sizeof(block), 1, img);
+        }
+    }
+
+    fclose(img);
+    fclose(input);
+}
                 </pre>
                 <p>
                     <b>Output</b>
@@ -1825,161 +1828,161 @@
                     as efficiently as possible using a hash table in such a way that TIME IN load, TIME IN check, TIME
                     IN size, and TIME IN unload are all minimized. </p>
                 <pre>
-    // Implements a dictionary's functionality
+// Implements a dictionary's functionality
 
-    #include &lt;ctype.h&gt;
-    #include &lt;stdbool.h&gt;
-    #include &lt;stdio.h&gt;
-    #include &lt;string.h&gt;
-    #include &lt;strings.h&gt;
-    #include &lt;stdlib.h&gt;
+#include &lt;ctype.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;strings.h&gt;
+#include &lt;stdlib.h&gt;
 
-    #include &quot;dictionary.h&quot;
+#include &quot;dictionary.h&quot;
 
-    // Represents a node in a hash table
-    typedef struct node
+// Represents a node in a hash table
+typedef struct node
+{
+    char word[LENGTH + 1];
+    struct node *next;
+}
+node;
+
+// Make a counter for size function
+int sizecount = 0;
+
+// TODO: Choose number of buckets in hash table ---------------------------------------------------------------------------------------- NUMBER
+const unsigned int N = 10000;
+
+// Hash table
+node *table[N];
+
+// Returns true if word is in dictionary, else false
+bool check(const char *word)
+{
+    // TODO ---------------------------------------------------------------------------------------------------------------------------- CHECK
+    // Hash word to obtain a hash value
+    int hVal = hash(word);
+
+    if (table[hVal] == NULL)
     {
-        char word[LENGTH + 1];
-        struct node *next;
-    }
-    node;
-
-    // Make a counter for size function
-    int sizecount = 0;
-
-    // TODO: Choose number of buckets in hash table ---------------------------------------------------------------------------------------- NUMBER
-    const unsigned int N = 10000;
-
-    // Hash table
-    node *table[N];
-
-    // Returns true if word is in dictionary, else false
-    bool check(const char *word)
-    {
-        // TODO ---------------------------------------------------------------------------------------------------------------------------- CHECK
-        // Hash word to obtain a hash value
-        int hVal = hash(word);
-
-        if (table[hVal] == NULL)
-        {
-            return false;
-        }
-
-        // Access linked list at that index/value in the hash table
-        // Traverse (go through) linked list, looking for the word (strcasecmp)
-
-        for (node *tmp = table[hVal]; tmp != NULL; tmp = tmp-&gt;next)
-        {
-            if (strcasecmp(word, tmp-&gt;word) == 0)
-            {
-                return true;
-            }
-        }
         return false;
     }
 
-    // Hashes word to a number
-    unsigned int hash(const char *word)
+    // Access linked list at that index/value in the hash table
+    // Traverse (go through) linked list, looking for the word (strcasecmp)
+
+    for (node *tmp = table[hVal]; tmp != NULL; tmp = tmp-&gt;next)
     {
-        // TODO: Improve this hash function ------------------------------------------------------------------------------------------------ HASH
-        char *w = malloc(LENGTH + 1);
-        strcpy(w, word);
-        for (int i = 0; i &lt; strlen(w); i++)
+        if (strcasecmp(word, tmp-&gt;word) == 0)
         {
-            // returns 0 if it is not lower
-            // If it is alphabetical and not lowercase
-            if (isalpha(w[i]) != 0 &amp;&amp; islower(w[i]) == 0)
-            {
-                w[i] = tolower(w[i]);
-            }
+            return true;
         }
+    }
+    return false;
+}
 
-        // Source of hash function: https://stackoverflow.com/questions/14409466/simple-hash-functions
-        // sdbm
-        int value = 0;
-        for (int i = 0; w[i] != ''; i++)
+// Hashes word to a number
+unsigned int hash(const char *word)
+{
+    // TODO: Improve this hash function ------------------------------------------------------------------------------------------------ HASH
+    char *w = malloc(LENGTH + 1);
+    strcpy(w, word);
+    for (int i = 0; i &lt; strlen(w); i++)
+    {
+        // returns 0 if it is not lower
+        // If it is alphabetical and not lowercase
+        if (isalpha(w[i]) != 0 &amp;&amp; islower(w[i]) == 0)
         {
-            value = w[i] + (value &lt;&lt; 6) + (value &lt;&lt; 16) - value;
+            w[i] = tolower(w[i]);
         }
-
-        free(w);
-        //Input: word with alphabetical characters and (possibly) '
-        //Output: number between 0 and N - 1
-        return (value % N);
     }
 
-    // Loads dictionary into memory, returning true if successful, else false
-    bool load(const char *dictionary)
+    // Source of hash function: https://stackoverflow.com/questions/14409466/simple-hash-functions
+    // sdbm
+    int value = 0;
+    for (int i = 0; w[i] != ''; i++)
     {
-        // TODO ---------------------------------------------------------------------------------------------------------------------------- LOAD
-        // Open dictionary file --------------------------------------------------------------
-        FILE *dict = fopen(dictionary, &quot;r&quot;);
-        if (dict == NULL)
+        value = w[i] + (value &lt;&lt; 6) + (value &lt;&lt; 16) - value;
+    }
+
+    free(w);
+    //Input: word with alphabetical characters and (possibly) '
+    //Output: number between 0 and N - 1
+    return (value % N);
+}
+
+// Loads dictionary into memory, returning true if successful, else false
+bool load(const char *dictionary)
+{
+    // TODO ---------------------------------------------------------------------------------------------------------------------------- LOAD
+    // Open dictionary file --------------------------------------------------------------
+    FILE *dict = fopen(dictionary, &quot;r&quot;);
+    if (dict == NULL)
+    {
+        printf(&quot;Could not open file.n&quot;);
+        return false;
+    }
+
+    // Read strings from file one at a time ----------------------------------------------
+    char buffer[LENGTH + 1];
+    while (fscanf(dict, &quot;%s&quot;, buffer) != EOF)
+    {
+        sizecount++;
+        // Create a new node for each word -----------------------------------------------
+        //Allocate space in memory for the new node
+        node *n = malloc(sizeof(node));
+        if (n == NULL)
         {
-            printf(&quot;Could not open file.n&quot;);
             return false;
         }
 
-        // Read strings from file one at a time ----------------------------------------------
-        char buffer[LENGTH + 1];
-        while (fscanf(dict, &quot;%s&quot;, buffer) != EOF)
-        {
-            sizecount++;
-            // Create a new node for each word -----------------------------------------------
-            //Allocate space in memory for the new node
-            node *n = malloc(sizeof(node));
-            if (n == NULL)
-            {
-                return false;
-            }
+        //Copy word into the node and make sure there's no trash
+        strcpy(n-&gt;word, buffer);
+        n-&gt;next = NULL;
 
-            //Copy word into the node and make sure there's no trash
-            strcpy(n-&gt;word, buffer);
-            n-&gt;next = NULL;
+        // Hash word to obtain a hash value ----------------------------------------------
+        int hValue = hash(n-&gt;word);
 
-            // Hash word to obtain a hash value ----------------------------------------------
-            int hValue = hash(n-&gt;word);
-
-            // Insert node into hash table at that location ----------------------------------
-            n-&gt;next = table[hValue];
-            table[hValue] = n;
-        }
-
-        fclose(dict);
-        return true;
+        // Insert node into hash table at that location ----------------------------------
+        n-&gt;next = table[hValue];
+        table[hValue] = n;
     }
 
-    // Returns number of words in dictionary if loaded, else 0 if not yet loaded
-    unsigned int size(void)
+    fclose(dict);
+    return true;
+}
+
+// Returns number of words in dictionary if loaded, else 0 if not yet loaded
+unsigned int size(void)
+{
+    // TODO ---------------------------------------------------------------------------------------------------------------------------- SIZE
+    if (sizecount &gt; 0)
     {
-        // TODO ---------------------------------------------------------------------------------------------------------------------------- SIZE
-        if (sizecount &gt; 0)
-        {
-            return sizecount;
-        }
-        else
-        {
-            return 0;
-        }
+        return sizecount;
     }
-
-    // Unloads dictionary from memory, returning true if successful, else false
-    bool unload(void)
+    else
     {
-        // TODO ---------------------------------------------------------------------------------------------------------------------------- UNLOAD
-        for (int i = 0; i &lt; N; i++)
-        {
-            node *tmp = table[i];
-
-            while (tmp != NULL)
-            {
-                node *cursor = tmp-&gt;next;
-                free(tmp);
-                tmp = cursor;
-            }
-        }
-        return true;
+        return 0;
     }
+}
+
+// Unloads dictionary from memory, returning true if successful, else false
+bool unload(void)
+{
+    // TODO ---------------------------------------------------------------------------------------------------------------------------- UNLOAD
+    for (int i = 0; i &lt; N; i++)
+    {
+        node *tmp = table[i];
+
+        while (tmp != NULL)
+        {
+            node *cursor = tmp-&gt;next;
+            free(tmp);
+            tmp = cursor;
+        }
+    }
+    return true;
+}
                 </pre>
                 <p>
                     <b>Output</b>
@@ -2083,54 +2086,54 @@ main()
                     window, and ensure that there are two spaces between the two pyramids, and that there are no
                     additional spaces after the last set of hashes on each row.</p>
                 <pre>
-    # Import get_string if needed, else use input
-    from cs50 import get_int
+# Import get_string if needed, else use input
+from cs50 import get_int
 
 
-    def main():
-        # Get height by using get_height function
-        height = get_height()
+def main():
+    # Get height by using get_height function
+    height = get_height()
 
-        # Print rows
-        for i in range(height):
-            # Print columns
-            # Print space before the pyramid
-            for j in range(height - i - 1):
-                # end=&quot;&quot; means that there shouldn't be a new line
-                print(&quot; &quot;, end=&quot;&quot;)
+    # Print rows
+    for i in range(height):
+        # Print columns
+        # Print space before the pyramid
+        for j in range(height - i - 1):
+            # end=&quot;&quot; means that there shouldn't be a new line
+            print(&quot; &quot;, end=&quot;&quot;)
 
-            # Create blocks
-            # As the amount of blocks should increase, we increase with i + 1
-            for k in range(i + 1):
-                print(&quot;#&quot;, end=&quot;&quot;)
+        # Create blocks
+        # As the amount of blocks should increase, we increase with i + 1
+        for k in range(i + 1):
+            print(&quot;#&quot;, end=&quot;&quot;)
 
-            # Create space between pyramids
-            print(&quot;  &quot;, end=&quot;&quot;)
+        # Create space between pyramids
+        print(&quot;  &quot;, end=&quot;&quot;)
 
-            # Create blocks for second pyramid
-            for m in range(i + 1):
-                print(&quot;#&quot;, end=&quot;&quot;)
+        # Create blocks for second pyramid
+        for m in range(i + 1):
+            print(&quot;#&quot;, end=&quot;&quot;)
 
-            # Print new line
-            print()
-
-
-    # Get height function
-    def get_height():
-        # Forever loop
-        while True:
-            # Get height from user
-            height = get_int(&quot;Height: &quot;)
-
-            # If height is more than 0 and max 8, break out of loop and return height
-            if height &gt; 0 and height &lt; 9:
-                break
-
-        return height
+        # Print new line
+        print()
 
 
-    # Call the main function to start the program after all functions has been read
-    main()
+# Get height function
+def get_height():
+    # Forever loop
+    while True:
+        # Get height from user
+        height = get_int(&quot;Height: &quot;)
+
+        # If height is more than 0 and max 8, break out of loop and return height
+        if height &gt; 0 and height &lt; 9:
+            break
+
+    return height
+
+
+# Call the main function to start the program after all functions has been read
+main()
                 </pre>
                 <p>
                     <b>Output</b>
@@ -2167,98 +2170,98 @@ main()
                 <p>Incidentally, so that we can automate some tests of your code, we ask that your program’s last line
                     of output be only the minimum number of coins possible: an integer followed by a newline.</p>
                 <pre>
-    from cs50 import get_float
+from cs50 import get_float
 
-    def main():
-        # Ask how many cents the customer is owed
-        cents = get_cents()
+def main():
+    # Ask how many cents the customer is owed
+    cents = get_cents()
 
-        # Calculate the number of quarters to give the customer
-        quarters = calculate_quarters(cents)
-        cents = cents - quarters * 25
+    # Calculate the number of quarters to give the customer
+    quarters = calculate_quarters(cents)
+    cents = cents - quarters * 25
 
-        # Calculate the number of dimes to give the customer
-        dimes = calculate_dimes(cents)
-        cents = cents - dimes * 10
+    # Calculate the number of dimes to give the customer
+    dimes = calculate_dimes(cents)
+    cents = cents - dimes * 10
 
-        # Calculate the number of nickels to give the customer
-        nickels = calculate_nickels(cents)
-        cents = cents - nickels * 5
+    # Calculate the number of nickels to give the customer
+    nickels = calculate_nickels(cents)
+    cents = cents - nickels * 5
 
-        # Calculate the number of pennies to give the customer
-        pennies = calculate_pennies(cents)
-        cents = cents - pennies * 1
+    # Calculate the number of pennies to give the customer
+    pennies = calculate_pennies(cents)
+    cents = cents - pennies * 1
 
-        # Sum coins
-        coins = quarters + dimes + nickels + pennies
+    # Sum coins
+    coins = quarters + dimes + nickels + pennies
 
-        # Print total number of coins to give the customer
-        print(coins)
-
-
-    def get_cents():
-        # TODO
-        cents = -1
-
-        # Ask until change is more than 0
-        while (cents &lt;= 0):
-            cents = get_float(&quot;Change: $&quot;)
-
-        # Make the dollars to cents
-        cents *= 100
-
-        return cents
+    # Print total number of coins to give the customer
+    print(coins)
 
 
-    def calculate_quarters(cents):
-        # TODO
-        quarters = 0
+def get_cents():
+    # TODO
+    cents = -1
 
-        # While there's enough cents for the coin, add one coin and remove the amount from the cents
-        while (cents &gt;= 25):
-            quarters += 1
-            cents -= 25
+    # Ask until change is more than 0
+    while (cents &lt;= 0):
+        cents = get_float(&quot;Change: $&quot;)
 
-        return quarters
+    # Make the dollars to cents
+    cents *= 100
 
-
-    def calculate_dimes(cents):
-        # TODO
-        dimes = 0
-
-        # While there's enough cents for the coin, add one coin and remove the amount from the cents
-        while (cents &gt;= 10):
-            dimes += 1
-            cents -= 10
-
-        return dimes
+    return cents
 
 
-    def calculate_nickels(cents):
-        # TODO
-        nickels = 0
+def calculate_quarters(cents):
+    # TODO
+    quarters = 0
 
-        # While there's enough cents for the coin, add one coin and remove the amount from the cents
-        while (cents &gt;= 5):
-            nickels += 1
-            cents -= 5
+    # While there's enough cents for the coin, add one coin and remove the amount from the cents
+    while (cents &gt;= 25):
+        quarters += 1
+        cents -= 25
 
-        return nickels
-
-
-    def calculate_pennies(cents):
-        # TODO
-        pennies = 0
-
-        # While there's enough cents for the coin, add one coin and remove the amount from the cents
-        while (cents &gt;= 1):
-            pennies += 1
-            cents -= 1
-
-        return pennies
+    return quarters
 
 
-    main()
+def calculate_dimes(cents):
+    # TODO
+    dimes = 0
+
+    # While there's enough cents for the coin, add one coin and remove the amount from the cents
+    while (cents &gt;= 10):
+        dimes += 1
+        cents -= 10
+
+    return dimes
+
+
+def calculate_nickels(cents):
+    # TODO
+    nickels = 0
+
+    # While there's enough cents for the coin, add one coin and remove the amount from the cents
+    while (cents &gt;= 5):
+        nickels += 1
+        cents -= 5
+
+    return nickels
+
+
+def calculate_pennies(cents):
+    # TODO
+    pennies = 0
+
+    # While there's enough cents for the coin, add one coin and remove the amount from the cents
+    while (cents &gt;= 1):
+        pennies += 1
+        cents -= 1
+
+    return pennies
+
+
+main()
                 </pre>
                 <p>
                     <b>Output</b>
@@ -2286,93 +2289,93 @@ main()
                 <p>Best to use get_int or get_string from CS50’s library to get users’ input, depending on how you to
                     decide to implement this one.</p>
                 <pre>
-    from cs50 import get_string
+from cs50 import get_string
 
-    # MASTERCARD: 16-Digit #'s, Start with: 51, 52, 53, 54, or 55
-    # VISA: 13-16-Digit #'s, Start with: 4
-    # AMEX: 15-Digit #'s, Star with: 34 or 37
+# MASTERCARD: 16-Digit #'s, Start with: 51, 52, 53, 54, or 55
+# VISA: 13-16-Digit #'s, Start with: 4
+# AMEX: 15-Digit #'s, Star with: 34 or 37
 
-    # Luhn's Algorithm:
-    # 1. Multiply every other digit by 2, starting with the second number to the last
-    # 2. Add the sum of those digits
-    # 3. Add the sum of the other digits
-    # 4. If the total sum ends with a 0, it is valid!
-
-
-    def main():
-        # -----Promt user for credit card number
-        ccn = get_string(&quot;Number: &quot;)
-
-        # -----Check length
-        count = len(ccn)
-
-        # -----Check if the length is valid
-        if (count != 13 and count != 15 and count != 16):
-            print(&quot;INVALID&quot;)
-            return 0
-
-        # -----Calculate checksum
-        checksum = 0
-        # Use function check to find the checksum
-        checksum = Check(count, ccn, checksum)
-        csEnd = checksum % 10
-
-        if (csEnd != 0):
-            print(&quot;INVALID&quot;)
-            return 0
-
-        # -----Find start number with two digits
-        start = int(ccn)
-
-        for j in range(count - 2):
-            start /= 10
-        start = int(start)
-
-        # Check if it's American Express:
-        if (count == 15 and (start == 34 or start == 37)):
-            print(&quot;AMEX&quot;)
-
-        # Check if it's MasterCard:
-        elif (count == 16 and (start == 51 or start == 52 or start == 53 or start == 54 or start == 55)):
-            print(&quot;MASTERCARD&quot;)
-
-        # Check if it's VISA:
-        elif ((count == 13 or count == 16) and (int(start / 10) == 4)):
-            print(&quot;VISA&quot;)
-
-        # INVALID
-        else:
-            print(&quot;INVALID&quot;)
+# Luhn's Algorithm:
+# 1. Multiply every other digit by 2, starting with the second number to the last
+# 2. Add the sum of those digits
+# 3. Add the sum of the other digits
+# 4. If the total sum ends with a 0, it is valid!
 
 
-    def Check(count, ccn, checksum):
-        # Case 1 (Multiply every other digit by 2)
-        ccn = int(ccn)
+def main():
+    # -----Promt user for credit card number
+    ccn = get_string(&quot;Number: &quot;)
 
-        for i in range(1, count + 1, 1):
-            digit = int(ccn) % 10
+    # -----Check length
+    count = len(ccn)
 
-            # Case 1 (Multiply every other digit by 2 and add to checksum)
-            if (i % 2 == 0):
-                dd = digit * 2
+    # -----Check if the length is valid
+    if (count != 13 and count != 15 and count != 16):
+        print(&quot;INVALID&quot;)
+        return 0
 
-                if (dd &gt;= 10):
-                    checksum += dd % 10
-                    checksum += int(dd / 10)
+    # -----Calculate checksum
+    checksum = 0
+    # Use function check to find the checksum
+    checksum = Check(count, ccn, checksum)
+    csEnd = checksum % 10
 
-                else:
-                    checksum += digit * 2
+    if (csEnd != 0):
+        print(&quot;INVALID&quot;)
+        return 0
 
-            # case 2 (add the other digits to checksum)
+    # -----Find start number with two digits
+    start = int(ccn)
+
+    for j in range(count - 2):
+        start /= 10
+    start = int(start)
+
+    # Check if it's American Express:
+    if (count == 15 and (start == 34 or start == 37)):
+        print(&quot;AMEX&quot;)
+
+    # Check if it's MasterCard:
+    elif (count == 16 and (start == 51 or start == 52 or start == 53 or start == 54 or start == 55)):
+        print(&quot;MASTERCARD&quot;)
+
+    # Check if it's VISA:
+    elif ((count == 13 or count == 16) and (int(start / 10) == 4)):
+        print(&quot;VISA&quot;)
+
+    # INVALID
+    else:
+        print(&quot;INVALID&quot;)
+
+
+def Check(count, ccn, checksum):
+    # Case 1 (Multiply every other digit by 2)
+    ccn = int(ccn)
+
+    for i in range(1, count + 1, 1):
+        digit = int(ccn) % 10
+
+        # Case 1 (Multiply every other digit by 2 and add to checksum)
+        if (i % 2 == 0):
+            dd = digit * 2
+
+            if (dd &gt;= 10):
+                checksum += dd % 10
+                checksum += int(dd / 10)
+
             else:
-                checksum += digit
+                checksum += digit * 2
 
-            ccn /= 10
+        # case 2 (add the other digits to checksum)
+        else:
+            checksum += digit
 
-        return checksum
+        ccn /= 10
+
+    return checksum
 
 
-    main()
+main()
                 </pre>
                 <p>
                     <b>Output</b>
@@ -2408,58 +2411,58 @@ main()
                     reading level), your program should output "Grade 16+" instead of giving the exact index number. If
                     the index number is less than 1, your program should output "Before Grade 1".</p>
                 <pre>
-    from cs50 import get_string
+from cs50 import get_string
 
-    # Get text from user
-    text = get_string(&quot;Text: &quot;)
+# Get text from user
+text = get_string(&quot;Text: &quot;)
 
-    # Calculate length of string/text
-    length = len(text)
+# Calculate length of string/text
+length = len(text)
 
-    # Letter count, word count, sentence count
-    lcount = 0
-    wcount = 0
-    scount = 0
+# Letter count, word count, sentence count
+lcount = 0
+wcount = 0
+scount = 0
 
-    for i in range(length):
-        # Count letters
-        num = ord(text[i])
-        if ((num &gt;= 65 and num &lt;= 90) or (num &gt;= 97 and num &lt;= 122)):
-            lcount += 1
+for i in range(length):
+    # Count letters
+    num = ord(text[i])
+    if ((num &gt;= 65 and num &lt;= 90) or (num &gt;= 97 and num &lt;= 122)):
+        lcount += 1
 
-        # Count words
-        elif (num == 32):
-            wcount += 1
+    # Count words
+    elif (num == 32):
+        wcount += 1
 
-        # Count sentences
-        elif (text[i] == '.' or text[i] == '!' or text[i] == '?'):
-            scount += 1
+    # Count sentences
+    elif (text[i] == '.' or text[i] == '!' or text[i] == '?'):
+        scount += 1
 
-        # Count the last word
-        elif (text[i] == ''):
-            wcount += 1
-    wcount += 1
+    # Count the last word
+    elif (text[i] == ''):
+        wcount += 1
+wcount += 1
 
-    # Calculate average number of letters per 100 words
-    avgl = lcount / wcount * 100
+# Calculate average number of letters per 100 words
+avgl = lcount / wcount * 100
 
-    # Calculate average number of sentences per 100 words
-    avgs = scount / wcount * 100
+# Calculate average number of sentences per 100 words
+avgs = scount / wcount * 100
 
-    # Calculate Coleman-Liau Index
-    index = round(0.0588 * avgl - 0.296 * avgs - 15.8)
+# Calculate Coleman-Liau Index
+index = round(0.0588 * avgl - 0.296 * avgs - 15.8)
 
-    # If greater than grade 16
-    if (index &gt; 16):
-        print(&quot;Grade 16+&quot;)
+# If greater than grade 16
+if (index &gt; 16):
+    print(&quot;Grade 16+&quot;)
 
-    # If less than grade 1
-    elif (index &lt; 1):
-        print(&quot;Before Grade 1&quot;)
+# If less than grade 1
+elif (index &lt; 1):
+    print(&quot;Before Grade 1&quot;)
 
-    # If grade is between 1 and 16
-    else:
-        print(f&quot;Grade {index}&quot;)
+# If grade is between 1 and 16
+else:
+    print(f&quot;Grade {index}&quot;)
                 </pre>
                 <p>
                     <b>Output</b>
@@ -2495,115 +2498,115 @@ main()
                 <p>If the STR counts do not match exactly with any of the individuals in the CSV file, your program
                     should print No match.</p>
                 <pre>
-    import csv
-    import sys
+import csv
+import sys
 
 
-    def main():
+def main():
 
-        # TODO: Check for command-line usage
-        if len(sys.argv) != 3:
-            sys.exit(&quot;Usage: python dna.py data.csv sequence.txt&quot;)
+    # TODO: Check for command-line usage
+    if len(sys.argv) != 3:
+        sys.exit(&quot;Usage: python dna.py data.csv sequence.txt&quot;)
 
-        # TODO: Read database file into a variable
-        # Make a list of dictionaries
-        database = []
+    # TODO: Read database file into a variable
+    # Make a list of dictionaries
+    database = []
 
-        # Open csv file
-        with open(sys.argv[1], &quot;r&quot;) as f:
-            reader = csv.DictReader(f)
+    # Open csv file
+    with open(sys.argv[1], &quot;r&quot;) as f:
+        reader = csv.DictReader(f)
 
-            # Copy file into database
-            for name in reader:
-                database.append(name)
+        # Copy file into database
+        for name in reader:
+            database.append(name)
 
-        # TODO: Read DNA sequence file into a variable
-        # Open text file
-        with open(sys.argv[2], &quot;r&quot;) as f:
-            # Copy text into variable
-            DNA = f.read()
+    # TODO: Read DNA sequence file into a variable
+    # Open text file
+    with open(sys.argv[2], &quot;r&quot;) as f:
+        # Copy text into variable
+        DNA = f.read()
 
-        # TODO: Find longest match of each STR in DNA sequence
-        # Make a dictionary for all the different STR's
-        matches = {}
+    # TODO: Find longest match of each STR in DNA sequence
+    # Make a dictionary for all the different STR's
+    matches = {}
 
-        # For every STR in the database (therefore not 'name')
-        for key in database[0]:
+    # For every STR in the database (therefore not 'name')
+    for key in database[0]:
+        if (key != 'name'):
+            # subsequence is equal each STR
+            subsequence = key
+            # Find the longest match of each STR in the person's DNA
+            match = longest_match(DNA, subsequence)
+            #  Add each STR and their longest match to dictionary
+            matches[key] = match
+
+    # TODO: Check database for matching profiles
+    # For every person in the database
+    for i in range(len(database)):
+
+        matchingSTR = 0
+
+        # Every STR for that person
+        for key, value in database[i].items():
+
+            # Every matching STR for that person (therefore not 'name')
             if (key != 'name'):
-                # subsequence is equal each STR
-                subsequence = key
-                # Find the longest match of each STR in the person's DNA
-                match = longest_match(DNA, subsequence)
-                #  Add each STR and their longest match to dictionary
-                matches[key] = match
+                for k, v in matches.items():
+                    # If both the STR name and the longest match value are the same
+                    if (int(value) == int(v) and key == k):
+                        # Add one to the total amount of matches
+                        matchingSTR += 1
 
-        # TODO: Check database for matching profiles
-        # For every person in the database
-        for i in range(len(database)):
+        # If every STR has a match with the same person,
+        # the amount of matches will be equal the amount of different STR sequences
+        if (matchingSTR == len(matches)):
+            print(database[i]['name'])
+            return
 
-            matchingSTR = 0
-
-            # Every STR for that person
-            for key, value in database[i].items():
-
-                # Every matching STR for that person (therefore not 'name')
-                if (key != 'name'):
-                    for k, v in matches.items():
-                        # If both the STR name and the longest match value are the same
-                        if (int(value) == int(v) and key == k):
-                            # Add one to the total amount of matches
-                            matchingSTR += 1
-
-            # If every STR has a match with the same person,
-            # the amount of matches will be equal the amount of different STR sequences
-            if (matchingSTR == len(matches)):
-                print(database[i]['name'])
-                return
-
-        # If not found after going through the whole database
-        print(&quot;No match&quot;)
-        return
+    # If not found after going through the whole database
+    print(&quot;No match&quot;)
+    return
 
 
-    def longest_match(sequence, subsequence):
-        &quot;&quot;&quot;Returns length of longest run of subsequence in sequence.&quot;&quot;&quot;
+def longest_match(sequence, subsequence):
+    &quot;&quot;&quot;Returns length of longest run of subsequence in sequence.&quot;&quot;&quot;
 
-        # Initialize variables
-        longest_run = 0
-        subsequence_length = len(subsequence)
-        sequence_length = len(sequence)
+    # Initialize variables
+    longest_run = 0
+    subsequence_length = len(subsequence)
+    sequence_length = len(sequence)
 
-        # Check each character in sequence for most consecutive runs of subsequence
-        for i in range(sequence_length):
+    # Check each character in sequence for most consecutive runs of subsequence
+    for i in range(sequence_length):
 
-            # Initialize count of consecutive runs
-            count = 0
+        # Initialize count of consecutive runs
+        count = 0
 
-            # Check for a subsequence match in a &quot;substring&quot; (a subset of characters) within sequence
-            # If a match, move substring to next potential match in sequence
-            # Continue moving substring and checking for matches until out of consecutive matches
-            while True:
+        # Check for a subsequence match in a &quot;substring&quot; (a subset of characters) within sequence
+        # If a match, move substring to next potential match in sequence
+        # Continue moving substring and checking for matches until out of consecutive matches
+        while True:
 
-                # Adjust substring start and end
-                start = i + count * subsequence_length
-                end = start + subsequence_length
+            # Adjust substring start and end
+            start = i + count * subsequence_length
+            end = start + subsequence_length
 
-                # If there is a match in the substring
-                if sequence[start:end] == subsequence:
-                    count += 1
+            # If there is a match in the substring
+            if sequence[start:end] == subsequence:
+                count += 1
 
-                # If there is no match in the substring
-                else:
-                    break
+            # If there is no match in the substring
+            else:
+                break
 
-            # Update most consecutive matches found
-            longest_run = max(longest_run, count)
+        # Update most consecutive matches found
+        longest_run = max(longest_run, count)
 
-        # After checking for runs at each character in seqeuence, return longest run found
-        return longest_run
+    # After checking for runs at each character in seqeuence, return longest run found
+    return longest_run
 
 
-    main()
+main()
                 </pre>
                 <p>
                     <b>Output</b>
@@ -2636,9 +2639,9 @@ main()
                 <p>-- In 1.sql, write a SQL query to list the titles of all movies released in 2008.</p>
                 <p>-- Your query should output a table with a single column for the title of each movie.</p>
                 <pre>
-    SELECT title
-    FROM movies
-    WHERE year = 2008;
+SELECT title
+FROM movies
+WHERE year = 2008;
                 </pre>
             </div>
             <div class="flexbox-item">
@@ -2647,9 +2650,9 @@ main()
                     containing Emma Stone’s birth year.</p>
                 <p>-- You may assume that there is only one person in the database with the name Emma Stone.</p>
                 <pre>
-    SELECT birth
-    FROM people
-    WHERE name = "Emma Stone";
+SELECT birth
+FROM people
+WHERE name = "Emma Stone";
                 </pre>
             </div>
             <div class="flexbox-item">
@@ -2658,10 +2661,10 @@ main()
                 <p>-- Your query should output a table with a single column for the title of each movie.</p>
                 <p>-- Movies released in 2018 should be included, as should movies with release dates in the future.</p>
                 <pre>
-    SELECT title
-    FROM movies
-    WHERE year >= 2018
-    ORDER BY title;
+SELECT title
+FROM movies
+WHERE year >= 2018
+ORDER BY title;
                 </pre>
             </div>
 
@@ -2672,11 +2675,11 @@ main()
                         header)
                         containing the number of movies with a 10.0 rating.</p>
                     <pre>
-        SELECT COUNT(title)
-        FROM movies
-        JOIN ratings
-        ON ratings.movie_id = movies.id
-        WHERE ratings.rating = 10.0;
+SELECT COUNT(title)
+FROM movies
+JOIN ratings
+ON ratings.movie_id = movies.id
+WHERE ratings.rating = 10.0;
                     </pre>
                 </div>
                 <div class="flexbox-item">
@@ -2691,10 +2694,10 @@ main()
                         and that if a movie title begins with the words “Harry Potter”, it is a Harry Potter movie.</p>
                     <p>-- The percentage sign on the right means 0 or more characters on the right of the words</p>
                     <pre>
-        SELECT year, title
-        FROM movies
-        WHERE title LIKE "Harry Potter%"
-        ORDER BY year;
+SELECT year, title
+FROM movies
+WHERE title LIKE "Harry Potter%"
+ORDER BY year;
                     </pre>
                 </div>
                 <div class="flexbox-item">
@@ -2704,10 +2707,10 @@ main()
                         header)
                         containing the average rating.</p>
                     <pre>
-        SELECT AVG(rating)
-        FROM ratings
-        JOIN movies ON movies.id = ratings.movie_id
-        WHERE movies.year = 2012;
+SELECT AVG(rating)
+FROM ratings
+JOIN movies ON movies.id = ratings.movie_id
+WHERE movies.year = 2012;
                     </pre>
                 </div>
                 <div class="flexbox-item">
@@ -2719,12 +2722,12 @@ main()
                         rating of each movie.</p>
                     <p>-- Movies that do not have ratings should not be included in the result.</p>
                     <pre>
-        SELECT ratings.rating, movies.title
-        FROM movies
-        JOIN ratings
-        ON ratings.movie_id = movies.id
-        WHERE movies.year = 2010
-        ORDER BY rating DESC, title ASC;
+SELECT ratings.rating, movies.title
+FROM movies
+JOIN ratings
+ON ratings.movie_id = movies.id
+WHERE movies.year = 2010
+ORDER BY rating DESC, title ASC;
                     </pre>
                 </div>
                 <div class="flexbox-item">
@@ -2732,15 +2735,15 @@ main()
                     <p>-- Your query should output a table with a single column for the name of each person.</p>
                     <p>-- You may assume that there is only one movie in the database with the title Toy Story.</p>
                     <pre>
-        SELECT name
-        FROM people
-        JOIN stars
-        ON stars.person_id = people.id
+SELECT name
+FROM people
+JOIN stars
+ON stars.person_id = people.id
 
-        JOIN movies
-        ON stars.movie_id = movies.id
+JOIN movies
+ON stars.movie_id = movies.id
 
-        WHERE movies.title = "Toy Story";
+WHERE movies.title = "Toy Story";
                     </pre>
                 </div>
                 <div class="flexbox-item">
@@ -2754,16 +2757,16 @@ main()
                     <p>-- If a person appeared in more than one movie in 2004, they should only appear in your results
                         once.</p>
                     <pre>
-        SELECT DISTINCT name
-        FROM people
-        JOIN stars
-        ON stars.person_id = people.id
+SELECT DISTINCT name
+FROM people
+JOIN stars
+ON stars.person_id = people.id
 
-        JOIN movies
-        ON movies.id = stars.movie_id
+JOIN movies
+ON movies.id = stars.movie_id
 
-        WHERE movies.year = 2004
-        ORDER BY people.birth;
+WHERE movies.year = 2004
+ORDER BY people.birth;
                     </pre>
                 </div>
                 <div class="flexbox-item">
@@ -2774,18 +2777,18 @@ main()
                         only
                         appear in your results once.</p>
                     <pre>
-        SELECT DISTINCT people.name
-        FROM people
-        JOIN directors
-        ON directors.person_id = people.id
+SELECT DISTINCT people.name
+FROM people
+JOIN directors
+ON directors.person_id = people.id
 
-        JOIN movies
-        ON movies.id = directors.movie_id
+JOIN movies
+ON movies.id = directors.movie_id
 
-        JOIN ratings
-        ON ratings.movie_id = movies.id
+JOIN ratings
+ON ratings.movie_id = movies.id
 
-        WHERE rating >= 9.0;
+WHERE rating >= 9.0;
                     </pre>
                 </div>
                 <div class="flexbox-item">
@@ -2796,20 +2799,20 @@ main()
                     <p>-- You may assume that there is only one person in the database with the name Chadwick
                         Boseman.</p>
                     <pre>
-        SELECT title
-        FROM movies
-        JOIN stars
-        ON stars.movie_id = movies.id
+SELECT title
+FROM movies
+JOIN stars
+ON stars.movie_id = movies.id
 
-        JOIN people
-        ON people.id = stars.person_id
+JOIN people
+ON people.id = stars.person_id
 
-        JOIN ratings
-        ON ratings.movie_id = movies.id
+JOIN ratings
+ON ratings.movie_id = movies.id
 
-        WHERE people.name = "Chadwick Boseman"
-        ORDER BY ratings.rating DESC
-        LIMIT 5;
+WHERE people.name = "Chadwick Boseman"
+ORDER BY ratings.rating DESC
+LIMIT 5;
                     </pre>
                 </div>
                 <div class="flexbox-item">
@@ -2821,27 +2824,27 @@ main()
                     <p>-- You may assume that there is only one person in the database with the name Helena Bonham
                         Carter.</p>
                     <pre>
-        SELECT movies.title
-        FROM movies
-        JOIN stars
-        ON stars.movie_id = movies.id
+SELECT movies.title
+FROM movies
+JOIN stars
+ON stars.movie_id = movies.id
 
-        JOIN people
-        ON people.id = stars.person_id
+JOIN people
+ON people.id = stars.person_id
 
-        WHERE people.name = "Johnny Depp"
+WHERE people.name = "Johnny Depp"
 
-        INTERSECT
+INTERSECT
 
-        SELECT movies.title
-        FROM movies
-        JOIN stars
-        ON stars.movie_id = movies.id
+SELECT movies.title
+FROM movies
+JOIN stars
+ON stars.movie_id = movies.id
 
-        JOIN people
-        ON people.id = stars.person_id
+JOIN people
+ON people.id = stars.person_id
 
-        WHERE people.name = "Helena Bonham Carter";
+WHERE people.name = "Helena Bonham Carter";
                     </pre>
                 </div>
                 <div class="flexbox-item">
@@ -2852,27 +2855,27 @@ main()
                     <p>-- Be sure to only select the Kevin Bacon born in 1958.</p>
                     <p>-- Kevin Bacon himself should not be included in the resulting list.</p>
                     <pre>
-        SELECT name
-        FROM people
-        JOIN stars
-        ON stars.person_id = people.id
+SELECT name
+FROM people
+JOIN stars
+ON stars.person_id = people.id
 
-        JOIN movies
-        ON movies.id = stars.movie_id
+JOIN movies
+ON movies.id = stars.movie_id
 
-        -- Remember IN instead of =
-        WHERE movies.title IN
-        (SELECT movies.title
-        FROM movies
-        JOIN stars
-        ON stars.movie_id = movies.id
+-- Remember IN instead of =
+WHERE movies.title IN
+(SELECT movies.title
+FROM movies
+JOIN stars
+ON stars.movie_id = movies.id
 
-        JOIN people
-        ON people.id = stars.person_id
+JOIN people
+ON people.id = stars.person_id
 
-        WHERE people.name = "Kevin Bacon"
-        AND people.birth = 1958)
-        AND NOT people.name = "Kevin Bacon"
+WHERE people.name = "Kevin Bacon"
+AND people.birth = 1958)
+AND NOT people.name = "Kevin Bacon"
                     </pre>
                 </div>
             </div>
@@ -2905,156 +2908,156 @@ main()
                 <p>Using just the information in the database, your task is to solve the mystery.</p>
 
                 <pre id="fiftyville">
-        -- Keep a log of any SQL queries you execute as you solve the mystery.
+-- Keep a log of any SQL queries you execute as you solve the mystery.
 
-        -- took place on July 28, 2021 on place on Humphrey Street.
+-- took place on July 28, 2021 on place on Humphrey Street.
 
-        -- Find out more about the crime scene
-        SELECT description
-        FROM crime_scene_reports
+-- Find out more about the crime scene
+SELECT description
+FROM crime_scene_reports
 
-        WHERE year = 2021
-        AND month = 7
-        AND day = 28
-        AND street = "Humphrey Street"
-        AND description LIKE "%CS50 Duck%";
+WHERE year = 2021
+AND month = 7
+AND day = 28
+AND street = "Humphrey Street"
+AND description LIKE "%CS50 Duck%";
 
-        -- Took place at 10:15am at Humphrey Street Bakery
-        -- Three interviews that all mentions the bakery
-        --------------------------------------------------------------------------------------------
+-- Took place at 10:15am at Humphrey Street Bakery
+-- Three interviews that all mentions the bakery
+--------------------------------------------------------------------------------------------
 
-        -- Learn what the witnesses tell
-        SELECT name, transcript
-        FROM interviews
+-- Learn what the witnesses tell
+SELECT name, transcript
+FROM interviews
 
-        WHERE year = 2021
-        AND month = 7
-        AND day = 28
-        AND transcript LIKE "%bakery%";
-        -- REMEMBER LIKE AND NOT =
+WHERE year = 2021
+AND month = 7
+AND day = 28
+AND transcript LIKE "%bakery%";
+-- REMEMBER LIKE AND NOT =
 
-        -- Within 10 min of theft: Thief goes to a car in the bakery parking lot
-        -- Recognize theif from ATM on Leggett Street earlier in the morning
-        --      Theif was withdrawing money
-        -- While theif left the bakery, they called someone for less than a minute
-        --      Said they're planning to take the earliest flight tomorrow
-        --      Theif asked the other person to purchase the flight ticket
-        -- Suspicious person talked on the phone for half an hour without buying anything in the bakery
+-- Within 10 min of theft: Thief goes to a car in the bakery parking lot
+-- Recognize theif from ATM on Leggett Street earlier in the morning
+--      Theif was withdrawing money
+-- While theif left the bakery, they called someone for less than a minute
+--      Said they're planning to take the earliest flight tomorrow
+--      Theif asked the other person to purchase the flight ticket
+-- Suspicious person talked on the phone for half an hour without buying anything in the bakery
 
-        --------------------------------------------------------------------------------------------
-        SELECT DISTINCT people.name, phone_calls.caller
-        FROM people
-            JOIN bakery_security_logs
-            ON people.license_plate = bakery_security_logs.license_plate
+--------------------------------------------------------------------------------------------
+SELECT DISTINCT people.name, phone_calls.caller
+FROM people
+    JOIN bakery_security_logs
+    ON people.license_plate = bakery_security_logs.license_plate
 
-            JOIN bank_accounts
-            ON bank_accounts.person_id = people.id
+    JOIN bank_accounts
+    ON bank_accounts.person_id = people.id
 
-            JOIN phone_calls
-            ON phone_calls.caller = people.phone_number
+    JOIN phone_calls
+    ON phone_calls.caller = people.phone_number
 
-        -- Check security logs for cars up to 10 minutes after the theft
-            WHERE bakery_security_logs.year = 2021
-            AND bakery_security_logs.month = 7
-            AND bakery_security_logs.day = 28
-            AND bakery_security_logs.hour = 10
-            AND bakery_security_logs.minute BETWEEN 15 AND 25
+-- Check security logs for cars up to 10 minutes after the theft
+    WHERE bakery_security_logs.year = 2021
+    AND bakery_security_logs.month = 7
+    AND bakery_security_logs.day = 28
+    AND bakery_security_logs.hour = 10
+    AND bakery_security_logs.minute BETWEEN 15 AND 25
 
-            -- Bruce, Diana, Iman, Luca, Barry
+    -- Bruce, Diana, Iman, Luca, Barry
 
-        -- Find the people who also made a withdrawal on Leggett Street that same day
-            AND bank_accounts.account_number IN (
-                SELECT account_number
-                FROM atm_transactions
+-- Find the people who also made a withdrawal on Leggett Street that same day
+    AND bank_accounts.account_number IN (
+        SELECT account_number
+        FROM atm_transactions
 
-                WHERE atm_transactions.year = 2021
-                AND atm_transactions.month = 7
-                AND atm_transactions.day = 28
-                AND atm_location = "Leggett Street"
-                AND transaction_type = "withdraw")
+        WHERE atm_transactions.year = 2021
+        AND atm_transactions.month = 7
+        AND atm_transactions.day = 28
+        AND atm_location = "Leggett Street"
+        AND transaction_type = "withdraw")
 
-                -- Bruce, Diana, Iman, Luca
+        -- Bruce, Diana, Iman, Luca
 
-        -- Find those who called someone for under a minute the same day
-            AND phone_calls.caller IN (
-                SELECT caller
-                FROM phone_calls
+-- Find those who called someone for under a minute the same day
+    AND phone_calls.caller IN (
+        SELECT caller
+        FROM phone_calls
 
-                WHERE phone_calls.year = 2021
-                AND phone_calls.month = 7
-                AND phone_calls.day = 28
-                AND duration <= 60
-            )
+        WHERE phone_calls.year = 2021
+        AND phone_calls.month = 7
+        AND phone_calls.day = 28
+        AND duration <= 60
+    )
 
-        -- Two names left: Bruce and Diana
-        --------------------------------------------------------------------------------------------
+-- Two names left: Bruce and Diana
+--------------------------------------------------------------------------------------------
 
-        SELECT full_name, abbreviation
-        FROM airports
+SELECT full_name, abbreviation
+FROM airports
 
-        WHERE city = "Fiftyville";
+WHERE city = "Fiftyville";
 
-        -- Only one airport in Fiftyville called Fiftyville Regional Airport or "CSF"
-        -- Airport ID 8
-        --------------------------------------------------------------------------------------------
+-- Only one airport in Fiftyville called Fiftyville Regional Airport or "CSF"
+-- Airport ID 8
+--------------------------------------------------------------------------------------------
 
-        -- Find the earliest flight
-        SELECT id, hour, minute
-        FROM flights
+-- Find the earliest flight
+SELECT id, hour, minute
+FROM flights
 
-        WHERE year = 2021
-        AND month = 7
-        AND day = 29
-        AND origin_airport_id = 8;
+WHERE year = 2021
+AND month = 7
+AND day = 29
+AND origin_airport_id = 8;
 
-        -- Earliest flight from Fiftyville is flight id 36, destination airport id is 4
-        --------------------------------------------------------------------------------------------
+-- Earliest flight from Fiftyville is flight id 36, destination airport id is 4
+--------------------------------------------------------------------------------------------
 
-        SELECT DISTINCT people.name
-        FROM people
-            JOIN passengers
-            ON passengers.passport_number = people.passport_number
+SELECT DISTINCT people.name
+FROM people
+    JOIN passengers
+    ON passengers.passport_number = people.passport_number
 
-            JOIN flights
-            ON passengers.flight_id = flights.id
+    JOIN flights
+    ON passengers.flight_id = flights.id
 
-        -- Find the flights that originates from Fiftyville
-            WHERE flights.id = 36
+-- Find the flights that originates from Fiftyville
+    WHERE flights.id = 36
 
-        -- Only look for the two names
-            AND people.name IN ('Bruce', 'Diana');
+-- Only look for the two names
+    AND people.name IN ('Bruce', 'Diana');
 
-        -- Only Bruce has this flight, not Diana
-        --------------------------------------------------------------------------------------------
+-- Only Bruce has this flight, not Diana
+--------------------------------------------------------------------------------------------
 
-        -- Find which city flight 36 goes to when destiation airport id is 4
-        SELECT DISTINCT city
-        FROM airports
+-- Find which city flight 36 goes to when destiation airport id is 4
+SELECT DISTINCT city
+FROM airports
 
-        WHERE id = 4;
+WHERE id = 4;
 
-        -- New York City
-        --------------------------------------------------------------------------------------------
+-- New York City
+--------------------------------------------------------------------------------------------
 
-        -- Find accomplice -------------------------------------------------------------
+-- Find accomplice -------------------------------------------------------------
 
-        SELECT DISTINCT people.name
-        FROM people
-            JOIN phone_calls
-            ON phone_calls.receiver = people.phone_number
+SELECT DISTINCT people.name
+FROM people
+    JOIN phone_calls
+    ON phone_calls.receiver = people.phone_number
 
-        -- Find those who Bruce called that day
-            WHERE phone_calls.receiver IN (
-                SELECT receiver
-                FROM phone_calls
+-- Find those who Bruce called that day
+    WHERE phone_calls.receiver IN (
+        SELECT receiver
+        FROM phone_calls
 
-                WHERE phone_calls.year = 2021
-                AND phone_calls.month = 7
-                AND phone_calls.day = 28
-                AND duration <= 60
-                AND caller IN ('(367) 555-5533')) -- Bruce's number
+        WHERE phone_calls.year = 2021
+        AND phone_calls.month = 7
+        AND phone_calls.day = 28
+        AND duration <= 60
+        AND caller IN ('(367) 555-5533')) -- Bruce's number
 
-        -- Robin is the accomplice
+-- Robin is the accomplice
                 </pre>
             </div>
             <div class="show-more">

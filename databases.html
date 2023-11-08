@@ -18,6 +18,9 @@
 <main class="flexbox-container-c">
     <section>
         <h1>Database design</h1>
+    </section>
+
+    <section>
         <h2>Overview</h2>
         <ol>
             <li>
@@ -39,572 +42,573 @@
             </li>
         </ol>
     </section>
+
     <!-- ------------------------------ MySQL -->
     <section class="pset databases" id="MySQL">
         <h2>MySQL</h2>
 
         <!-- ------------------------------ Taxi -->
-        <h3 class="scroll-margin" id="taxi">Taxi database</h3>
+        <h3 id="taxi">Taxi database</h3>
         <p class="bold">Retrieve the following data by querying:</p>
         <section class="database-flex">
             <div class="flexbox-item">
                 <p>- When is the busiest time of the day?</p>
                 <pre>
-    SELECT HOUR(tpep_pickup_datetime) AS 'Busiest hour of day', COUNT(HOUR(tpep_pickup_datetime)) AS 'Number of pickups'
-    FROM trips
-    GROUP BY HOUR(tpep_pickup_datetime)
-    ORDER BY COUNT(HOUR(tpep_pickup_datetime)) DESC
-    LIMIT 1;
+SELECT HOUR(tpep_pickup_datetime) AS 'Busiest hour of day', COUNT(HOUR(tpep_pickup_datetime)) AS 'Number of pickups'
+FROM trips
+GROUP BY HOUR(tpep_pickup_datetime)
+ORDER BY COUNT(HOUR(tpep_pickup_datetime)) DESC
+LIMIT 1;
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- What payment type has the highest fare amount on average?</p>
                 <pre>
-    SELECT payment_type, AVG(fare_amount)
-    FROM trips
-    GROUP BY payment_type
-    ORDER BY AVG(fare_amount) DESC;
+SELECT payment_type, AVG(fare_amount)
+FROM trips
+GROUP BY payment_type
+ORDER BY AVG(fare_amount) DESC;
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- At what time of day (by the hour) are the longest trips on average?</p>
                 <pre>
-    SELECT HOUR(tpep_pickup_datetime) AS 'Hour of day with longest trips',
-    AVG(trip_distance)
-    FROM trips
-    GROUP BY HOUR(tpep_pickup_datetime)
-    ORDER BY AVG(trip_distance) DESC
-    LIMIT 1;
+SELECT HOUR(tpep_pickup_datetime) AS 'Hour of day with longest trips',
+AVG(trip_distance)
+FROM trips
+GROUP BY HOUR(tpep_pickup_datetime)
+ORDER BY AVG(trip_distance) DESC
+LIMIT 1;
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- What are the average tip amount for each passenger count? Does more passengers mean more tips?</p>
                 <pre>
-    SELECT passenger_count, AVG(tip_amount)
-    FROM trips
-    GROUP BY passenger_count
-    ORDER BY passenger_count;
+SELECT passenger_count, AVG(tip_amount)
+FROM trips
+GROUP BY passenger_count
+ORDER BY passenger_count;
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- Do longer turns mean more passengers?</p>
                 <pre>
-    SELECT CASE
-    WHEN trip_distance >= 0 AND trip_distance < 2 THEN '0-2'
-    WHEN trip_distance >= 2 AND trip_distance < 4 THEN '2-4'
-    WHEN trip_distance >= 4 AND trip_distance < 6 THEN '4-6'
-    WHEN trip_distance >= 6 AND trip_distance < 8 THEN '6-8'
-    WHEN trip_distance >= 8 AND trip_distance < 10 THEN '8-10'
-    WHEN trip_distance >= 10 AND trip_distance < 15 THEN '10-15'
-    WHEN trip_distance >= 15 AND trip_distance < 20 THEN '15-20'
-    ELSE '20+'
-    END AS distance, AVG(passenger_count)
-    FROM trips
-    GROUP BY distance
-    ORDER BY distance+0;
+SELECT CASE
+WHEN trip_distance >= 0 AND trip_distance < 2 THEN '0-2'
+WHEN trip_distance >= 2 AND trip_distance < 4 THEN '2-4'
+WHEN trip_distance >= 4 AND trip_distance < 6 THEN '4-6'
+WHEN trip_distance >= 6 AND trip_distance < 8 THEN '6-8'
+WHEN trip_distance >= 8 AND trip_distance < 10 THEN '8-10'
+WHEN trip_distance >= 10 AND trip_distance < 15 THEN '10-15'
+WHEN trip_distance >= 15 AND trip_distance < 20 THEN '15-20'
+ELSE '20+'
+END AS distance, AVG(passenger_count)
+FROM trips
+GROUP BY distance
+ORDER BY distance+0;
                 </pre>
             </div>
         </section>
 
         <!-- ------------------------------ Coffee -->
-        <h3 class="scroll-margin" id="coffee">Coffee database</h3>
+        <h3 id="coffee">Coffee database</h3>
         <p class="bold">Retrieve the following data by querying:</p>
         <section class="database-flex">
             <div class="flexbox-item">
                 <p>- Select the order_table id and the customers phone number for all orders of product id 3</p>
                 <pre>
-    SELECT order_table.order_table_id, customer.phone_number
-    FROM order_table
-    INNER JOIN customer
-    ON order_table.customer_id = customer.customer_id
-    WHERE order_table.product_id = 3;
+SELECT order_table.order_table_id, customer.phone_number
+FROM order_table
+INNER JOIN customer
+ON order_table.customer_id = customer.customer_id
+WHERE order_table.product_id = 3;
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- Select product names and order time for the espresso coffees sold between January 15th 2021 and
                     February 14th 2021</p>
                 <pre>
-    SELECT product.name, order_table.order_table_datetime
-    FROM order_table
-    INNER JOIN product
-    ON order_table.product_id = product.product_id
-    WHERE product.name = "Espresso"
-    AND order_table.order_table_datetime BETWEEN '2021-01-15' AND '2021-02-14';
+SELECT product.name, order_table.order_table_datetime
+FROM order_table
+INNER JOIN product
+ON order_table.product_id = product.product_id
+WHERE product.name = "Espresso"
+AND order_table.order_table_datetime BETWEEN '2021-01-15' AND '2021-02-14';
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- Select the product name and price and order time for all orders from females in February 2021</p>
                 <pre>
-    SELECT product.name, product.price, order_table.order_table_datetime
-    FROM order_table
-    INNER JOIN product
-    ON order_table.product_id = product.product_id
-    INNER JOIN customer
-    ON order_table.customer_id = customer.customer_id
-    WHERE (MONTH(order_table.order_table_datetime) = 2
-    AND YEAR(order_table.order_table_datetime) = 2021)
-    AND customer.gender = 'F';
+SELECT product.name, product.price, order_table.order_table_datetime
+FROM order_table
+INNER JOIN product
+ON order_table.product_id = product.product_id
+INNER JOIN customer
+ON order_table.customer_id = customer.customer_id
+WHERE (MONTH(order_table.order_table_datetime) = 2
+AND YEAR(order_table.order_table_datetime) = 2021)
+AND customer.gender = 'F';
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- From the products table, select the name for all products that have a price greater than 30 or a
                     coffee origin of Sri Lanka</p>
                 <pre>
-    SELECT product.name
-    FROM product
-    INNER JOIN country
-    ON product.country_id = country.country_id
-    WHERE product.price > 30
-    OR country.country = "Sri Lanka";
+SELECT product.name
+FROM product
+INNER JOIN country
+ON product.country_id = country.country_id
+WHERE product.price > 30
+OR country.country = "Sri Lanka";
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- From the products table, select the name and price of all products with a coffee origin equal to
                     Columbia or Sverige. Ordered by name from A-Z</p>
                 <pre>
-    SELECT product.name, product.price
-    FROM product
-    INNER JOIN country
-    ON product.country_id = country.country_id
-    WHERE country.country = "Columbia"
-    OR country.country = "Sverige"
-    ORDER BY product.name;
+SELECT product.name, product.price
+FROM product
+INNER JOIN country
+ON product.country_id = country.country_id
+WHERE country.country = "Columbia"
+OR country.country = "Sverige"
+ORDER BY product.name;
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- From the orders table, select all the orders from February 2021 for customers with id's 2, 4, 6 or
                     8</p>
                 <pre>
-    SELECT *
-    FROM order_table
-    INNER JOIN customer
-    ON order_table.customer_id = customer.customer_id
-    WHERE (MONTH(order_table.order_table_datetime) = 2
-    AND YEAR(order_table.order_table_datetime) = 2021)
-    AND customer.customer_id IN (2, 4, 6, 8);
+SELECT *
+FROM order_table
+INNER JOIN customer
+ON order_table.customer_id = customer.customer_id
+WHERE (MONTH(order_table.order_table_datetime) = 2
+AND YEAR(order_table.order_table_datetime) = 2021)
+AND customer.customer_id IN (2, 4, 6, 8);
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- From the customers table, select the first name and phone number of all customers who's last name
                     containing the pattern "ar"</p>
                 <pre>
-    SELECT customer.firstname, customer.phone_number
-    FROM customer
-    WHERE customer.lastname LIKE '%ar%';
+SELECT customer.firstname, customer.phone_number
+FROM customer
+WHERE customer.lastname LIKE '%ar%';
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- From the customers table, select the distinct last names and order alphabetically from A-Z</p>
                 <pre>
-    SELECT DISTINCT customer.lastname
-    FROM customer
-    ORDER BY customer.lastname;
+SELECT DISTINCT customer.lastname
+FROM customer
+ORDER BY customer.lastname;
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- From the orders table, select the first 3 orders placed by customer with id 1 in February 2021</p>
                 <pre>
-    SELECT *
-    FROM order_table
-    WHERE customer_id = 1
-    AND (MONTH(order_table_datetime) = 2
-    AND YEAR(order_table_datetime) = 2021)
-    ORDER BY order_table_datetime
-    LIMIT 3;
+SELECT *
+FROM order_table
+WHERE customer_id = 1
+AND (MONTH(order_table_datetime) = 2
+AND YEAR(order_table_datetime) = 2021)
+ORDER BY order_table_datetime
+LIMIT 3;
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- From the products table, select the name, price and coffee origin but rename the price to
                     retail_price in the results set</p>
                 <pre>
-    SELECT product.name, product.price AS retail_price, country.country
-    FROM product
-    INNER JOIN country
-    ON product.country_id = country.country_id;
+SELECT product.name, product.price AS retail_price, country.country
+FROM product
+INNER JOIN country
+ON product.country_id = country.country_id;
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- Display all data from customers who do not have a phone number entered into
                     the customer table</p>
                 <pre>
-    SELECT *
-    FROM customer
-    WHERE phone_number IS NULL;
+SELECT *
+FROM customer
+WHERE phone_number IS NULL;
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- Display all products and their country of origin in a single table</p>
                 <pre>
-    SELECT product.name, country.country
-    FROM product
-    INNER JOIN country
-    ON product.country_id = country.country_id;
+SELECT product.name, country.country
+FROM product
+INNER JOIN country
+ON product.country_id = country.country_id;
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- Display all orders, customer firstname & lastname, and the country of origin of
                     the product they ordered</p>
                 <pre>
-    SELECT order_table.order_table_id,
-        order_table.order_table_datetime,
-        product.name, country.country,
-        customer.firstname, customer.lastname
-    FROM order_table
-    INNER JOIN product
-    ON order_table.product_id = product.product_id
-    INNER JOIN country
-    ON product.country_id = country.country_id
-    INNER JOIN customer
-    ON order_table.customer_id = customer.customer_id
+SELECT order_table.order_table_id,
+    order_table.order_table_datetime,
+    product.name, country.country,
+    customer.firstname, customer.lastname
+FROM order_table
+INNER JOIN product
+ON order_table.product_id = product.product_id
+INNER JOIN country
+ON product.country_id = country.country_id
+INNER JOIN customer
+ON order_table.customer_id = customer.customer_id
                 </pre>
             </div>
         </section>
 
         <!-- ------------------------------ employees -->
-        <h3 class="scroll-margin" id="employees">Employees database</h3>
+        <h3 id="employees">Employees database</h3>
         <p class="bold">Retrieve the following data by querying:</p>
         <section class="database-flex">
             <div class="flexbox-item">
                 <p>- Join the two tables by department_number and display all</p>
                 <pre>
-    SELECT *
-    FROM employees
-    INNER JOIN departments
-    ON departments.department_number = employees.department_number;
+SELECT *
+FROM employees
+INNER JOIN departments
+ON departments.department_number = employees.department_number;
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- Retrieve all the employees from Accounting (using joins)</p>
                 <pre>
-    SELECT employee_name, id
-    FROM employees
-    INNER JOIN departments
-    ON departments.department_number = employees.department_number
-    WHERE departments.department_name = "ACCOUNTING";
+SELECT employee_name, id
+FROM employees
+INNER JOIN departments
+ON departments.department_number = employees.department_number
+WHERE departments.department_name = "ACCOUNTING";
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- Retrieve only the names of all employees from operations and research</p>
                 <pre>
-    SELECT employee_name
-    FROM employees
-    INNER JOIN departments
-    ON departments.department_number = employees.department_number
-    WHERE departments.department_name = "OPERATIONS"
-    OR departments.department_name = "RESEARCH";
+SELECT employee_name
+FROM employees
+INNER JOIN departments
+ON departments.department_number = employees.department_number
+WHERE departments.department_name = "OPERATIONS"
+OR departments.department_name = "RESEARCH";
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- Retrieve all names of all salesmen from Chicago</p>
                 <pre>
-    SELECT employee_name
-    FROM employees
-    INNER JOIN departments
-    ON departments.department_number = employees.department_number
-    WHERE departments.location = "CHICAGO"
-    AND employees.job = "SALESMAN";
+SELECT employee_name
+FROM employees
+INNER JOIN departments
+ON departments.department_number = employees.department_number
+WHERE departments.location = "CHICAGO"
+AND employees.job = "SALESMAN";
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- Retrieve the names of all salesmen that are not from Chicago</p>
                 <pre>
-    SELECT employee_name
-    FROM employees
-    INNER JOIN departments
-    ON departments.department_number = employees.department_number
-    WHERE departments.location != "CHICAGO"
-    AND employees.job = "SALESMAN";
+SELECT employee_name
+FROM employees
+INNER JOIN departments
+ON departments.department_number = employees.department_number
+WHERE departments.location != "CHICAGO"
+AND employees.job = "SALESMAN";
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- Retrieve the id of all clerks from New York</p>
                 <pre>
-    SELECT id
-    FROM employees
-    INNER JOIN departments
-    ON departments.department_number = employees.department_number
-    WHERE departments.location = "NEW YORK"
-    AND employees.job = "CLERK";
+SELECT id
+FROM employees
+INNER JOIN departments
+ON departments.department_number = employees.department_number
+WHERE departments.location = "NEW YORK"
+AND employees.job = "CLERK";
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- Retrieve all data from employees and their department except clerks or employees from New York with
                     a commission</p>
                 <pre>
-    SELECT *
-    FROM employees
-    INNER JOIN departments
-    ON departments.department_number = employees.department_number
-    WHERE employees.job != "CLERK"
-    OR (employees.commission IS NULL AND departments.location = "NEW YORK" AND employees.job != "CLERK");
+SELECT *
+FROM employees
+INNER JOIN departments
+ON departments.department_number = employees.department_number
+WHERE employees.job != "CLERK"
+OR (employees.commission IS NULL AND departments.location = "NEW YORK" AND employees.job != "CLERK");
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- Retrieve the average salary of all employees</p>
                 <pre>
-    SELECT AVG(salary)
-    FROM employees;
+SELECT AVG(salary)
+FROM employees;
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- Retrieve the names of employees with a salary above the average</p>
                 <pre>
-    SELECT employee_name
-    FROM employees
-    WHERE salary > (SELECT AVG(salary)
-                    FROM employees);
+SELECT employee_name
+FROM employees
+WHERE salary > (SELECT AVG(salary)
+                FROM employees);
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- Retrieve the department name and average salary of all departments</p>
                 <pre>
-    SELECT department_name, AVG(salary)
-    FROM departments
-    INNER JOIN employees USING(department_number)
-    GROUP BY department_name;
+SELECT department_name, AVG(salary)
+FROM departments
+INNER JOIN employees USING(department_number)
+GROUP BY department_name;
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- Retrieve the department name and average salary of all departments with an average higher than the
                     average department salary</p>
                 <pre>
-    SELECT department_name, AVG(salary)
-    FROM departments
-    INNER JOIN employees USING(department_number)
-    GROUP BY department_name
-    HAVING AVG(salary) > (SELECT AVG(salary) FROM employees);
+SELECT department_name, AVG(salary)
+FROM departments
+INNER JOIN employees USING(department_number)
+GROUP BY department_name
+HAVING AVG(salary) > (SELECT AVG(salary) FROM employees);
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- Retrieve all departments and their average salary if the department has an salary average higher
                     than the total average department salary excluding commission?</p>
                 <pre>
-    SELECT department_name, AVG(salary)
-    FROM departments
-    INNER JOIN employees USING(department_number)
-    GROUP BY department_name
-    HAVING AVG(salary) > (SELECT AVG(salary) FROM employees);
+SELECT department_name, AVG(salary)
+FROM departments
+INNER JOIN employees USING(department_number)
+GROUP BY department_name
+HAVING AVG(salary) > (SELECT AVG(salary) FROM employees);
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- Same question: Including commission?</p>
                 <pre>
-    SELECT department_name, AVG(salary)
-    FROM departments
-    INNER JOIN employees USING(department_number)
-    GROUP BY department_name
-    HAVING AVG(salary) > (SELECT AVG(salary + commission) FROM employees);
+SELECT department_name, AVG(salary)
+FROM departments
+INNER JOIN employees USING(department_number)
+GROUP BY department_name
+HAVING AVG(salary) > (SELECT AVG(salary + commission) FROM employees);
                 </pre>
             </div>
         </section>
 
         <!-- ------------------------------ Spotify -->
-        <h3 class="scroll-margin" id="spotify">Spotify database</h3>
+        <h3 id="spotify">Spotify database</h3>
         <p class="bold">Retrieve the following data by querying:</p>
         <section class="database-flex">
             <div class="flexbox-item">
                 <p>- How many songs have explicit content?</p>
                 <pre>
-    SELECT COUNT(*)
-    FROM spotify
-    WHERE explicit = 1;
+SELECT COUNT(*)
+FROM spotify
+WHERE explicit = 1;
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- Display all songs made between 2000-2010</p>
                 <pre>
-    SELECT song
-    FROM spotify
-    WHERE year > 1999 AND year < 2011;
+SELECT song
+FROM spotify
+WHERE year > 1999 AND year < 2011;
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- What is the name of the most danceable track from 2001?</p>
                 <pre>
-    SELECT song
-    FROM spotify
-    WHERE year = 2001
-    ORDER BY danceability DESC
-    LIMIT 1;
+SELECT song
+FROM spotify
+WHERE year = 2001
+ORDER BY danceability DESC
+LIMIT 1;
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- Display only the artist’s name and song title of tracks with a key between 1-5</p>
                 <pre>
-    SELECT artist, song
-    FROM spotify
-    WHERE `key` > 0 AND `key` < 6;
+SELECT artist, song
+FROM spotify
+WHERE `key` > 0 AND `key` < 6;
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- Display all data of songs starting with 'B' that has a key between 1-5</p>
                 <pre>
-    SELECT *
-    FROM spotify
-    WHERE `key` > 0 AND `key` < 6
-    AND song LIKE 'B%';
+SELECT *
+FROM spotify
+WHERE `key` > 0 AND `key` < 6
+AND song LIKE 'B%';
                 </pre>
             </div>
         </section>
 
         <!-- ------------------------------ pokemon -->
-        <h3 class="scroll-margin" id="pokemon">Pokemon database</h3>
+        <h3 id="pokemon">Pokemon database</h3>
         <p class="bold">Retrieve the following data by querying:</p>
         <section class="database-flex">
 
             <div class="flexbox-item">
                 <p>- All pokemon with all their columns</p>
                 <pre>
-    SELECT *
-    FROM pokemon;
+SELECT *
+FROM pokemon;
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- Only the name of all pokemon</p>
                 <pre>
-    SELECT name
-    FROM pokemon;
+SELECT name
+FROM pokemon;
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- All grass type pokemon</p>
                 <pre>
-    SELECT *
-    FROM pokemon
-    WHERE primary_type = 'grass';
+SELECT *
+FROM pokemon
+WHERE primary_type = 'grass';
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- All pokemon with a speed above 56</p>
                 <pre>
-    SELECT *
-    FROM pokemon
-    WHERE speed > 56;
+SELECT *
+FROM pokemon
+WHERE speed > 56;
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- All pokemon with a secondary type</p>
                 <pre>
-    SELECT *
-    FROM pokemon
-    WHERE secondary_type != 'null';
+SELECT *
+FROM pokemon
+WHERE secondary_type != 'null';
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- The name of all pokemon with a special defence less than 56 and a special attack higher than 65</p>
                 <pre>
-    SELECT *
-    FROM pokemon
-    WHERE special_defence < 56
-    AND special_attack > 65;
+SELECT *
+FROM pokemon
+WHERE special_defence < 56
+AND special_attack > 65;
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- All grass type pokemon starting with the letter 'B'</p>
                 <pre>
-    SELECT *
-    FROM pokemon
-    WHERE primary_type = 'grass'
-    AND name LIKE 'B%';
+SELECT *
+FROM pokemon
+WHERE primary_type = 'grass'
+AND name LIKE 'B%';
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- All fire or ground pokemon with an attack higher than 50</p>
                 <pre>
-    SELECT *
-    FROM pokemon
-    WHERE primary_type = 'Fire'
-    OR primary_type = 'Ground'
-    AND attack > 50;
+SELECT *
+FROM pokemon
+WHERE primary_type = 'Fire'
+OR primary_type = 'Ground'
+AND attack > 50;
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- The first 10 pokemon by pokedex number ordered by their speed</p>
                 <pre>
-    SELECT *
-    FROM pokemon
-    WHERE pokedex_number <= 10
-    ORDER BY speed;
+SELECT *
+FROM pokemon
+WHERE pokedex_number <= 10
+ORDER BY speed;
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- All pokemon without a secondary type, starting with 'P' with an attack or defence above 40</p>
                 <pre>
-    SELECT *
-    FROM pokemon
-    WHERE name LIKE 'P%'
-    AND secondary_type = 'null'
-    AND (attack > 40 OR defence > 40);
+SELECT *
+FROM pokemon
+WHERE name LIKE 'P%'
+AND secondary_type = 'null'
+AND (attack > 40 OR defence > 40);
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- The 10 pokemon with the highest attack</p>
                 <pre>
-    SELECT *
-    FROM pokemon
-    ORDER BY attack DESC
-    LIMIT 10;
+SELECT *
+FROM pokemon
+ORDER BY attack DESC
+LIMIT 10;
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- All pokemon that contains the latter 'C' in their name - ordered alphabetically'</p>
                 <pre>
-    SELECT *
-    FROM pokemon
-    WHERE name LIKE '%C%'
-    ORDER BY name;
+SELECT *
+FROM pokemon
+WHERE name LIKE '%C%'
+ORDER BY name;
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- What is the average speed of all pokemon?</p>
                 <pre>
-    SELECT AVG(speed)
-    FROM pokemon;
+SELECT AVG(speed)
+FROM pokemon;
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- How many pokemon are in the dataset?</p>
                 <pre>
-    SELECT COUNT(pokedex_number)
-    FROM pokemon;
+SELECT COUNT(pokedex_number)
+FROM pokemon;
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- What is the maximum primary type?</p>
                 <pre>
-    SELECT MAX(primary_type)
-    FROM pokemon;
+SELECT MAX(primary_type)
+FROM pokemon;
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- What is the minimum primary type?</p>
                 <pre>
-    SELECT MIN(primary_type)
-    FROM pokemon;
+SELECT MIN(primary_type)
+FROM pokemon;
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- What is the max speed of all pokemon?</p>
                 <pre>
-    SELECT MAX(speed)
-    FROM pokemon;
+SELECT MAX(speed)
+FROM pokemon;
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- What is the average speed of all pokemon with 'Ground' as primary type?</p>
                 <pre>
-    SELECT AVG(speed)
-    FROM pokemon
-    WHERE primary_type = 'Ground';
+SELECT AVG(speed)
+FROM pokemon
+WHERE primary_type = 'Ground';
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- Display the average speed of each primary type of pokémon</p>
                 <pre>
-    SELECT primary_type, AVG(speed)
-    FROM pokemon
-    GROUP BY primary_type
-    ORDER BY primary_type;
+SELECT primary_type, AVG(speed)
+FROM pokemon
+GROUP BY primary_type
+ORDER BY primary_type;
                 </pre>
             </div>
             <div class="flexbox-item">
@@ -612,13 +616,13 @@
                     primary_type:</p>
                 <img src="database-design/pokemon-primary-speed.png" alt="Table of pokemon data">
                 <pre>
-    SELECT `name`, speed, primary_type, primary_type_average
-    FROM pokemon p1
+SELECT `name`, speed, primary_type, primary_type_average
+FROM pokemon p1
 
-    INNER JOIN (SELECT primary_type, AVG(speed) AS primary_type_average
-        FROM pokemon
-        GROUP BY primary_type) p2
-    USING(primary_type)
+INNER JOIN (SELECT primary_type, AVG(speed) AS primary_type_average
+    FROM pokemon
+    GROUP BY primary_type) p2
+USING(primary_type)
                 </pre>
             </div>
             <div class="flexbox-item">
@@ -626,22 +630,22 @@
                     speed on average</p>
                 <img src="database-design/pokemon-secondary-speed.png" alt="Table of pokemon data">
                 <pre>
-    SELECT `name`, speed, primary_type, primary_type_average, secondary_type, secondary_type_average
-    FROM pokemon p1
+SELECT `name`, speed, primary_type, primary_type_average, secondary_type, secondary_type_average
+FROM pokemon p1
 
-    INNER JOIN (SELECT primary_type, AVG(speed) AS primary_type_average
-        FROM pokemon
-        WHERE primary_type != 'null'
-        GROUP BY primary_type) p2
-    USING(primary_type)
+INNER JOIN (SELECT primary_type, AVG(speed) AS primary_type_average
+    FROM pokemon
+    WHERE primary_type != 'null'
+    GROUP BY primary_type) p2
+USING(primary_type)
 
-    INNER JOIN (SELECT secondary_type, AVG(speed) AS secondary_type_average
-        FROM pokemon
-        WHERE secondary_type != 'null'
-        GROUP BY secondary_type) p3
-    USING(secondary_type)
+INNER JOIN (SELECT secondary_type, AVG(speed) AS secondary_type_average
+    FROM pokemon
+    WHERE secondary_type != 'null'
+    GROUP BY secondary_type) p3
+USING(secondary_type)
 
-    HAVING secondary_type_average > primary_type_average;
+HAVING secondary_type_average > primary_type_average;
                 </pre>
             </div>
         </section>
@@ -652,55 +656,55 @@
         <h2>RegEx - Regular Expressions</h2>
 
         <!-- ------------------------------ First exercises -->
-        <h3 class="scroll-margin" id="firstRegEx">First exercises</h3>
+        <h3 id="firstRegEx">First exercises</h3>
         <section class="database-flex">
             <div class="flexbox-item">
                 <p>- Write a regular expression such that a correct input lives up to the following Danish phone number
                     standard: +45 54342355</p>
                 <pre>
-    ^\+45 \d{8}$
+^\+45 \d{8}$
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- Write a regular expression such that a correct input lives up to the standard of a Danish cpr
                     number</p>
                 <pre>
-    ^\d{6}-\d{4}$
+^\d{6}-\d{4}$
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- Write a regular expression that checks if a given string is a valid email address</p>
                 <pre>
-    ^\w{1,}@\w{1,}(.\w{2,})+$
+^\w{1,}@\w{1,}(.\w{2,})+$
                 </pre>
             </div>
         </section>
 
         <!-- ------------------------------ RegEx in MySQL -->
-        <h3 class="scroll-margin" id="RegExInMySQL">RegEx in MySQL - Spotify Database</h3>
+        <h3 id="RegExInMySQL">RegEx in MySQL - Spotify Database</h3>
         <section class="database-flex">
             <div class="flexbox-item">
                 <p>- How many artist have numbers in their artist name?</p>
                 <pre>
-    SELECT COUNT(DISTINCT artist)
-    FROM spotify
-    WHERE artist REGEXP '[:digit:]+';
+SELECT COUNT(DISTINCT artist)
+FROM spotify
+WHERE artist REGEXP '[:digit:]+';
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- How many distinct artists either start with a number and ends with a number?</p>
                 <pre>
-    SELECT COUNT(DISTINCT artist)
-    FROM spotify
-    WHERE artist REGEXP '^[:digit:]+ | [:digit:]+$';
+SELECT COUNT(DISTINCT artist)
+FROM spotify
+WHERE artist REGEXP '^[:digit:]+ | [:digit:]+$';
                 </pre>
             </div>
             <div class="flexbox-item">
                 <p>- How many songs have features?</p>
                 <pre>
-    SELECT COUNT(DISTINCT song)
-    FROM spotify
-    WHERE song REGEXP 'feat';
+SELECT COUNT(DISTINCT song)
+FROM spotify
+WHERE song REGEXP 'feat';
                 </pre>
             </div>
         </section>

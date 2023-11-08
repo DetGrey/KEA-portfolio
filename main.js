@@ -19,7 +19,7 @@ headers.forEach(header => {
                 </div>
             </li>
             <li class="dropdown flexbox-item">
-                <a class="dropbtn">Courses</a>
+                <a class="dropbtn" href="CS50.html">Courses</a>
                 <div class="dropdown-content">
                     <a class="flexbox-item" href="CS50.html">CS50x</a>
                 </div>

@@ -1,7 +1,7 @@
 /* -------------------------------- FONTS */
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lacquer&family=Ubuntu:wght@500&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
 
 /* -------------------------------- VARIABLES */
@@ -20,12 +20,11 @@ html {
     margin: 0;
     max-width: 100%;
     color: black;
-    scroll-margin-top: 15vw;
+    scroll-margin-top: 3.8rem;
 }
 
 body {
     font-family: 'Raleway', sans-serif;
-    font-size: 4vw;
     font-weight: 600;
 
     min-height: 100vh;
@@ -37,12 +36,8 @@ body {
     font-weight: bold;
 }
 
-.scroll-margin {
-    scroll-margin-top: 6vw;
-}
-
 #logo {
-    width: 15vw;
+    width: 3.5rem;
     position: fixed;
     z-index: 5;
 }
@@ -61,9 +56,8 @@ body {
 }
 
 main.flexbox-container-c {
-    margin: 0 8vw 0 8vw;
-    padding: 15vw 2vw 2vw 2vw;
-    flex: 1 0 auto;
+    margin: 0 2rem;
+    padding: 3.5rem 1.3rem 0 1.3rem;
     background: rgba(123, 79, 124, 0.35);
 }
 
@@ -86,7 +80,7 @@ main.flexbox-container-c {
 /* Handle */
 ::-webkit-scrollbar-thumb {
     background: var(--purple);
-    border-radius: 0.5vw;
+    border-radius: 0.9rem;
 }
 
 /* Handle on hover */
@@ -102,7 +96,8 @@ header {
 nav ul {
     display: flex;
     align-items: center;
-    margin-right: 4vw;
+    margin-right: 1rem;
+    margin-top: 0.35rem;
     position: fixed;
     z-index: 5;
     right: 0;
@@ -110,13 +105,13 @@ nav ul {
 
 nav ul li {
     list-style-type: none;
-    padding: 2vw 2vw;
-    font-size: 4.5vw;
+    padding: 0 0.5rem;
+    font-size: 1rem;
 }
 
 nav a, .dropdown-content {
     color: var(--purple);
-    font-size: 4.5vw;
+    font-size: 1.15rem;
     font-family: 'Architects Daughter', cursive;
     background-color: transparent;
 }
@@ -144,12 +139,12 @@ a:hover, .dropbtn:hover {
     min-width: fit-content;
     z-index: 1;
     background-color: black;
-    padding: 2vw;
+    padding: 0.7rem;
 }
 
 .dropdown-content a {
     display: block;
-    font-size: 4.5vw;
+    font-size: 1.15rem;
     white-space: nowrap;
 }
 
@@ -165,40 +160,40 @@ a:hover, .dropbtn:hover {
 
 /* -------------------------------- TEXT AND HEADINGS */
 h1 {
-    margin: 4vw 0;
-    font-size: 10vw;
+    margin-top: 1rem;
+    font-size: 2.45rem;
     font-family: 'Bebas Neue', sans-serif;
-    line-height: 50%;
+    line-height: 80%;
 }
 
 h1 span {
-    font-size: 4.5vw;
+    font-size: 1.25rem;
     font-family: 'Lacquer', cursive;
 }
 
 h2 {
     font-family: 'Architects Daughter', cursive;
-    font-size: 8vw;
-    margin-bottom: 1vw;
-}
-
-h2 span {
-    font-family: 'Lacquer', cursive;
-    font-size: 6vw;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
 }
 
 h3 {
-    font-size: 6vw;
-
+    font-size: 1.5rem;
+    font-weight: 700;
 }
 
-ul {
-    padding-inline-start: 20px;
+p {
+    font-size: 1rem;
+    padding: 0.3rem 0;
+}
+
+ul, ol {
+    padding-inline-start: 25px;
 }
 
 ul li {
-    padding-bottom: 2vw;
-    font-size: 5.5vw;
+    padding-bottom: 1rem;
+    font-size: 1.45rem;
 }
 
 ul li ul li, ol li ul li {
@@ -206,28 +201,24 @@ ul li ul li, ol li ul li {
     font-weight: 500;
 }
 
-ol {
-    padding-inline-start: 25px;
-}
-
 ol li {
-    padding-bottom: 2vw;
-    font-size: 5vw;
+    padding-bottom: 0.5rem;
+    font-size: 1.2rem;
 }
 
 /* -------------------------------- SECTIONS */
 section {
-    padding-bottom: 5vw;
+    padding-bottom: 1.5rem;
 }
 
 /* -------------------------------- BUTTONS */
 button {
-    font-size: 5vw;
+    font-size: 1.2rem;
     font-family: 'Architects Daughter', cursive;
     background-color: #ffffff30;
     border: none;
-    padding: 2vw;
-    margin: 3vw 0;
+    padding: 0.6rem;
+    margin: 0.8rem 0;
 }
 
 /* -------------------------------- SHOW MORE ARROW */
@@ -240,7 +231,7 @@ button {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 1rem;
     font-family: 'Architects Daughter', cursive;
 
     & span:hover {
@@ -263,14 +254,14 @@ svg {
 /* -------------------------------- FOOTER */
 footer {
     text-align: center;
-    margin-top: 6vw;
+    margin-top: 1.7rem;
     background-color: black;
     height: fit-content;
     padding: 15px;
 }
 
 footer p {
-    font-size: 3vw;
+    font-size: 0.8rem;
     color: var(--purple);
     flex-shrink: 0;
 }

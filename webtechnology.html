@@ -18,6 +18,9 @@
 <main class="flexbox-container-c">
     <section>
         <h1>Web technology</h1>
+    </section>
+
+    <section>
         <h2>Overview</h2>
         <ol>
             <li><a href="#JS">JavaScript</a></li>
@@ -32,10 +35,10 @@
                 <h3>Exercise 1 - level 1</h3>
                 <p>Log 4 statements like these to the console, but in different languages.</p>
                 <pre>
-    console.log(`Hola, mundo`);
-    console.log(`Hello, world`);
-    console.log(`Hej, verden`);
-    console.log(`Bonjour, monde`);
+console.log(`Hola, mundo`);
+console.log(`Hello, world`);
+console.log(`Hej, verden`);
+console.log(`Bonjour, monde`);
                 </pre>
             </div>
         </section>
@@ -47,11 +50,11 @@
                 <p>2. Print your `greeting` to the console 3 times. You should see the greeting 3 times on the console,
                     one on each line.</p>
                 <pre>
-    const greeting = `Hola, cómo estás, amigo?`;
+const greeting = `Hola, cómo estás, amigo?`;
 
-    for (let i = 0; i < 3; i++) {
-        console.log(greeting);
-    }
+for (let i = 0; i < 3; i++) {
+    console.log(greeting);
+}
                 </pre>
             </div>
         </section>
@@ -62,7 +65,7 @@
                     message `'I'm awesome!'</p>
                 <p>console.log('I'm awesome'!;</p>
                 <pre>
-    console.log(`I'm awesome!`);
+console.log(`I'm awesome!`);
                 </pre>
             </div>
         </section>
@@ -72,10 +75,10 @@
                 <p>Using string literals, string length and the following code. Log out a string that says: `"My name is
                     peter. It has 5 characters"</p>
                 <pre>
-    const name = "peter";
+const name = "peter";
 
-    // YOUR CODE GOES HERE
-    console.log(`My name is ${name}. It has ${name.length} characters`);
+// YOUR CODE GOES HERE
+console.log(`My name is ${name}. It has ${name.length} characters`);
                 </pre>
             </div>
         </section>
@@ -84,17 +87,17 @@
                 <h3>Exercise 5 - level 1</h3>
                 <p>write down what the following will log out</p>
                 <pre>
-    console.log(typeof 3 + 5); // number5
+console.log(typeof 3 + 5); // number5
 
-    console.log(typeof "3 + 5"); // string
+console.log(typeof "3 + 5"); // string
 
-    console.log(typeof "+"); // string
+console.log(typeof "+"); // string
 
-    console.log(typeof ""); // string
+console.log(typeof ""); // string
 
-    console.log(typeof "3" + 5); // string5
+console.log(typeof "3" + 5); // string5
 
-    console.log(typeof typeof 3+5); // string5
+console.log(typeof typeof 3+5); // string5
                 </pre>
             </div>
         </section>
@@ -105,12 +108,12 @@
                     your choosing</p>
                 <p>2. Log a message that displays the total number of students and teachers</p>
                 <pre>
-    let numberOfStudents = 23;
-    let numberOfTeachers = 2;
+let numberOfStudents = 23;
+let numberOfTeachers = 2;
 
-    console.log(`Number of teachers: ${numberOfTeachers}`);
-    console.log(`Number of students: ${numberOfStudents}`);
-    console.log(`Total number of teachers and students: ${numberOfStudents + numberOfTeachers}`);
+console.log(`Number of teachers: ${numberOfTeachers}`);
+console.log(`Number of students: ${numberOfStudents}`);
+console.log(`Total number of teachers and students: ${numberOfStudents + numberOfTeachers}`);
                 </pre>
             </div>
         </section>
@@ -119,12 +122,12 @@
                 <h3>Exercise 7 - level 2</h3>
                 <p>Now log out the percentage of students and percentage of teachers</p>
                 <pre>
-    let numberOfStudents = 23;
-    let numberOfTeachers = 2;
-    let total = numberOfStudents + numberOfTeachers;
+let numberOfStudents = 23;
+let numberOfTeachers = 2;
+let total = numberOfStudents + numberOfTeachers;
 
-    console.log(`Percentage of teachers: ${numberOfTeachers / total * 100}%`);
-    console.log(`Percentage of students: ${numberOfStudents / total * 100}%`);
+console.log(`Percentage of teachers: ${numberOfTeachers / total * 100}%`);
+console.log(`Percentage of students: ${numberOfStudents / total * 100}%`);
                 </pre>
             </div>
         </section>
@@ -137,10 +140,10 @@
                     in a language he understands, eg. like this: `New pizza order: (name of pizza). The price of the
                     pizza is: (price of pizza>)</p>
                 <pre>
-    let favouritePizza = `Hawaii`;
-    let favouritePizzaPrice = 69;
+let favouritePizza = `Hawaii`;
+let favouritePizzaPrice = 69;
 
-    console.log(`New pizza order: ${favouritePizza}. The price of the pizza is: ${favouritePizzaPrice}`)
+console.log(`New pizza order: ${favouritePizza}. The price of the pizza is: ${favouritePizzaPrice}`)
                 </pre>
                 <p class="bold">Part 2</p>
                 <p>Now we will modify the program so that you can order multiple pizzas.</p>
@@ -153,17 +156,17 @@
                 <p>5. Research how the `prompt()` functions works. Now use the prompt function to make the user write
                     how many pizzas should be ordered</p>
                 <pre>
-    const favouritePizza = `Hawaii`;
-    const favouritePizzaPrice = 70;
-    let pizzaAmount = parseInt(prompt("Please enter the amount of pizza", "1"), 10) || 0;
-    let totalPrice = favouritePizzaPrice * pizzaAmount;
+const favouritePizza = `Hawaii`;
+const favouritePizzaPrice = 70;
+let pizzaAmount = parseInt(prompt("Please enter the amount of pizza", "1"), 10) || 0;
+let totalPrice = favouritePizzaPrice * pizzaAmount;
 
-    if (pizzaAmount !== `NaN` && pizzaAmount !== 0) {
-        console.log(`New pizza order: ${pizzaAmount} ${favouritePizza}. Total cost for the order is: ${totalPrice}`)
-    }
-    else {
-        console.log(`Amount not possible.`)
-    }
+if (pizzaAmount !== `NaN` && pizzaAmount !== 0) {
+    console.log(`New pizza order: ${pizzaAmount} ${favouritePizza}. Total cost for the order is: ${totalPrice}`)
+}
+else {
+    console.log(`Amount not possible.`)
+}
                 </pre>
             </div>
         </section>
@@ -180,12 +183,12 @@
                     With 40 being the result of the `age` variable and 2027 being the `yearFuture` variable. (Hint use
                     string concatenation)</p>
                 <pre>
-    let yearOfBirth = parseInt(prompt("Please enter your birth year", "2000"), 10) || 0;
-    let yearFuture = parseInt(prompt("Please enter a year in the future", "2100"), 10) || 0;
+let yearOfBirth = parseInt(prompt("Please enter your birth year", "2000"), 10) || 0;
+let yearFuture = parseInt(prompt("Please enter a year in the future", "2100"), 10) || 0;
 
-    let age = yearFuture - yearOfBirth;
+let age = yearFuture - yearOfBirth;
 
-    console.log(`You will be ${age} years old in ${yearFuture}`);
+console.log(`You will be ${age} years old in ${yearFuture}`);
                 </pre>
             </div>
         </section>
@@ -202,18 +205,18 @@
                     on `shouldShowResultInDogYears` log this string out: "Your dog will be 10 human years old in 2027"
                     or "Your dog will be 70 dog years old in 2027"</p>
                 <pre>
-    let dogYearOfBirth = parseInt(prompt("Please enter the birth year of the dog", "2000"), 10) || 0;
-    let dogYearFuture = parseInt(prompt("Please enter a year in the future", "2010"), 10) || 0;
-    let dogYear = (dogYearFuture - dogYearOfBirth) * 7;
+let dogYearOfBirth = parseInt(prompt("Please enter the birth year of the dog", "2000"), 10) || 0;
+let dogYearFuture = parseInt(prompt("Please enter a year in the future", "2010"), 10) || 0;
+let dogYear = (dogYearFuture - dogYearOfBirth) * 7;
 
-    let shouldShowResultInDogYears = confirm(`Show results in dog years? Cancel if not`);
+let shouldShowResultInDogYears = confirm(`Show results in dog years? Cancel if not`);
 
-    if (shouldShowResultInDogYears === true) {
-        console.log(`Your dog will be ${dogYear} dog years old in ${dogYearFuture}`);
-    }
-    else {
-        console.log(`Your dog will be ${dogYearFuture - dogYearOfBirth} human years old in ${dogYearFuture}`);
-    }
+if (shouldShowResultInDogYears === true) {
+    console.log(`Your dog will be ${dogYear} dog years old in ${dogYearFuture}`);
+}
+else {
+    console.log(`Your dog will be ${dogYearFuture - dogYearOfBirth} human years old in ${dogYearFuture}`);
+}
                 </pre>
             </div>
         </section>
@@ -233,41 +236,41 @@
                     and 8m high. The garden size is 70m2. This house costs 1.000.000. Figure out if Peter and Julia are
                     paying too much or too little using JavaScript and the formula specified above.</p>
                 <pre>
-    // Peter
+// Peter
 
-    let volumeInMeters = 8 * 10 * 10;
-    let gardenSizeInM2 = 100;
-    let offerPrice = 2500000;
+let volumeInMeters = 8 * 10 * 10;
+let gardenSizeInM2 = 100;
+let offerPrice = 2500000;
 
-    let housePrice = volumeInMeters * 2.5 * 1000 + gardenSizeInM2 * 300;
+let housePrice = volumeInMeters * 2.5 * 1000 + gardenSizeInM2 * 300;
 
-    if (housePrice < offerPrice) {
-        console.log(`You pay too much. The right price would be ${housePrice} and not ${offerPrice}`);
-    }
-    else if (housePrice > offerPrice) {
-        console.log(`You pay too little. The right price would be ${housePrice} and not ${offerPrice}`);
-    }
-    else {
-        console.log(`The calculated price is the same as the offer`)
-    }
+if (housePrice < offerPrice) {
+    console.log(`You pay too much. The right price would be ${housePrice} and not ${offerPrice}`);
+}
+else if (housePrice > offerPrice) {
+    console.log(`You pay too little. The right price would be ${housePrice} and not ${offerPrice}`);
+}
+else {
+    console.log(`The calculated price is the same as the offer`)
+}
 
-    // Julia
+// Julia
 
-    volumeInMeters = 5 * 11 * 8;
-    gardenSizeInM2 = 70;
-    offerPrice = 1000000;
+volumeInMeters = 5 * 11 * 8;
+gardenSizeInM2 = 70;
+offerPrice = 1000000;
 
-    housePrice = volumeInMeters * 2.5 * 1000 + gardenSizeInM2 * 300;
+housePrice = volumeInMeters * 2.5 * 1000 + gardenSizeInM2 * 300;
 
-    if (housePrice < offerPrice) {
-        console.log(`You pay too much. The right price would be ${housePrice} and not ${offerPrice}`);
-    }
-    else if (housePrice > offerPrice) {
-        console.log(`You pay too little. The right price would be ${housePrice} and not ${offerPrice}`);
-    }
-    else {
-        console.log(`The calculated price is the same as the offer`);
-    }
+if (housePrice < offerPrice) {
+    console.log(`You pay too much. The right price would be ${housePrice} and not ${offerPrice}`);
+}
+else if (housePrice > offerPrice) {
+    console.log(`You pay too little. The right price would be ${housePrice} and not ${offerPrice}`);
+}
+else {
+    console.log(`The calculated price is the same as the offer`);
+}
                 </pre>
             </div>
         </section>
