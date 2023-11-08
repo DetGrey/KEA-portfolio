@@ -10,8 +10,9 @@ showMoreToggle.forEach(showMore => {
     });
 });
 
-const header = document.querySelector('header');
-header.innerHTML = `
+const headers = document.querySelectorAll('header');
+headers.forEach(header => {
+    header.innerHTML = `
 <header>
     <img id="triangle" src="Triangle.svg" alt="triangle">
 
@@ -50,3 +51,5 @@ header.innerHTML = `
     <img id="logo" src="P.gif" alt="Logo"/>
 </header>
 `;
+})
+
