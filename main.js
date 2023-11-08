@@ -10,9 +10,13 @@ showMoreToggle.forEach(showMore => {
     });
 });
 
-const nav = document.querySelector('nav');
-nav.innerHTML = `
+const header = document.querySelector('header');
+header.innerHTML = `
+<header>
+    <img id="triangle" src="Triangle.svg" alt="triangle">
+
     <!-- NAVIGATION LINKS -->
+    <nav>
         <ul>
             <li><a class="flexbox-item" href="index.html">Home</a></li>
             <li class="dropdown flexbox-item">
@@ -41,4 +45,8 @@ nav.innerHTML = `
                 </div>
             </li>
         </ul>
+    </nav>
+    
+    <img id="logo" src="P.gif" alt="Logo"/>
+</header>
 `;

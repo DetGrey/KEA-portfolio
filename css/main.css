@@ -55,6 +55,22 @@ body {
     z-index: 3;
 }
 
+/* -------------------------------- FLEXBOX */
+.flexbox-container-c {
+    display: flex;
+    flex-direction: column;
+}
+
+main.flexbox-container-c {
+    margin: 0 8vw 0 8vw;
+    padding: 15vw 2vw 2vw 2vw;
+    flex: 1 0 auto;
+    background: rgba(123, 79, 124, 0.35);
+}
+
+.flexbox-container {
+    display: flex;
+}
 
 /* -------------------------------- SCROLLBAR */
 /* width */
@@ -77,23 +93,6 @@ body {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #4c0e4d;
-}
-
-/* -------------------------------- FLEXBOX */
-.flexbox-container-c {
-    display: flex;
-    flex-direction: column;
-}
-
-main.flexbox-container-c {
-    margin: 0 8vw 0 8vw;
-    padding: 15vw 2vw 2vw 2vw;
-    flex: 1 0 auto;
-    background: rgba(123, 79, 124, 0.35);
-}
-
-.flexbox-container {
-    display: flex;
 }
 
 /* -------------------------------- NAVIGATION */
