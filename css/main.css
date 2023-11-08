@@ -18,7 +18,6 @@ html {
 
 * {
     margin: 0;
-    position: relative;
     max-width: 100%;
     color: black;
     scroll-margin-top: 15vw;
@@ -111,7 +110,8 @@ nav ul {
 
 nav ul li {
     list-style-type: none;
-    padding: 1.5vw 2vw;
+    padding: 2vw 2vw;
+    font-size: 4.5vw;
 }
 
 nav a, .dropdown-content {
@@ -229,7 +229,6 @@ button {
     padding: 2vw;
     margin: 3vw 0;
 }
-
 
 /* -------------------------------- SHOW MORE ARROW */
 

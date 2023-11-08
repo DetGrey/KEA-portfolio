@@ -1,15 +1,3 @@
-const showMoreToggle = document.querySelectorAll('.show-more');
-
-showMoreToggle.forEach(showMore => {
-    showMore.addEventListener('click', () => {
-        showMore.children[0].innerText = showMore.children[0].innerText === 'Show more' ? 'Show less' : 'Show more';
-        showMore.children[1].classList.toggle('rotate');
-
-        let prevSibling = showMore.previousElementSibling;
-        prevSibling.classList.toggle('hidden');
-    });
-});
-
 const headers = document.querySelectorAll('header');
 headers.forEach(header => {
     header.innerHTML = `
@@ -51,3 +39,14 @@ headers.forEach(header => {
 `;
 })
 
+const showMoreToggle = document.querySelectorAll('.show-more');
+
+showMoreToggle.forEach(showMore => {
+    showMore.addEventListener('click', () => {
+        showMore.children[0].innerText = showMore.children[0].innerText === 'Show more' ? 'Show less' : 'Show more';
+        showMore.children[1].classList.toggle('rotate');
+
+        let prevSibling = showMore.previousElementSibling;
+        prevSibling.classList.toggle('hidden');
+    });
+});
