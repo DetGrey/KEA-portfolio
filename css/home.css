@@ -2,19 +2,14 @@
 #intro h2, #intro span {
     display: inline-block;
     white-space: pre;
-    font-size: 1.2rem;
-    font-family: 'Lacquer', cursive;
+    font-size: 5vw;
     cursor: default;
-}
-
-#intro h1 {
-    margin: 0;
 }
 
 /* Hello, world */
 #intro p {
     display: inline-block;
-    font-size: 1.7rem;
+    font-size: 7vw;
     font-family: 'Lacquer', cursive;
     cursor: default;
 }
@@ -41,8 +36,8 @@
 }
 
 #aboutme p {
-    font-size: 1.1rem;
-    padding: 0.55rem;
+    font-size: 4vw;
+    padding: 1.5vw;
 }
 
 /* -------------------------------- EDUCATION LIST */
@@ -53,12 +48,12 @@
     & li {
         list-style-type: none;
         font-weight: 600;
-        font-size: 1.1rem;
+        font-size: 4.5vw;
     }
 }
 
 .highlight-number {
-    font-size: 1.65rem;
+    font-size: 6.5vw;
 
 }
 
@@ -71,3 +66,4 @@ ul li ul li {
     font-family: 'Raleway', sans-serif;
     font-size: smaller;
 }
+

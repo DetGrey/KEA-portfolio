@@ -6,23 +6,24 @@
     width: 100%;
 }
 
+
 .pset h3, pre, .pset p {
-    margin: 0.4rem;
+    margin: 0.5vw;
 }
 
 .pset p {
-    font-family: 'Raleway', sans-serif;
-    font-size: 1rem;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 3vw;
 }
 
 pre {
     font-family: monospace;
-    font-size: 0.8rem;
-    padding: 1rem;
-    border: 2px solid black;
-    max-height: 15rem;
+    font-size: 3vw;
+    padding: 2vw 0 2vw 0;
+    border: 0.2vw solid black;
+    max-height: 30vh;
     overflow: auto;
-    margin-left: 0.3rem;
+    margin-left: 1vw;
 }
 
 #fiftyville {
@@ -35,10 +36,14 @@ pre {
     margin: 0;
 }
 
-.databases h3 {
-    margin-top: 1rem;
+.databases pre {
+    padding-right: 3vw;
 }
 
-.databases pre {
-    margin-bottom: 1.5rem;
+.databases .bold {
+    font-size: 2vw;
+}
+
+.databases h3 {
+    margin-top: 3vw;
 }
