@@ -1,7 +1,7 @@
 /* -------------------------------- FONTS */
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lacquer&family=Ubuntu:wght@500&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
 
 /* -------------------------------- VARIABLES */
@@ -20,7 +20,7 @@ html {
     margin: 0;
     max-width: 100%;
     color: black;
-    scroll-margin-top: 15vw;
+    scroll-margin-top: 17vw;
 }
 
 body {
@@ -35,10 +35,6 @@ body {
 
 .bold {
     font-weight: bold;
-}
-
-.scroll-margin {
-    scroll-margin-top: 6vw;
 }
 
 #logo {
@@ -61,9 +57,8 @@ body {
 }
 
 main.flexbox-container-c {
-    margin: 0 8vw 0 8vw;
-    padding: 15vw 2vw 2vw 2vw;
-    flex: 1 0 auto;
+    margin: 0 8vw;
+    padding: 17vw 3vw 0 3vw;
     background: rgba(123, 79, 124, 0.35);
 }
 
@@ -103,6 +98,7 @@ nav ul {
     display: flex;
     align-items: center;
     margin-right: 4vw;
+    margin-top: 1.2vw;
     position: fixed;
     z-index: 5;
     right: 0;
@@ -111,7 +107,7 @@ nav ul {
 nav ul li {
     list-style-type: none;
     padding: 0 2vw;
-    font-size: 4.5vw;
+    font-size: 5vw;
 }
 
 nav a, .dropdown-content {
@@ -144,12 +140,11 @@ a:hover, .dropbtn:hover {
     min-width: fit-content;
     z-index: 1;
     background-color: black;
-    padding: 2vw;
+    padding: 2.25vw;
 }
 
 .dropdown-content a {
     display: block;
-    font-size: 4.5vw;
     white-space: nowrap;
 }
 
@@ -165,35 +160,37 @@ a:hover, .dropbtn:hover {
 
 /* -------------------------------- TEXT AND HEADINGS */
 h1 {
-    margin: 4em 0;
+    padding-top: 1.5vw;
     font-size: 10vw;
     font-family: 'Bebas Neue', sans-serif;
-    line-height: 50%;
+    line-height: 80%;
+    margin-bottom: 1vw;
 }
 
 h1 span {
-    font-size: 4.5vw;
+    font-size: 5vw;
     font-family: 'Lacquer', cursive;
 }
 
 h2 {
     font-family: 'Architects Daughter', cursive;
     font-size: 8vw;
-    margin-bottom: 1vw;
-}
-
-h2 span {
-    font-family: 'Lacquer', cursive;
-    font-size: 6vw;
+    margin-bottom: 2vw;
+    line-height: 90%;
 }
 
 h3 {
     font-size: 6vw;
+    font-weight: 700;
 
 }
 
-ul {
-    padding-inline-start: 20px;
+p, .p-list li {
+    font-size: 4vw;
+}
+
+ul, ol {
+    padding-inline-start: 25px;
 }
 
 ul li {
@@ -206,10 +203,6 @@ ul li ul li, ol li ul li {
     font-weight: 500;
 }
 
-ol {
-    padding-inline-start: 25px;
-}
-
 ol li {
     padding-bottom: 2vw;
     font-size: 5vw;
@@ -217,7 +210,7 @@ ol li {
 
 /* -------------------------------- SECTIONS */
 section {
-    padding-bottom: 5vw;
+    padding-bottom: 8vw;
 }
 
 /* -------------------------------- BUTTONS */
@@ -240,7 +233,7 @@ button {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 5vw;
     font-family: 'Architects Daughter', cursive;
 
     & span:hover {
