@@ -190,12 +190,18 @@ p, .p-list li {
 }
 
 ul, ol {
-    padding-inline-start: 25px;
+    padding-inline-start: 1vw;
+    list-style-position: inside;
 }
 
 ul li {
     padding-bottom: 2vw;
     font-size: 5.5vw;
+
+}
+
+ul li ul {
+    padding-inline-start: 20px;
 }
 
 ul li ul li, ol li ul li {
